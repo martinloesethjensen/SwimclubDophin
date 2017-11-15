@@ -51,29 +51,30 @@ Det forventes, at centrale dele af casen er modelleret og dokumenteret i form af
 case model, en domænemodel og en designmodel (design klassediagram).
 
 Det er et krav, at der gøres brug af:
-   FURPS, herunder en liste med krav. Alternativ lav en liste med funktionelle og nonfunktionelle krav.
+     FURPS, herunder en liste med krav. Alternativ lav en liste med funktionelle og nonfunktionelle krav.
   
-   Liste med forretningsmæssige begreber (glossary)
+     Liste med forretningsmæssige begreber (glossary)
   
-   Use case diagram og tilhørende use case beskrivelser (mindst 3 fully dressed, overvej
-    extensions og inclusions)
+     Use case diagram og tilhørende use case beskrivelser (mindst 3 fully dressed, overvej
+      extensions og inclusions)
 
-   Mindst 3 use cases, i brief format
+     Mindst 3 use cases, i brief format
   
-   Systemsekvensdiagrammer (for tre fully dressed use cases)
+     Systemsekvensdiagrammer (for tre fully dressed use cases)
   
-   Domain model (diagram)
+     Domain model (diagram)
   
-   Sekvensdiagrammer (1 stk)
+     Sekvensdiagrammer (1 stk)
   
-   Designklassediagram (DCD)
+     Designklassediagram (DCD)
 
 Der skal desuden foreligge en:
-   Afgrænsning (hvilken funktionalitet er med i jeres projekt)
+
+     Afgrænsning (hvilken funktionalitet er med i jeres projekt)
   
-   Faseplan (laves I starten af jeres projekt hvor i beskriver de forventede aktiviteter, forløb)
+     Faseplan (laves I starten af jeres projekt hvor i beskriver de forventede aktiviteter, forløb)
   
-   Vision
+     Vision
 
 Det gælder for alle diagrammer at de ikke behøver at være færdige, men skal afspejle jeres projekt.
 I er velkomne til at beskrive jeres tanker omkring brug af modellering i konstruktionen af jeres
@@ -137,24 +138,25 @@ Formkrav til det skriftlige projekt
 
 Der skal afleveres en projektrapport og et produkt.
 Projektrapporten, som udgør den skriftlige del af prøven skal minimum indeholde
-   Forside med titel, navn og fødselsdato, hold betegnelse ogdato
+    
+     Forside med titel, navn og fødselsdato, hold betegnelse ogdato
   
-   Indholdsfortegnelse
+     Indholdsfortegnelse
   
-   Indledning, inkl. problemformulering
+     Indledning, inkl. problemformulering
   
-   Hovedafsnit
+     Hovedafsnit
   
-   Konklusion
+     Konklusion
   
-   Litteraturliste (inkl. alle kilder, der er lavet henvisninger til iprojektet)
+     Litteraturliste (inkl. alle kilder, der er lavet henvisninger til iprojektet)
 
-   Bilag (inkluder kun bilag, som er centrale forrapporten)
+     Bilag (inkluder kun bilag, som er centrale forrapporten)
 
-   Vedlæg kildekode eller angivelse af sti til versionsstyringsserver, hvor kildekoden og
-  eksekverbar kode til produktet kan hentes
+     Vedlæg kildekode eller angivelse af sti til versionsstyringsserver, hvor kildekoden og
+    eksekverbar kode til produktet kan hentes
   
-   Der skal pagineres (sidetal) på alle sider
+     Der skal pagineres (sidetal) på alle sider
   
 2.1 Underskrift
 Hvert enkelt gruppemedlem skal underskrive opgaven
