@@ -2,3 +2,7 @@
 *.lck
 *.bak
 *.tmp
+*.bak_000f
+*.bak_001d
+*.bak_001f
+*.tmp
