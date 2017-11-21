@@ -31,27 +31,29 @@ public class Ansat {
          menuInfo();
          
          int dum = 0;
-         
+         int count = 0; 
          while(dum == 0){
+            count++;
             if(console.hasNextInt()){
                menu = console.nextInt(); 
                break;
+            }else if(count > 0){
+               break; 
             }else System.out.println("Ugyldigt input");
                dum = 1;
          }
-         int count = 0;
          switch(menu){
             case 1: formandLogin.subMenu(); break;
             case 2: kassererLogin.subMenu(); break;
             case 3: traenerLogin.subMenu(); break;
-            case 0: count++; return 0; 
+            case 0: return 0; 
             default: 
                System.out.println("Tast venligst et nummer der er fremvist");
-               if (count > 0){
-                  break;
-               }else 
-                  menu();
+               menu();
          }
+         break; // denne springer ud af whileloop
+                // ellers vil den vise menu to gange efter at 
+                // man var kommet tilbage fra en submenu
       }
       return 0;
 	}

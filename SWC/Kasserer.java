@@ -5,5 +5,22 @@ public class Kasserer extends Ansat {
 	public void subMenu() {
 		System.out.println("lol");
 	}
-   //public void 
+   
+   /**
+   *
+   * Beskrivelse her
+   */
+   
+   public void visRestance(){
+      
+   }
+   
+   /**
+   *
+   * Beskrivelse her
+   */
+   
+   public void redigerKontigent(){
+   
+   }
 }

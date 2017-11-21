@@ -22,8 +22,11 @@ public class SwimClubMain {
 	
    /**
    *
-   * Denne metode opretter et objekt og laver et metodekald
+   * Denne metode opretter et objekt og laver et 
+   * metodekald, hvor man kan vælge hvilken slags ansat 
+   * man er. 
    */
+   
 	public static void login() {
       Ansat login = new Ansat();
 		login.menu(); //valg af ansat
