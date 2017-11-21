@@ -2,12 +2,12 @@ import java.util.*;
 
 public class Traener extends Ansat {
 
-	/**
-	 * 
-	 * @param title
-	 */
-	public void subMenu(String title) {
+	
+	public void subMenu() {
 		Scanner console = new Scanner(System.in);
+      
+      
+      
       
 	}
 

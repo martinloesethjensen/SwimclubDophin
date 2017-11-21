@@ -1,6 +1,8 @@
+import java.util.*;
+
 public class SwimClubMain {
    public static void main(String[] args){
-      //indsæt menu
+      login();
       
    
    }
@@ -8,16 +10,15 @@ public class SwimClubMain {
 		
 	}
 
-	public void login() {
-      Ansat login = new Ansat(); //tilføj måske parameter
-		login.subMenu();
+	public static void login() {
+      Ansat login = new Ansat();
+		login.menu(); //valg af ansat
       
-      //valg af ansat (switch) 
+      
 	}
 
-	public void filer() {
-		// TODO - implement SwimClubMain.filer
-		throw new UnsupportedOperationException();
+	public static void filer() {
+		
 	}
 
 }
