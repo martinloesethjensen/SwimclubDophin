@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class SwimClubMain {
    public static void main(String[] args){
       //indsæt menu

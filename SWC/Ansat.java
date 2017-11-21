@@ -17,6 +17,10 @@ public class Ansat {
       while (menu != 0){
          
          menu = console.nextInt(); 
+         
+         switch(menu){
+            case 1: formandLogin.subMenu();
+         }
       }
       
       
