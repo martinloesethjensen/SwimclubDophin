@@ -1,15 +1,18 @@
 public class Ansat {
 
-	private string firstName;
-	private string lastName;
-	private string title;
+	private String firstName;
+	private String lastName;
+	private String title;
 
 	public void subMenu() {
-		// TODO - implement Ansat.subMenu
-		throw new UnsupportedOperationException();
+		Scanner console = new Scanner(System.in);
+      //initialize objects
+      Traener traenerLogin = new Traener();
+      Kasserer kassererLogin = new Kasserer();
+      Formand formandLogin = new Formand();
 	}
 
-	public string getFirstName() {
+	public String getFirstName() {
 		return this.firstName;
 	}
 
@@ -17,11 +20,11 @@ public class Ansat {
 	 * 
 	 * @param firstName
 	 */
-	public void setFirstName(string firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	public string getLastName() {
+	public String getLastName() {
 		return this.lastName;
 	}
 
@@ -29,11 +32,11 @@ public class Ansat {
 	 * 
 	 * @param lastName
 	 */
-	public void setLastName(string lastName) {
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	public string getTitle() {
+	public String getTitle() {
 		return this.title;
 	}
 
@@ -41,7 +44,7 @@ public class Ansat {
 	 * 
 	 * @param title
 	 */
-	public void setTitle(string title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
