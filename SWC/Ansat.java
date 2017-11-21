@@ -57,30 +57,23 @@ public class Ansat {
 * getters and setters
 */
 
-	public String getFirstName() {
-		return this.firstName;
-	}
+	public String getFirstName() { return this.firstName; }
 
-	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+	public void setFirstName(String firstName) { this.firstName = firstName; }
 
-	public String getLastName() {
-		return this.lastName;
-	}
+	public String getLastName() { return this.lastName; }
 
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	public void setLastName(String lastName) { this.lastName = lastName; }
 
-	public String getTitle() {
-		return this.title;
-	}
+	public String getTitle() { return this.title; }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
+	public void setTitle(String title) { this.title = title; }
+   
+   public int getAlder() { return this.alder; }
+   
+   public void setAlder(int alder) { this.alder = alder; }
+   
+   public String getAktivitetsform() { return this.aktivitetsform; }
+   
+   public void setAktivitetsform(String aktivitetsform) { this.aktivitetsform = aktivitetsform } 
 }
