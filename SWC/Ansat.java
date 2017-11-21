@@ -1,16 +1,24 @@
 import java.util.*;
+
 /**
 *
 * @Martin.Valhalla
 */
+
 public class Ansat {
 
+   //fields der også bruges af children
 	private String firstName;
 	private String lastName;
 	private String title;
    private int alder;
    private String aktivitetsform;
 
+   /**
+   *
+   * Beskrivelse her
+   */
+   
 	public int menu() {
 		Scanner console = new Scanner(System.in);
       //initialiserer objekter
@@ -54,11 +62,11 @@ public class Ansat {
       System.out.println("Tast 0 for at afslutte");
    }
 
-/**
-*
-* getters and setters
-*/
-
+   /**
+   *
+   * getters and setters
+   */
+   
 	public String getFirstName() { return this.firstName; }
 
 	public void setFirstName(String firstName) { this.firstName = firstName; }

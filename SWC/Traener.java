@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+*
+* @Martin.Valhalla
+* @Casper.ortismal
+*/
+
 public class Traener extends Ansat {
 
 	
@@ -21,7 +27,7 @@ public class Traener extends Ansat {
          switch(menu){
             case 1: printDisciplin(); break;
             case 2: printKandidater(); break;
-            case 3: // ... break;
+            case 3: printListe(); break;
             case 0: 
                Ansat a = new Ansat();
                a.menu();
@@ -39,17 +45,32 @@ public class Traener extends Ansat {
       System.out.println("Tast 1 for medlemsliste for disciplin");
       System.out.println("Tast 2 for top 5 liste for disciplin");
       System.out.println("Tast 3 for liste over konkurrencesvoemmere");
-      System.out.println("Tast 0 for at gaa tilbage\n\t<=="); 
+      System.out.println("Tast 0 for at gaa tilbage\n<=="); 
    }
-
+   
+   /**
+   *
+   * Beskrivelse her
+   */
+   
 	public void printDisciplin(){
 		System.out.println("<==|_Kom_ind_|==>");
 	}
    
+   /**
+   *
+   * Beskrivelse her
+   */
+   
    public void printKandidater(){
       System.out.println("<==|_Kom_ind_|==>");
    }
-   
+
+   /**
+   *
+   * Beskrivelse her
+   */  
+    
    public void printListe(){
       System.out.println("<==|_Kom_ind_|==>");
    }

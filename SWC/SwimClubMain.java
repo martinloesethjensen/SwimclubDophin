@@ -1,4 +1,16 @@
 import java.util.*;
+import java.io.*;
+
+/**               << 1. semester prøve eksamen >> 
+*
+*                          | Projekt |
+*                           
+* Lavet af:            Svømmeklub Delfinen
+* @Martin.Valhalla
+* @Casper.ortismal
+* @Christian.C-Strunge
+* @Rasmus.RasmusSadurski
+*/
 
 public class SwimClubMain {
    public static void main(String[] args){
