@@ -1,17 +1,16 @@
 public class Hold extends Aktivitetsform {
 
-	private string hold;
+	private String hold;
 
 	/**
 	 * 
 	 * @param age
 	 */
 	public void tilføjMedlem(int age) {
-		// TODO - implement Hold.tilføjMedlem
-		throw new UnsupportedOperationException();
+		//afhængig af alder til føj til et af de to hold
 	}
 
-	public string getHold() {
+	public String getHold() {
 		return this.hold;
 	}
 
@@ -19,7 +18,7 @@ public class Hold extends Aktivitetsform {
 	 * 
 	 * @param hold
 	 */
-	public void setHold(string hold) {
+	public void setHold(String hold) {
 		this.hold = hold;
 	}
 

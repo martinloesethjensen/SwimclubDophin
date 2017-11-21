@@ -1,13 +1,18 @@
 public class SwimClubMain {
-
+   public static void main(String[] args){
+      //indsæt menu
+      
+   
+   }
 	public void menu() {
-		// TODO - implement SwimClubMain.menu
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public void login() {
-		// TODO - implement SwimClubMain.login
-		throw new UnsupportedOperationException();
+      Ansat login = new Ansat(); //tilføj måske parameter
+		login.subMenu();
+      
+      //valg af ansat (switch) 
 	}
 
 	public void filer() {
