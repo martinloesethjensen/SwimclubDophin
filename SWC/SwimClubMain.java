@@ -11,15 +11,14 @@ public class SwimClubMain {
 	}
 
 	public static void login() {
-      Ansat login = new Ansat(); //tilføj måske parameter
-		login.menu();
+      Ansat login = new Ansat();
+		login.menu(); //valg af ansat
       
-      //valg af ansat (switch) 
+      
 	}
 
 	public static void filer() {
-		// TODO - implement SwimClubMain.filer
-		throw new UnsupportedOperationException();
+		
 	}
 
 }
