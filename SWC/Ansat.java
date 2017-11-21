@@ -1,10 +1,15 @@
 import java.util.*;
-
+/**
+*
+* @Martin Valhalla
+*/
 public class Ansat {
 
 	private String firstName;
 	private String lastName;
 	private String title;
+   private int alder;
+   private String aktivitetsform;
 
 	public int menu() {
 		Scanner console = new Scanner(System.in);
@@ -16,7 +21,7 @@ public class Ansat {
       int menu = -1;
       while (menu != 0){
          menuInfo();
-         menu = console.nextInt(); 
+         this = console.nextInt(); 
          
          switch(menu){
             case 1: formandLogin.subMenu(); break;
@@ -35,6 +40,11 @@ public class Ansat {
       System.out.println("Tast 3 for træner");
       System.out.println("Tast 0 for at afslutte");
    }
+
+/**
+*
+* getters and setters
+*/
 
 	public String getFirstName() {
 		return this.firstName;
