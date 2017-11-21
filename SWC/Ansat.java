@@ -40,10 +40,7 @@ public class Ansat {
 		return this.firstName;
 	}
 
-	/**
-	 * 
-	 * @param firstName
-	 */
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -52,10 +49,7 @@ public class Ansat {
 		return this.lastName;
 	}
 
-	/**
-	 * 
-	 * @param lastName
-	 */
+	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -64,10 +58,6 @@ public class Ansat {
 		return this.title;
 	}
 
-	/**
-	 * 
-	 * @param title
-	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
