@@ -5,5 +5,5 @@ public class Kasserer extends Ansat {
 	public void subMenu() {
 		System.out.println("lol");
 	}
-   public void 
+   //public void 
 }

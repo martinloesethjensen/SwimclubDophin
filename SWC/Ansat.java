@@ -1,7 +1,7 @@
 import java.util.*;
 /**
 *
-* @Martin Valhalla
+* @Martin.Valhalla
 */
 public class Ansat {
 
@@ -13,7 +13,7 @@ public class Ansat {
 
 	public int menu() {
 		Scanner console = new Scanner(System.in);
-      //initialize objekter
+      //initialiserer objekter
       Traener traenerLogin = new Traener();
       Kasserer kassererLogin = new Kasserer();
       Formand formandLogin = new Formand();
@@ -31,24 +31,26 @@ public class Ansat {
             }else System.out.println("Ugyldigt input");
                dum = 1;
          }
-         
+         int count = 0;
          switch(menu){
             case 1: formandLogin.subMenu(); break;
             case 2: kassererLogin.subMenu(); break;
             case 3: traenerLogin.subMenu(); break;
-            case 0: return 0; 
+            case 0: count++; return 0; 
             default: 
-               System.out.println("Tast venligst et nummer der er fremvist.");
-               menu();
+               System.out.println("Tast venligst et nummer der er fremvist");
+               if (count > 0){
+                  break;
+               }else 
+                  menu();
          }
       }
-      
       return 0;
 	}
    public void menuInfo(){
       System.out.println("Tast 1 for formand");
       System.out.println("Tast 2 for kasserer");
-      System.out.println("Tast 3 for træner");
+      System.out.println("Tast 3 for traener");
       System.out.println("Tast 0 for at afslutte");
    }
 
@@ -75,5 +77,5 @@ public class Ansat {
    
    public String getAktivitetsform() { return this.aktivitetsform; }
    
-   public void setAktivitetsform(String aktivitetsform) { this.aktivitetsform = aktivitetsform } 
+   public void setAktivitetsform(String aktivitetsform) { this.aktivitetsform = aktivitetsform; } 
 }
