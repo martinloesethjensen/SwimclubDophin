@@ -21,16 +21,27 @@ public class Ansat {
       int menu = -1;
       while (menu != 0){
          menuInfo();
-         this = console.nextInt(); 
+         
+         int dum = 0;
+         
+         while(dum == 0){
+            if(console.hasNextInt()){
+               menu = console.nextInt(); 
+               break;
+            }else System.out.println("Ugyldigt input");
+               dum = 1;
+         }
          
          switch(menu){
             case 1: formandLogin.subMenu(); break;
             case 2: kassererLogin.subMenu(); break;
-            case 3: //traenerLogin.subMenu(); break;
+            case 3: traenerLogin.subMenu(); break;
             case 0: return 0; 
+            default: 
+               System.out.println("Tast venligst et nummer der er fremvist.");
+               menu();
          }
       }
-      
       
       return 0;
 	}
