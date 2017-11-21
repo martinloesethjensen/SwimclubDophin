@@ -15,12 +15,14 @@ public class Ansat {
       
       int menu = -1;
       while (menu != 0){
-         
+         menuInfo();
          menu = console.nextInt(); 
          
          switch(menu){
-            case 1: formandLogin.subMenu();
-            case 2: kassererLogin.subMenu();
+            case 1: formandLogin.subMenu(); break;
+            case 2: kassererLogin.subMenu(); break;
+            case 3: //traenerLogin.subMenu(); break;
+            case 0: return 0; 
          }
       }
       
