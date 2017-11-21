@@ -12,7 +12,7 @@ public class SwimClubMain {
 
 	public void login() {
       Ansat login = new Ansat(); //tilføj måske parameter
-		login.subMenu();
+		login.menu();
       
       //valg af ansat (switch) 
 	}
