@@ -1,7 +1,6 @@
 import java.util.*;
 
 /**
-*
 * @Martin.Valhalla
 */
 
@@ -16,7 +15,6 @@ public class Ansat {
    protected int menu = -1; //denne field bruges i switch
    
    /**
-   *
    * Denne metode lader en vælge hvilke bruger 
    * man vælger at logge ind med.
    */
@@ -80,7 +78,6 @@ public class Ansat {
    } 
 
    /**
-   *
    * getters and setters
    */
    
