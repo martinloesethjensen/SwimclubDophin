@@ -13,10 +13,12 @@ public class Ansat {
 	private String title;
    private int alder;
    private String aktivitetsform;
-
+   public int menu = -1; //denne field bruges i switch
+   
    /**
    *
-   * Beskrivelse her
+   * Denne metode lader en vælge hvilke bruger 
+   * man vælger at logge ind med.
    */
    
 	public int menu() {
@@ -26,43 +28,52 @@ public class Ansat {
       Kasserer kassererLogin = new Kasserer();
       Formand formandLogin = new Formand();
       
-      int menu = -1;
-      while (menu != 0){
+      //int menu = -1;
+      while (this.menu != 0){
          menuInfo();
          
-         int dum = 0;
-         int count = 0; 
-         while(dum == 0){
-            count++;
-            if(console.hasNextInt()){
-               menu = console.nextInt(); 
-               break;
-            }else if(count > 0){
-               break; 
-            }else System.out.println("Ugyldigt input");
-               dum = 1;
-         }
-         switch(menu){
+         // metode der tester input
+         testConsoleInput(console);
+         
+         switch(this.menu){
             case 1: formandLogin.subMenu(); break;
             case 2: kassererLogin.subMenu(); break;
             case 3: traenerLogin.subMenu(); break;
-            case 0: return 0; 
+            case 0: System.out.print("Logger af..."); this.menu = 0; break; //tilføj tid 
             default: 
                System.out.println("Tast venligst et nummer der er fremvist");
                menu();
          }
-         break; // denne springer ud af whileloop
-                // ellers vil den vise menu to gange efter at 
-                // man var kommet tilbage fra en submenu
+         this.menu = 0; // Denne springer ud af whileloop
+                  // ellers vil den vise menu to gange efter at 
+                 // man var kommet tilbage fra en submenu
       }
       return 0;
 	}
+   
    public void menuInfo(){
       System.out.println("Tast 1 for formand");
       System.out.println("Tast 2 for kasserer");
       System.out.println("Tast 3 for traener");
       System.out.println("Tast 0 for at afslutte");
    }
+   
+   /**
+   * tester input fra console
+   */
+   
+   public int testConsoleInput(Scanner console){
+      //int menu = -1;
+      int dum = 0;
+      while(dum == 0){
+         if(console.hasNextInt()){
+            this.menu = console.nextInt(); 
+            break;
+         }else System.out.println("Ugyldigt input");
+            dum = 1; //hopper ud af loopet
+      }
+      return this.menu;
+   } 
 
    /**
    *

@@ -18,11 +18,17 @@ public class Formand extends Ansat {
    
 	/**
 	* 
-	* @param title
+	* beskrivelse her
 	*/
    
 	public void subMenu() {
-		
+	   Scanner console = new Scanner(System.in);
+      int menu = -1;
+      while(menu != 0){
+         //menuInfo
+         
+         
+      }	
 	}
 
    public void saveMember(String fileName)throws Exception{

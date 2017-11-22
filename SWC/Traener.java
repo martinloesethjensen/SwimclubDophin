@@ -33,7 +33,7 @@ public class Traener extends Ansat {
                a.menu();
                return 0;
             default: 
-               System.out.println("Tast venligst et nummer der er fremvist.");
+               System.out.println("Tast venligst et nummer der er fremvist");
                subMenu();
          
          }
@@ -42,8 +42,8 @@ public class Traener extends Ansat {
 	}
    
    public void traenerMenu(){
-      System.out.println("Tast 1 for medlemsliste for disciplin");
-      System.out.println("Tast 2 for top 5 liste for disciplin");
+      System.out.println("Tast 1 for disciplinliste med tilknyttede medlemmer");
+      System.out.println("Tast 2 for top 5 liste over disciplin"); //ændres
       System.out.println("Tast 3 for liste over konkurrencesvoemmere");
       System.out.println("Tast 0 for at gaa tilbage\n<=="); 
    }
@@ -55,6 +55,7 @@ public class Traener extends Ansat {
    
 	public void printDisciplin(){
 		System.out.println("<==|_Kom_ind_|==>");
+      //switch
 	}
    
    /**
@@ -64,6 +65,7 @@ public class Traener extends Ansat {
    
    public void printKandidater(){
       System.out.println("<==|_Kom_ind_|==>");
+      //switch
    }
 
    /**
