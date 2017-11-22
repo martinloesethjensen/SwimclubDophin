@@ -10,7 +10,7 @@ public class Ansat {
    //fields der også bruges af children
 	private String firstName;
 	private String lastName;
-	private String title;
+	//private String title; bruges ikke
    private int alder;
    private String aktivitetsform;
    protected int menu = -1; //denne field bruges i switch
@@ -21,7 +21,7 @@ public class Ansat {
    * man vælger at logge ind med.
    */
    
-	public int menu() {
+	public int menu()throws Exception{
 		Scanner console = new Scanner(System.in);
       //initialiserer objekter
       Traener traenerLogin = new Traener();
@@ -52,25 +52,29 @@ public class Ansat {
 	}
    
    public void menuInfo(){
-      System.out.println("Tast 1 for formand");
-      System.out.println("Tast 2 for kasserer");
-      System.out.println("Tast 3 for traener");
+      System.out.println("Tast 1 for Formand");
+      System.out.println("Tast 2 for Kasserer");
+      System.out.println("Tast 3 for Traener");
       System.out.println("Tast 0 for at afslutte");
    }
    
    /**
-   * tester input fra console
+   * Tester input fra console
    */
    
    public int testConsoleInput(Scanner console){
-      //int menu = -1;
+      this.menu = -1;
       int dum = 0;
       while(dum == 0){
          if(console.hasNextInt()){
             this.menu = console.nextInt(); 
             break;
          }else System.out.println("Ugyldigt input");
-            dum = 1; //hopper ud af loopet
+            this.menu = -1; //denne er placeret så når man i 
+                           //formand undgår at den automatisk vælger 
+                          //case 1 
+            dum = 1; //hopper ud af loopet 
+            //Denne skal rettes
       }
       return this.menu;
    } 
@@ -88,9 +92,9 @@ public class Ansat {
 
 	public void setLastName(String lastName) { this.lastName = lastName; }
 
-	public String getTitle() { return this.title; }
+	//public String getTitle() { return this.title; }
 
-	public void setTitle(String title) { this.title = title; }
+	//public void setTitle(String title) { this.title = title; }
    
    public int getAlder() { return this.alder; }
    

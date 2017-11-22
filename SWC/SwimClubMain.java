@@ -13,7 +13,7 @@ import java.io.*;
 */
 
 public class SwimClubMain {
-   public static void main(String[] args){
+   public static void main(String[] args)throws Exception{
       
       login();
       
@@ -27,14 +27,14 @@ public class SwimClubMain {
    * man er. 
    */
    
-	public static void login() {
+	public static void login()throws Exception{
       Ansat login = new Ansat();
 		login.menu(); //valg af ansat
             
 	}
 
-	public static void filer() {
+	/*public static void filer() {
 		
-	}
+	}*/
 
 }
