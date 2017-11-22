@@ -25,13 +25,38 @@ public class Formand extends Ansat {
 	   Scanner console = new Scanner(System.in);
       int menu = -1;
       while(menu != 0){
-         //menuInfo
+         subMenuInfo();
          
+         super.testConsoleInput(console);
          
+         switch(this.menu){
+            case 1: 
+               //if else 
+               //om det er konkurrence svømmer eller motion
+               //gem i fil dertil
+               //... break;
+            case 0: 
+               Ansat a = new Ansat();
+               a.menu();
+               break;
+            default: 
+               System.out.println("Tast venligst et nummer der er fremvist");
+               subMenu();
+         }
       }	
 	}
 
-   public void saveMember(String fileName)throws Exception{
+   public void subMenuInfo(){
+      System.out.println("Tast 1 for at oprette nyt medlem");
+      System.out.print("Tast 0 for at gaa tilbage\n<==");
+   }
+   
+   /**
+   *
+   * Opretter og gemmer nyt medlem i en fil
+   */
+   public void opretMedlem(String fileName)throws Exception{
+      //få input om medlems info her
       PrintStream toFile = new PrintStream(new File(fileName));
       //toFile.print(info());  
    }

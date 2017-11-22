@@ -13,7 +13,7 @@ public class Ansat {
 	private String title;
    private int alder;
    private String aktivitetsform;
-   public int menu = -1; //denne field bruges i switch
+   protected int menu = -1; //denne field bruges i switch
    
    /**
    *
@@ -45,8 +45,8 @@ public class Ansat {
                menu();
          }
          this.menu = 0; // Denne springer ud af whileloop
-                  // ellers vil den vise menu to gange efter at 
-                 // man var kommet tilbage fra en submenu
+                       // ellers vil den vise menu to gange efter at 
+                      // man var kommet tilbage fra en submenu
       }
       return 0;
 	}
