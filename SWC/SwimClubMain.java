@@ -14,14 +14,13 @@ import java.io.*;
 
 public class SwimClubMain {
    public static void main(String[] args)throws Exception{
+      //velkomst 
+      //efterfulgt af en sleep
       
       login();
-      
-   
    }
 	
    /**
-   *
    * Denne metode opretter et objekt og laver et 
    * metodekald, hvor man kan vælge hvilken slags ansat 
    * man er. 
@@ -32,9 +31,4 @@ public class SwimClubMain {
 		login.menu(); //valg af ansat
             
 	}
-
-	/*public static void filer() {
-		
-	}*/
-
 }

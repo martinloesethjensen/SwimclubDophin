@@ -7,7 +7,6 @@ public class Kasserer extends Ansat {
 	}
    
    /**
-   *
    * Beskrivelse her
    */
    
@@ -16,7 +15,6 @@ public class Kasserer extends Ansat {
    }
    
    /**
-   *
    * Beskrivelse her
    */
    

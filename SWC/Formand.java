@@ -36,7 +36,8 @@ public class Formand extends Ansat {
                //if else 
                //om det er konkurrence svømmer eller motion
                //gem i fil dertil
-               //... break;
+               menu = 0;
+               break;
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu(); //menu hos ansat

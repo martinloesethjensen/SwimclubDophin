@@ -9,7 +9,6 @@ public class Ansat {
    //fields der også bruges af children
 	private String firstName;
 	private String lastName;
-	//private String title; bruges ikke
    private int alder;
    private String aktivitetsform;
    protected int menu = -1; //denne field bruges i switch
@@ -72,9 +71,11 @@ public class Ansat {
                            //formand undgår at den automatisk vælger 
                           //case 1 
             dum = 1; //hopper ud af loopet 
-            //Denne skal rettes
+                    //Denne skal rettes
       }
-      return this.menu;
+      //ved ikke hvilken det skal være 
+      //return this.menu;
+      return 0;
    } 
 
    /**
@@ -88,10 +89,6 @@ public class Ansat {
 	public String getLastName() { return this.lastName; }
 
 	public void setLastName(String lastName) { this.lastName = lastName; }
-
-	//public String getTitle() { return this.title; }
-
-	//public void setTitle(String title) { this.title = title; }
    
    public int getAlder() { return this.alder; }
    
