@@ -12,6 +12,7 @@ public class Ansat {
 	private String lastName;
    private int alder;
    private String aktivitetsform;
+   private String medlemstype;
    protected int menu = -1; //denne field bruges i switch
    
    /**
@@ -82,7 +83,7 @@ public class Ansat {
    
    //Metod der samler den skrevne info i en string
    public String toString(){
-      return getFirstName() + " " + getLastName() + " " + getAlder() + " " + getAktivitetsform();
+      return getFirstName() + " " + getLastName() + " " + getAlder() + " " + getAktivitetsform() + " " + getMedlemstype();
    }
    
    //Metode til at gemme til fil
@@ -111,4 +112,8 @@ public class Ansat {
    public String getAktivitetsform() { return this.aktivitetsform; }
    
    public void setAktivitetsform(String aktivitetsform) { this.aktivitetsform = aktivitetsform; } 
+   
+   public String getMedlemstype() { return this.medlemstype; }
+   
+   public void setMedlemstype(String medlemstype){ this.medlemstype = medlemstype; }
 }

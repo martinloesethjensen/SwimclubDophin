@@ -67,14 +67,54 @@ public class Formand extends Ansat {
       System.out.println("Indtast alder");
       super.setAlder(console.nextInt()); //= console.nextInt();
       
+      medlemsskab(console);
+      
       aktivitet(console);
-        
+              
+   }
+   
+   /**
+   *
+   */
+   
+   public void medlemsskab(Scanner console)throws Exception{
+      int dummy = 0;
+      while(dummy == 0){
+         System.out.println("Vaelg medlemstype:\n\tTast 1 for aktiv\n\tTast 2 for passiv"); 
+         
+         //lav ny tester
+         super.testConsoleInput(console);
+         
+         switch(this.menu){
+            case 1: 
+               super.setMedlemstype("Aktiv");
+               //gem medlem i motionist fil
+               System.out.println("Kom ind 1a"); 
+               System.out.println(super.getMedlemstype());  
+               dummy = -1;
+               break;
+               
+            case 2:
+               super.setMedlemstype("Passiv");
+               //gem medlem i konkurrence svømmer fil
+               System.out.println("Kom ind 2a");
+               System.out.println(super.getMedlemstype()); 
+               dummy = -1;
+               break;
+            
+            default:
+               System.out.println("Tast venligst et nummer der er fremvist");  
+               medlemsskab(console); //den kører i infinite loop               
+         }
+         dummy = -1;
+      }    
    }
    
    /**
    * Opdeling i aktivitet.
-   * Går i infinte loop hvis man skriver andet end tal
+   * Går i infinte loop hvis man skriver andet end tal***
    */
+   
    public void aktivitet(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
