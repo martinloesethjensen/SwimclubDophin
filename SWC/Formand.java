@@ -148,16 +148,21 @@ public class Formand extends Ansat {
                System.out.println("Tast venligst et nummer der er fremvist");  
                aktivitet(console); //den kører i infinite loop               
          }
-         subMenu();
+         subMenu(); //hvor bruges denne?
          dummy = -1;
       }    
    }
    public void testerInput(Scanner console){
       int dum = 0;
+      int count = 0;
       while(dum == 0){
          if(console.hasNextInt()){
-            this.subMenuValg = console.nextInt(); 
+            this.subMenuValg = console.nextInt();
+            count++; 
             break;
+         }else if(count > 0){
+            this.subMenuValg = console.nextInt(); 
+            break; 
          }else{ 
             System.out.println("Ugyldigt input");
             this.subMenuValg = -1; //denne er placeret så når man i 
