@@ -9,6 +9,8 @@ import java.io.*;
 
 public class Formand extends Ansat {
    
+   int subMenuValg = -1; //bruges i testerInput til aktivitetsform og medlemstype
+   
    public Formand(){}
 
    /*public Formand(String firstName, String lastName, int alder, String aktivitetsForm){
@@ -74,7 +76,7 @@ public class Formand extends Ansat {
    }
    
    /**
-   *
+   * Vælger medlemstypen
    */
    
    public void medlemsskab(Scanner console)throws Exception{
@@ -82,10 +84,9 @@ public class Formand extends Ansat {
       while(dummy == 0){
          System.out.println("Vaelg medlemstype:\n\tTast 1 for aktiv\n\tTast 2 for passiv"); 
          
-         //lav ny tester
-         super.testConsoleInput(console);
+         testerInput(console);
          
-         switch(this.menu){
+         switch(subMenuValg){
             case 1: 
                super.setMedlemstype("Aktiv");
                //gem medlem i motionist fil
@@ -120,10 +121,9 @@ public class Formand extends Ansat {
       while(dummy == 0){
          System.out.println("Vaelg aktivitetsform:\n\tTast 1 for Motionist\n\tTast 2 for Konkurrence"); 
          
-         //lav ny tester
-         super.testConsoleInput(console);
+         testerInput(console);
          
-         switch(this.menu){
+         switch(subMenuValg){
             case 1: 
                super.setAktivitetsform("Motionist");
                //gem medlem i motionist fil
@@ -151,5 +151,20 @@ public class Formand extends Ansat {
          subMenu();
          dummy = -1;
       }    
+   }
+   public void testerInput(Scanner console){
+      int dum = 0;
+      while(dum == 0){
+         if(console.hasNextInt()){
+            this.subMenuValg = console.nextInt(); 
+            break;
+         }else{ 
+            System.out.println("Ugyldigt input");
+            this.subMenuValg = -1; //denne er placeret så når man i 
+                                  //formand undgår at den automatisk vælger 
+                                 //case 1 
+            dum = 1; //hopper ud af loopet 
+         }          //Denne skal rettes
+      }   
    }
 }
