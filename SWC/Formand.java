@@ -54,17 +54,7 @@ public class Formand extends Ansat {
       System.out.println("Tast 1 for at oprette nyt medlem");
       System.out.print("Tast 0 for at gaa tilbage\n<==\n");
    }
-   //Metod der samler den skrevne info i en string
-   /*public String info(){
-      return super.firstName + " " + super.lastName + " " + super.alder + " " + super.aktivitetsform;
-   }
-   //Metode til at gemme til fil
-   public void saveIt(String filNavn)throws Exception{
-      PrintStream newMemberInfo = new PrintStream(new File(filNavn));
-      newMemberInfo.print(info() + "/n");
-         
-   }*/
-   
+      
    /**
    * Opretter og gemmer nyt medlem i en fil
    */
@@ -89,6 +79,8 @@ public class Formand extends Ansat {
       int dummy = 0;
       while(dummy == 0){
          System.out.println("Vaelg aktivitetsform:\n\tTast 1 for Motionist\n\tTast 2 for Konkurrence"); 
+         
+         //lav ny tester
          super.testConsoleInput(console);
          
          switch(this.menu){
@@ -97,6 +89,8 @@ public class Formand extends Ansat {
                //gem medlem i motionist fil
                System.out.println("Kom ind 1"); 
                System.out.println(super.getAktivitetsform());  
+               super.saveIt("motionister.txt");
+               System.out.println("\t...Medlem er gemt...\n");
                dummy = -1;
                break;
                
@@ -105,6 +99,8 @@ public class Formand extends Ansat {
                //gem medlem i konkurrence svømmer fil
                System.out.println(super.getAktivitetsform());              
                System.out.println("Kom ind 2");
+               super.saveIt("konkurrenceSvoemmere.txt");
+               System.out.println("\t...Medlem er gemt...\n");
                dummy = -1;
                break;
             

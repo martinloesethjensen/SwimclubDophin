@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 /**
 * @Martin.Valhalla
@@ -66,17 +67,30 @@ public class Ansat {
          if(console.hasNextInt()){
             this.menu = console.nextInt(); 
             break;
-         }else System.out.println("Ugyldigt input");
+         }else{ 
+            System.out.println("Ugyldigt input");
             this.menu = -1; //denne er placeret så når man i 
                            //formand undgår at den automatisk vælger 
                           //case 1 
             dum = 1; //hopper ud af loopet 
-                    //Denne skal rettes
+         }          //Denne skal rettes
       }
       //ved ikke hvilken det skal være 
       //return this.menu;
       return 0;
    } 
+   
+   //Metod der samler den skrevne info i en string
+   public String toString(){
+      return getFirstName() + " " + getLastName() + " " + getAlder() + " " + getAktivitetsform();
+   }
+   
+   //Metode til at gemme til fil
+   public void saveIt(String filNavn)throws Exception{
+      PrintStream newMemberInfo = new PrintStream(new FileOutputStream(filNavn,true));
+      newMemberInfo.println(toString());
+      System.out.print("\n");      
+   }
 
    /**
    * getters and setters
