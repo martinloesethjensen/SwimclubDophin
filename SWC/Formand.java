@@ -64,7 +64,7 @@ public class Formand extends Ansat {
    public void opretMedlem(Scanner console)throws Exception{
       System.out.println("Indtast fornavn");
       super.setFirstName(console.next());// = console.next();
-      System.out.println("Indtast efternavn");
+      System.out.println("Indtast efternavn (ét pr. medlem)");
       super.setLastName(console.next()); //= console.next();
       System.out.println("Indtast alder");
       super.setAlder(console.nextInt()); //= console.nextInt();
@@ -148,7 +148,7 @@ public class Formand extends Ansat {
                System.out.println("Tast venligst et nummer der er fremvist");  
                aktivitet(console); //den kører i infinite loop               
          }
-         subMenu(); //hvor bruges denne?
+         subMenu(); //hvor bruges denne? //linje 26
          dummy = -1;
       }    
    }
