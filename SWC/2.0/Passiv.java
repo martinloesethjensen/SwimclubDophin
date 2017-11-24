@@ -3,13 +3,9 @@ import java.io.*;
 
 public class Passiv extends Kontingent  {
    
-   public Passiv(double pris){
-      super((int)pris);
-   }
-   //getter and setters til pris 
-   
+   public Passiv(double pris){ super((int)pris); }   
    
    //polymorphisme
-   //type caster
+   //type casting to int because it might be lossy
    public double getPris() { return (int)super.getPris() + 500.0; } 
 }

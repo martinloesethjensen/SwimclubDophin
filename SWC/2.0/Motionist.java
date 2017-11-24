@@ -3,10 +3,7 @@ import java.io.*;
 
 public class Motionist extends Medlem {
 
-   public Motionist(String firstName, String lastName, int alder, String medlemsskab){
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.alder = alder;
-      this.medlemsskab = medlemsskab;
+   public Motionist(String fornavn, String efternavn, int alder, String medlemsskab){
+      super(fornavn, efternavn, alder, medlemsskab);
    }
 } 

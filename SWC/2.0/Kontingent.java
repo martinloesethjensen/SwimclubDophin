@@ -13,7 +13,7 @@ public class Kontingent {
    public Kontingent (int alder, double pris) {}
    
    
-
+   
    //getters and setters
    public int getAlder() { return this.alder; }
    
