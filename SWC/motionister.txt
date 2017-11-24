@@ -1,1 +1,4 @@
 w w 2 Motionist Passiv
+casper frost 6 Motionist Passiv
+casper frost 20 Motionist Aktiv
+casper frost 29 Motionist Passiv

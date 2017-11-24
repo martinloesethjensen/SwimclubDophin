@@ -64,7 +64,7 @@ public class Formand extends Ansat {
    public void opretMedlem(Scanner console)throws Exception{
       System.out.println("Indtast fornavn");
       super.setFirstName(console.next());// = console.next();
-      System.out.println("Indtast efternavn (ét pr. medlem)");
+      System.out.println("Indtast efternavn (et pr. medlem)");
       super.setLastName(console.next()); //= console.next();
       System.out.println("Indtast alder");
       super.setAlder(console.nextInt()); //= console.nextInt();
