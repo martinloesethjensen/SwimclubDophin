@@ -33,38 +33,29 @@ public class Medlem {
 }
 
 public String getFornavn() {return this.fornavn;}
-
 public void setFornavn(String fornavn) {this.fornavn = fornavn;}
 
 public String getEfternavn() {return this.efternavn;}
-
 public void setEfternavn(String efternavn) {this.efternavn = efternavn;}
 
 public String getMedlemsskab() {return this.medlemsskab;}
-
 public void setMedlemsskab(String medlemsskab) {this.medlemsskab = medlemsskab;}
 
 public String getDisciplin(){return this.disciplin;}
-
 public void setDisciplin(String disciplin) {this.disciplin = disciplin;}
 
 public int getAlder() {return this.alder;}
-
 public void setAlder(int alder){this.alder = alder;}
 
 public int getTid() {return this.tid;}
-
 public void setTid(int tid) {this.tid = tid;}
 
 public String getStaevneNavn() {return this.staevneNavn;}
-
 public void String setStaevneNavn(staevneNavn){this.staevneNavn = staevneNavn;}
 
 public String getStaevneTid() {return this.staevneTid;}
-
 public void String setStaevneTid(staevneTid) {this.staevneTid = staevneTid);}
 
 public int getplacering(){return this.staevneTid;}
-
 public void setplacering(placering) {this.placering = placering;}
 
