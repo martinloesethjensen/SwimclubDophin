@@ -13,6 +13,8 @@ public class Ansat {
    private int alder;
    private String aktivitetsform;
    private String medlemsskab;
+   private String disciplin;
+   private int tid;
    public int menu = -1; //denne field bruges i switch
    protected int count = 0; //bruges nu i træner til 2d array
    
@@ -73,18 +75,6 @@ public class Ansat {
          }
       }
    } 
-   
-   //Metod der samler den skrevne info i en string
-   public String toString(){
-      return getFornavn() + " " + getEfternavn() + " " + getAlder() + " " + getMedlemsskab();
-   }
-   
-   //Metode til at gemme til fil
-   public void saveIt(String filNavn)throws Exception{
-      PrintStream newMemberInfo = new PrintStream(new FileOutputStream(filNavn,true));
-      newMemberInfo.println(toString());
-      System.out.print("\n");      
-   }
 
    /**
    * getters and setters
@@ -102,11 +92,15 @@ public class Ansat {
    
    public void setAlder(int alder) { this.alder = alder; }
    
-   /*public String getAktivitetsform() { return this.aktivitetsform; }
+   public int getTid() {return this.tid;}
    
-   public void setAktivitetsform(String aktivitetsform) { this.aktivitetsform = aktivitetsform; } 
-   */
+   public void setTid(int tid) {this.tid = tid;}
+   
    public String getMedlemsskab() { return this.medlemsskab; }
    
    public void setMedlemsskab(String medlemsskab){ this.medlemsskab = medlemsskab; }
+   
+   public String getDisciplin(){return this.disciplin;}
+   
+   public void setDisciplin(String disciplin) {this.disciplin = disciplin;}
 }

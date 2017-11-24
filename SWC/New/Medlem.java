@@ -40,6 +40,13 @@ public class Medlem {
    public String toString(){
       return " ";
    }
+   
+   //Metode til at gemme til fil
+   public void saveIt(String filNavn)throws Exception{
+      PrintStream nytMemberInfo = new PrintStream(new FileOutputStream(filNavn,true));
+      nytMemberInfo.println(toString());
+      System.out.print("\n");      
+   }
 
    public String getFornavn() {return this.fornavn;}
    
