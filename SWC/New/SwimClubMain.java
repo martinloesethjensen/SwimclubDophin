@@ -16,6 +16,7 @@ public class SwimClubMain {
    public static void main(String[] args)throws Exception{
       //velkomst 
       //efterfulgt af en sleep
+      //eventuelt logon screen med password?
       
       login();
    }

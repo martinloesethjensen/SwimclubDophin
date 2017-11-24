@@ -8,12 +8,12 @@ import java.io.*;
 public class Ansat {
 
    //fields der også bruges af children
-	private String firstName;
-	private String lastName;
+	private String fornavn;
+	private String efternavn;
    private int alder;
    private String aktivitetsform;
-   private String medlemstype;
-   protected int menu = -1; //denne field bruges i switch
+   private String medlemsskab;
+   public int menu = -1; //denne field bruges i switch
    protected int count = 0; //bruges nu i træner til 2d array
    
    /**
@@ -41,7 +41,7 @@ public class Ansat {
             case 3: traenerLogin.subMenu(); break;
             case 0: System.out.print("Logger af..."); this.menu = 0; break; //tilføj tid 
             default: 
-               System.out.println("Tast venligst et nummer der er fremvist");
+               //System.out.println("Tast venligst et nummer der er fremvist");
                menu();
          }
          this.menu = 0; // Denne springer ud af whileloop
@@ -59,32 +59,24 @@ public class Ansat {
    }
    
    /**
-   * Tester input fra console
+   * Tester input fra console om det er tal 
    */
    
    public int testConsoleInput(Scanner console){
-      this.menu = -1;
-      int dum = 0;
-      while(dum == 0){
-         if(console.hasNextInt()){
-            this.menu = console.nextInt(); 
-            break;
-         }else{ 
-            System.out.println("Ugyldigt input");
-            this.menu = -1; //denne er placeret så når man i 
-                           //formand undgår at den automatisk vælger 
-                          //case 1 
-            dum = 1; //hopper ud af loopet 
-         }          //Denne skal rettes
+      while(true){
+         String input = console.next();
+         
+         try{
+            return this.menu = Integer.parseInt(input);
+         }catch(Exception e){
+            System.out.println("Ugyldigt input\nTast venligst kun tal");
+         }
       }
-      //ved ikke hvilken det skal være 
-      //return this.menu;
-      return 0;
    } 
    
    //Metod der samler den skrevne info i en string
    public String toString(){
-      return getFirstName() + " " + getLastName() + " " + getAlder() + " " + getAktivitetsform() + " " + getMedlemstype();
+      return getFornavn() + " " + getEfternavn() + " " + getAlder() + " " + getMedlemsskab();
    }
    
    //Metode til at gemme til fil
@@ -98,23 +90,23 @@ public class Ansat {
    * getters and setters
    */
    
-	public String getFirstName() { return this.firstName; }
+	public String getFornavn() { return this.fornavn; }
 
-	public void setFirstName(String firstName) { this.firstName = firstName; }
+	public void setFornavn(String fornavn) { this.fornavn = fornavn; }
 
-	public String getLastName() { return this.lastName; }
+	public String getEfternavn() { return this.efternavn; }
 
-	public void setLastName(String lastName) { this.lastName = lastName; }
+	public void setEfternavn(String efternavn) { this.efternavn = efternavn; }
    
    public int getAlder() { return this.alder; }
    
    public void setAlder(int alder) { this.alder = alder; }
    
-   public String getAktivitetsform() { return this.aktivitetsform; }
+   /*public String getAktivitetsform() { return this.aktivitetsform; }
    
    public void setAktivitetsform(String aktivitetsform) { this.aktivitetsform = aktivitetsform; } 
+   */
+   public String getMedlemsskab() { return this.medlemsskab; }
    
-   public String getMedlemstype() { return this.medlemstype; }
-   
-   public void setMedlemstype(String medlemstype){ this.medlemstype = medlemstype; }
+   public void setMedlemsskab(String medlemsskab){ this.medlemsskab = medlemsskab; }
 }

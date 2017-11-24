@@ -19,7 +19,6 @@ public class Formand extends Ansat {
      
    
 	/**
-	* 
 	* beskrivelse her
 	*/
    
@@ -45,7 +44,6 @@ public class Formand extends Ansat {
                super.menu(); //menu hos ansat
                break;
             default: 
-               System.out.println("Tast venligst et nummer der er fremvist");
                subMenu();
          }
          break; //for kun at komme ud af dette loop
@@ -62,17 +60,54 @@ public class Formand extends Ansat {
    */
    
    public void opretMedlem(Scanner console)throws Exception{
-      System.out.println("Indtast fornavn");
-      super.setFirstName(console.next());// = console.next();
-      System.out.println("Indtast efternavn (et pr. medlem)");
-      super.setLastName(console.next()); //= console.next();
-      System.out.println("Indtast alder");
-      super.setAlder(console.nextInt()); //= console.nextInt();
+      int dummy = 0;
+      while(dummy == 0){
+         System.out.println("Opret nyt medlem:\n\tTast 1 for at oprette" + 
+               "medlem som motionist\n\tTast 2 for at oprette medlem som Konkurrence Svoemmer");
+         
+         super.testConsoleInput(console);
+         
+         switch(this.menu){
+            case 1:
+               System.out.println("Hej1"); 
+               opretMotion(console);
+               //metode her med valg
+               break;
+            case 2:
+               System.out.println("Hej2");
+               break;
+            default:
+               opretMedlem(console);
+         }
+         dummy = 1;   
+      }       
+   }
+   
+   /**
+   * Opretter motionist medlem
+   */
+   
+   public void opretMotion(Scanner console)throws Exception{
+      opretOplysninger(console);
       
       medlemsskab(console);
       
-      aktivitet(console);
-              
+      Medlem nytMedlem = new Medlem(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab());
+   }
+   
+   /**
+   * Får user input
+   */
+   
+   public void opretOplysninger(Scanner console){
+      
+      System.out.println("Indtast fornavn");
+      super.setFornavn(console.next());
+      System.out.println("Indtast efternavn");
+      super.setEfternavn(console.next()); 
+      System.out.println("Indtast alder");
+      super.setAlder(testConsoleInput(console));
+      
    }
    
    /**
@@ -84,22 +119,22 @@ public class Formand extends Ansat {
       while(dummy == 0){
          System.out.println("Vaelg medlemstype:\n\tTast 1 for aktiv\n\tTast 2 for passiv"); 
          
-         testerInput(console);
+         super.testConsoleInput(console);
          
-         switch(subMenuValg){
+         switch(this.menu){
             case 1: 
-               super.setMedlemstype("Aktiv");
+               super.setMedlemsskab("Aktiv");
                //gem medlem i motionist fil
                System.out.println("Kom ind 1a"); 
-               System.out.println(super.getMedlemstype());  
+               System.out.println(super.getMedlemsskab());  
                dummy = -1;
                break;
                
             case 2:
-               super.setMedlemstype("Passiv");
+               super.setMedlemsskab("Passiv");
                //gem medlem i konkurrence svømmer fil
                System.out.println("Kom ind 2a");
-               System.out.println(super.getMedlemstype()); 
+               System.out.println(super.getMedlemsskab()); 
                dummy = -1;
                break;
             
@@ -125,19 +160,19 @@ public class Formand extends Ansat {
          
          switch(subMenuValg){
             case 1: 
-               super.setAktivitetsform("Motionist");
+               //super.setAktivitetsform("Motionist");
                //gem medlem i motionist fil
                System.out.println("Kom ind 1"); 
-               System.out.println(super.getAktivitetsform());  
+               //System.out.println(super.getAktivitetsform());  
                super.saveIt("motionister.txt");
                System.out.println("\t...Medlem er gemt...\n");
                dummy = -1;
                break;
                
             case 2:
-               super.setAktivitetsform("Konkurrence");
+               //super.setAktivitetsform("Konkurrence");
                //gem medlem i konkurrence svømmer fil
-               System.out.println(super.getAktivitetsform());              
+               //System.out.println(super.getAktivitetsform());              
                System.out.println("Kom ind 2");
                super.saveIt("konkurrenceSvoemmere.txt");
                System.out.println("\t...Medlem er gemt...\n");

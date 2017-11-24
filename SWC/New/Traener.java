@@ -102,7 +102,7 @@ public class Traener extends Ansat {
          }
          break;
       }
-      for(int i = 0; i < this.count; i++;){
+      for(int i = 0; i < this.count; i++){
          
       }
    }
