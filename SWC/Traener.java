@@ -69,6 +69,7 @@ public class Traener extends Ansat {
    public void printListe()throws Exception{
       System.out.println("<==|_Kom_ind_|==>");
       transferToList("konkurrenceSvoemmere.txt");
+      subMenu();
    }
    
    /**
@@ -77,19 +78,32 @@ public class Traener extends Ansat {
    */
    public void transferToList(String fileName)throws Exception{
       Scanner oldFile = new Scanner(new File(fileName));
-      ArrayList<String> liste = new ArrayList<>(); 
-      int i = 0;
-      while(oldFile.hasNextLine()){
-         while(oldFile.hasNext()){
-            liste.add(oldFile.next());
-            System.out.println("kom ind her arr");
-            System.out.println(liste.get(i));
-            i++;
-         }
-      }
-      //clean-up
-      oldFile.close();
       
-      System.out.println(liste);
+      while(oldFile.hasNextLine()){
+         this.count++;
+         if(oldFile.nextLine() == null)
+            break;
+      } 
+      
+      System.out.println(this.count);
+      
+      
+      String medlemmer[][] = new String[this.count][5];
+      
+      //skal initialisere ny scanner fordi får kørt et while loop til at counte
+      //så den skal have initialiseret en ny scanner til samme fil.
+      Scanner oF = new Scanner(new File(fileName));
+      while(oF.hasNext()){
+         for(int i = 0; i < this.count; i++){
+            for(int j = 0; j < 5; j++){
+               String item = oF.next();
+               medlemmer[i][j] = item;
+            } 
+         }
+         break;
+      }
+      for(int i = 0; i < this.count; i++;){
+         
+      }
    }
 }

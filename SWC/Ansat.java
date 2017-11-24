@@ -14,6 +14,7 @@ public class Ansat {
    private String aktivitetsform;
    private String medlemstype;
    protected int menu = -1; //denne field bruges i switch
+   protected int count = 0; //bruges nu i træner til 2d array
    
    /**
    * Denne metode lader en vælge hvilke bruger 
