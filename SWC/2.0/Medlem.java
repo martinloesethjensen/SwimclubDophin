@@ -1,4 +1,4 @@
-import.java.util.*;
+import java.util.*;
 import java.io.*;
 
 public class Medlem {
@@ -30,7 +30,7 @@ public class Medlem {
       this.disciplin = disciplin;
       this.tid = tid;
    }
-}
+
 
 public String getFornavn() {return this.fornavn;}
 public void setFornavn(String fornavn) {this.fornavn = fornavn;}
@@ -51,11 +51,12 @@ public int getTid() {return this.tid;}
 public void setTid(int tid) {this.tid = tid;}
 
 public String getStaevneNavn() {return this.staevneNavn;}
-public void String setStaevneNavn(staevneNavn){this.staevneNavn = staevneNavn;}
+public void String setStaevneNavn(String staevneNavn){this.staevneNavn = staevneNavn;}
 
 public String getStaevneTid() {return this.staevneTid;}
-public void String setStaevneTid(staevneTid) {this.staevneTid = staevneTid);}
+public void String setStaevneTid(int staevneTid) {this.staevneTid = staevneTid);}
 
 public int getplacering(){return this.staevneTid;}
 public void setplacering(placering) {this.placering = placering;}
 
+}

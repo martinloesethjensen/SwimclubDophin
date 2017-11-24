@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Passiv extends Kontigent  {
+public class Passiv extends Kontingent  {
    
    public Passiv(double pris){
       super(pris);

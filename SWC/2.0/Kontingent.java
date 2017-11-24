@@ -1,5 +1,5 @@
-import.java.util.*;
-import.java.io.*;
+import java.util.*;
+import java.io.*;
 
 public class Kontingent {
 
@@ -13,10 +13,13 @@ public class Kontingent {
    public Kontingent (int alder, double pris) {}
    
    
+
+   //getters and setters
+   public int getAlder() { return this.alder; }
+   
+   public void setAlder(int alder) { this.alder = alder; }
+   
+   public double getPris() { return this.pris; }
+   
+   public void setPris(double pris) { this.pris = pris; }
 }
-
-public int getAlder() {return this.alder;}
-public int setAlder(alder) {this.alder = alder;}
-
-public double getPris() {return this.pris;}
-public double setPris(pris) {this.pris = pris;}
