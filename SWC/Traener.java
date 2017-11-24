@@ -73,6 +73,7 @@ public class Traener extends Ansat {
    
    /**
    * Læser fra fil ... Tilføj når metode er færdig 
+   * Ikke færdig
    */
    public void transferToList(String fileName)throws Exception{
       Scanner oldFile = new Scanner(new File(fileName));
