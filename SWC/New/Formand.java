@@ -11,15 +11,11 @@ public class Formand extends Ansat {
    
    int subMenuValg = -1; //bruges i testerInput til aktivitetsform og medlemstype
    
+   //default constructor
    public Formand(){}
-
-   /*public Formand(String firstName, String lastName, int alder, String aktivitetsForm){
-      super(firstName, lastName, alder, aktivitetsForm);
-   }*/
-     
    
 	/**
-	* beskrivelse her
+	* sub menu hvor man kan oprette et nyt medlem eller retunere til menu
 	*/
    
 	public void subMenu()throws Exception{
