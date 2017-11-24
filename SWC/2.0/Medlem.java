@@ -7,8 +7,12 @@ public class Medlem {
    private String efternavn;
    private String medlemsskab;
    private String disciplin;
+   private String staevneNavn;
    private int alder;
    private int tid;
+   private int staevneTid;
+   private int placering;
+   
       
    //default constructor
    public Medlem(){}
@@ -51,12 +55,12 @@ public int getTid() {return this.tid;}
 public void setTid(int tid) {this.tid = tid;}
 
 public String getStaevneNavn() {return this.staevneNavn;}
-public void String setStaevneNavn(String staevneNavn){this.staevneNavn = staevneNavn;}
+public void setStaevneNavn(String staevneNavn){this.staevneNavn = staevneNavn;}
 
-public String getStaevneTid() {return this.staevneTid;}
-public void String setStaevneTid(int staevneTid) {this.staevneTid = staevneTid);}
+public int getStaevneTid() {return this.staevneTid;}
+public void setStaevneTid(int staevneTid) {this.staevneTid = staevneTid;}
 
 public int getplacering(){return this.staevneTid;}
-public void setplacering(placering) {this.placering = placering;}
+public void setplacering(int placering) {this.placering = placering;}
 
 }
