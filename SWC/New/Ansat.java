@@ -61,7 +61,13 @@ public class Ansat {
    }
    
    /**
-   * Tester input fra console om det er tal 
+   * Tester input fra console om det er tal.
+   * try/catch bruges til at håndtere Exceptions.
+   * try indeholder den "normale" kode - den kode som vi forventer går godt.
+   * Hvis alt går godt, så kører den videre, men hvis ikke kører catch blocken. 
+   * catch hvis der kastes en exception.
+   * En finally block er clean-up. Denne kører lige meget om den får kørt try eller catch. 
+   * Vi bruger ikke finally block i vores kode her.  
    */
    
    public int testConsoleInput(Scanner console){
