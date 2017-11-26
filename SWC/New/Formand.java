@@ -8,9 +8,7 @@ import java.io.*;
 */
 
 public class Formand extends Ansat {
-   
-   int subMenuValg = -1; //bruges i testerInput til aktivitetsform og medlemstype
-   
+     
    //default constructor
    public Formand(){}
    
@@ -148,7 +146,6 @@ public class Formand extends Ansat {
                super.setDisciplin("Hundesvoemning");
                break;
             default:
-               System.out.println("Tast venligst et nummer der er fremvist");  
                vaelgDisciplin(console); //den kører i infinite loop               
          }
          dummy = -1;//kommer ud af whileloop 
