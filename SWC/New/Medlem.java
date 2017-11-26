@@ -15,7 +15,7 @@ public class Medlem {
    private int placering;
    private double pris;
    
-   //default constructor
+   //default constructor behøves ikke, da den jo er default
    public Medlem(){}
       
    public String toString(){
