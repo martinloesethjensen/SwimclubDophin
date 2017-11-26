@@ -1,4 +1,4 @@
-k h 3 d d
-j m 4 t t 
-k l 5 e e f f 7 Konkurrence Passiv
-e e 2 Konkurrence Aktiv
+Martin Jensen 20 Aktiv Rygcrawl 0.0
+Gert Sejsen 50 Passiv Hundesvoemning 0.0
+Kevin Hart 40 Passiv Brystsvoemning 0.0
+S›ren S›rensen 18 Aktiv Butterfly 0.0

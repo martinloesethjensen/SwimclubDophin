@@ -14,7 +14,7 @@ public class Ansat {
    private String aktivitetsform;
    private String medlemsskab;
    private String disciplin;
-   private int tid;
+   private double tid;
    public int menu = -1; //denne field bruges i switch
    protected int count = 0; //bruges nu i træner til 2d array
    
@@ -72,8 +72,11 @@ public class Ansat {
             return this.menu = Integer.parseInt(input);
          }catch(Exception e){
             System.out.println("Ugyldigt input\nTast venligst kun tal");
+            this.menu = -1;
+            break;//test
          }
       }
+      return 0;//tester
    } 
 
    /**
@@ -92,9 +95,9 @@ public class Ansat {
    
    public void setAlder(int alder) { this.alder = alder; }
    
-   public int getTid() {return this.tid;}
+   public double getTid() {return this.tid;}
    
-   public void setTid(int tid) {this.tid = tid;}
+   public void setTid(double tid) {this.tid = tid;}
    
    public String getMedlemsskab() { return this.medlemsskab; }
    

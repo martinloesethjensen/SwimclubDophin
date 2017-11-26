@@ -3,40 +3,21 @@ import java.io.*;
 
 public class Medlem {
    
+   //fields
    private String fornavn;
    private String efternavn;
    private String medlemsskab;
    private String disciplin;
    private String staevneNavn;
    private int alder;
-   private int tid;
-   private int staevneTid;
+   private double tid;
+   private double staevneTid;
    private int placering;
    private double pris;
    
-   
-      
    //default constructor
    public Medlem(){}
-   
-   //motionist
-   public Medlem(String fornavn, String efternavn, int alder, String medlemsskab){
-      this.fornavn = fornavn;
-      this.efternavn = efternavn;
-      this.alder = alder;
-      this.medlemsskab = medlemsskab;
-   }
-   
-   //konkurrence
-   public Medlem(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, int tid){
-      this.fornavn = fornavn;
-      this.efternavn = efternavn;
-      this.alder = alder;
-      this.medlemsskab = medlemsskab;
-      this.disciplin = disciplin;
-      this.tid = tid;
-   }
-   
+      
    public String toString(){
       return " ";
    }
@@ -47,7 +28,11 @@ public class Medlem {
       nytMemberInfo.println(toString());
       System.out.print("\n");      
    }
-
+   
+   /**
+   *getters og setters
+   */
+   
    public String getFornavn() {return this.fornavn;}
    
    public void setFornavn(String fornavn) {this.fornavn = fornavn;}
@@ -68,19 +53,19 @@ public class Medlem {
    
    public void setAlder(int alder){this.alder = alder;}
    
-   public int getTid() {return this.tid;}
+   public double getTid() {return this.tid;}
    
-   public void setTid(int tid) {this.tid = tid;}
+   public void setTid(double tid) {this.tid = tid;}
    
    public String getStaevneNavn() {return this.staevneNavn;}
    
    public void setStaevneNavn(String staevneNavn){this.staevneNavn = staevneNavn;}
    
-   public int getStaevneTid() {return this.staevneTid;}
+   public double getStaevneTid() {return this.staevneTid;}
    
-   public void setStaevneTid(int staevneTid) {this.staevneTid = staevneTid;}
+   public void setStaevneTid(double staevneTid) {this.staevneTid = staevneTid;}
    
-   public int getplacering(){return this.staevneTid;}
+   public int getplacering(){return this.placering;}
    
    public void setplacering(int placering) {this.placering = placering;}
 

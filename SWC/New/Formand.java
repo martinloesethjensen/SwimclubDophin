@@ -29,7 +29,7 @@ public class Formand extends Ansat {
          switch(this.menu){
             case 1: 
                opretMedlem(console);
-               menu = 0;
+               subMenu();
                break;
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
@@ -55,25 +55,22 @@ public class Formand extends Ansat {
       int dummy = 0;
       while(dummy == 0){
          System.out.println("Opret nyt medlem:\n\tTast 1 for at oprette" + 
-               "medlem som motionist\n\tTast 2 for at oprette medlem som Konkurrence Svoemmer");
+               "medlem som motionist\n\tTast 2 for at oprette medlem som konkurrencesvoemmer");
          
          super.testConsoleInput(console);
          
          switch(this.menu){
             case 1:
-               System.out.println("Hej1"); 
                opretMotion(console);
-               //metode her med valg
                break;
             case 2:
-               System.out.println("Hej2");
                opretKonkurrenceSvoemmer(console);
                break;
             default:
                opretMedlem(console);
          }
          dummy = 1;   
-      }       
+      }      
    }
    
    /**
@@ -85,8 +82,13 @@ public class Formand extends Ansat {
       
       medlemsskab(console);
       
-      Medlem nytMedlem = new Medlem(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab());
+      //opretter et objekt med parameter
+      Motionist nytMedlem = new Motionist(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab());
    }
+   
+   /**
+   * Opretter motionist medlem
+   */
    
    public void opretKonkurrenceSvoemmer(Scanner console)throws Exception{
       opretOplysninger(console);
@@ -94,11 +96,15 @@ public class Formand extends Ansat {
       medlemsskab(console);
       
       vaelgDisciplin(console);
-      //tid
+      
+      //tid i min?
+      
+      //set tid til 0.0, da det er et nyt medlem og har derfor ikke nogle 
+      //tider på disciplinen
+      setTid(0.0);
       
       
-      
-      Medlem nytMedlem = new Medlem(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(), super.getDisciplin(), super.getTid());
+      KonkurrenceSvoemmer nytMedlem = new KonkurrenceSvoemmer(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(), super.getDisciplin(), super.getTid());
    
    }
    
@@ -113,58 +119,40 @@ public class Formand extends Ansat {
       System.out.println("Indtast efternavn");
       super.setEfternavn(console.next()); 
       System.out.println("Indtast alder");
-      super.setAlder(testConsoleInput(console));
+      super.setAlder(super.testConsoleInput(console));
       
    }
    
    public void vaelgDisciplin(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
-         System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for" 
-            +"butterfly\n\tTast 4 for brystsvoemning\n\tTast5 for hundesvoemning"); 
+         System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
+                                  +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
          
          super.testConsoleInput(console);
          
          switch(this.menu){
             case 1: 
                super.setDisciplin("Crawl");
-               //gem medlem i motionist fil 
-               System.out.println(super.getMedlemsskab());  
-               dummy = -1;
                break;   
             case 2:
-               super.setMedlemsskab("Rygcrawl");
-               //gem medlem i konkurrence svømmer fil
-               System.out.println(super.getMedlemsskab()); 
-               dummy = -1;
+               super.setDisciplin("Rygcrawl");
                break;
             case 3:
-               super.setMedlemsskab("Butterfly");
-               //gem medlem i konkurrence svømmer fil
-               System.out.println(super.getMedlemsskab()); 
-               dummy = -1;
+               super.setDisciplin("Butterfly");
                break;
             case 4:
-               super.setMedlemsskab("Brystsvoemning");
-               //gem medlem i konkurrence svømmer fil
-               System.out.println(super.getMedlemsskab()); 
-               dummy = -1;
+               super.setDisciplin("Brystsvoemning");
                break;
             case 5:
-               super.setMedlemsskab("Hundesvoemning");
-               //gem medlem i konkurrence svømmer fil
-               System.out.println(super.getMedlemsskab()); 
-               dummy = -1;
+               super.setDisciplin("Hundesvoemning");
                break;
             default:
                System.out.println("Tast venligst et nummer der er fremvist");  
-               medlemsskab(console); //den kører i infinite loop               
+               vaelgDisciplin(console); //den kører i infinite loop               
          }
-         dummy = -1;
+         dummy = -1;//kommer ud af whileloop 
       }    
-   
-
-   
    }
    
    /**
@@ -181,85 +169,15 @@ public class Formand extends Ansat {
          switch(this.menu){
             case 1: 
                super.setMedlemsskab("Aktiv");
-               //gem medlem i motionist fil
-               System.out.println("Kom ind 1a"); 
-               System.out.println(super.getMedlemsskab());  
-               dummy = -1;
                break;
-               
             case 2:
                super.setMedlemsskab("Passiv");
-               //gem medlem i konkurrence svømmer fil
-               System.out.println("Kom ind 2a");
-               System.out.println(super.getMedlemsskab()); 
-               dummy = -1;
                break;
-            
             default:
                System.out.println("Tast venligst et nummer der er fremvist");  
                medlemsskab(console); //den kører i infinite loop               
          }
          dummy = -1;
       }    
-   }
-   
-   /**
-   * Opdeling i aktivitet.
-   * Går i infinte loop hvis man skriver andet end tal***
-   */
-   
-   public void aktivitet(Scanner console)throws Exception{
-      int dummy = 0;
-      while(dummy == 0){
-         System.out.println("Vaelg aktivitetsform:\n\tTast 1 for Motionist\n\tTast 2 for Konkurrence"); 
-         
-         testerInput(console);
-         
-         switch(subMenuValg){
-            case 1: 
-               //super.setAktivitetsform("Motionist");
-               //gem medlem i motionist fil
-               System.out.println("Kom ind 1"); 
-               //System.out.println(super.getAktivitetsform());  
-               System.out.println("\t...Medlem er gemt...\n");
-               dummy = -1;
-               break;
-               
-            case 2:
-               //super.setAktivitetsform("Konkurrence");
-               //gem medlem i konkurrence svømmer fil
-               //System.out.println(super.getAktivitetsform());              
-               System.out.println("Kom ind 2");
-               System.out.println("\t...Medlem er gemt...\n");
-               dummy = -1;
-               break;
-            
-            default:
-               System.out.println("Tast venligst et nummer der er fremvist");  
-               aktivitet(console); //den kører i infinite loop               
-         }
-         subMenu(); //hvor bruges denne? //linje 26
-         dummy = -1;
-      }    
-   }
-   public void testerInput(Scanner console){
-      int dum = 0;
-      int count = 0;
-      while(dum == 0){
-         if(console.hasNextInt()){
-            this.subMenuValg = console.nextInt();
-            count++; 
-            break;
-         }else if(count > 0){
-            this.subMenuValg = console.nextInt(); 
-            break; 
-         }else{ 
-            System.out.println("Ugyldigt input");
-            this.subMenuValg = -1; //denne er placeret så når man i 
-                                  //formand undgår at den automatisk vælger 
-                                 //case 1 
-            dum = 1; //hopper ud af loopet 
-         }          //Denne skal rettes
-      }   
    }
 }
