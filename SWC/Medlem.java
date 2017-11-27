@@ -67,9 +67,9 @@ public class Medlem {
    
    public void setStaevneTid(double staevneTid) {this.staevneTid = staevneTid;}
    
-   public int getplacering(){return this.placering;}
+   public int getPlacering(){return this.placering;}
    
-   public void setplacering(int placering) {this.placering = placering;}
+   public void setPlacering(int placering) {this.placering = placering;}
 
    public double getPris() { return this.pris; }
    
