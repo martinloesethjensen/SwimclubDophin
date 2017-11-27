@@ -7,5 +7,6 @@ public class Junior extends Aktiv {
       super(pris);
    }
    
+   @Override
    public double getPris() { return super.getPris() + 1000.0; }
 }

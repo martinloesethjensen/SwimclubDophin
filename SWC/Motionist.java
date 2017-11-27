@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
 
+/**
+* @Martin.Valhalla
+*/
+
 public class Motionist extends Medlem {
 
    public Motionist(String fornavn, String efternavn, int alder, String medlemsskab)throws Exception{

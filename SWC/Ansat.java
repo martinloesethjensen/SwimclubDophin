@@ -25,12 +25,12 @@ public class Ansat {
    
 	public int menu()throws Exception{
 		Scanner console = new Scanner(System.in);
+      
       //initialiserer objekter
       Traener traenerLogin = new Traener();
       Kasserer kassererLogin = new Kasserer();
       Formand formandLogin = new Formand();
       
-      //int menu = -1;
       while (this.menu != 0){
          menuInfo();
          
@@ -41,9 +41,9 @@ public class Ansat {
             case 1: formandLogin.subMenu(); break;
             case 2: kassererLogin.subMenu(); break;
             case 3: traenerLogin.subMenu(); break;
-            case 0: System.out.print("Logger af..."); this.menu = 0; break; //tilføj tid 
+            case 0: System.out.print("Logger af..."); this.menu = 0; break; 
             default: 
-               //System.out.println("Tast venligst et nummer der er fremvist");
+               System.out.println("Tast venligst et nummer der er fremvist");
                menu();
          }
          this.menu = 0; // Denne springer ud af whileloop
@@ -83,7 +83,7 @@ public class Ansat {
          try{
             return this.menu = Integer.parseInt(input);
          }catch(Exception e){
-            System.out.println("Ugyldigt input\nTast venligst kun tal");
+            System.out.println("Ugyldigt input");
             this.menu = -1; //sørger for at den ikke kan komme indi andre cases hvis den fejler
             break;//hopper ud
          }

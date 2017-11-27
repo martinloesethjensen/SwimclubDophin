@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
 
+/**
+* @Martin.Valhalla
+*/
+
 public class KonkurrenceSvoemmer extends Medlem {
    
    public KonkurrenceSvoemmer(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid)throws Exception{
