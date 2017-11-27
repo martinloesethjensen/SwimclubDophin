@@ -15,6 +15,9 @@ public class Ansat {
    private String medlemsskab;
    private String disciplin;
    private double tid;
+   private double staevneTid;
+   private String staevneNavn;
+   private int placering;
    public int menu = -1; //denne field bruges i switch
    protected int count = 0; //bruges nu i træner til 2d array
    
@@ -119,4 +122,16 @@ public class Ansat {
    public String getDisciplin(){return this.disciplin;}
    
    public void setDisciplin(String disciplin) {this.disciplin = disciplin;}
+   
+   public int getplacering(){return this.placering;}
+   
+   public void setplacering(int placering) {this.placering = placering;}
+   
+   public String getStaevneNavn() {return this.staevneNavn;}
+   
+   public void setStaevneNavn(String staevneNavn){this.staevneNavn = staevneNavn;}
+   
+   public double getStaevneTid() {return this.staevneTid;}
+   
+   public void setStaevneTid(double staevneTid) {this.staevneTid = staevneTid;}
 }
