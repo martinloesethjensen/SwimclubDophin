@@ -101,7 +101,7 @@ public class Formand extends Ansat {
       
       //set tid til 0.0, da det er et nyt medlem og har derfor ikke nogle 
       //tider på disciplinen
-      setTid(0.0);
+      setTid(0);
       
       //switch med gem til flere filer (disciplin)
       
