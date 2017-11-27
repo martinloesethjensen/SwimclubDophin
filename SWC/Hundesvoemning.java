@@ -1,9 +1,9 @@
 import java.util.*;
 import java.io.*;
 
-public class Brystsvoenning extends Medlem{ 
-   
-   public Brystsvoemning(String fornavn, String efternavn, String staevneNavn, double staevneTid, int placering, String disciplin)throws Exception{
+public class Hundesvoemning extends Medlem {
+
+   public Hundesvoemning(String fornavn, String efternavn, String staevneNavn, double staevneTid, int placering, String disciplin)throws Exception{
       super.setFornavn(fornavn);
       super.setEfternavn(efternavn);
       super.setStaevneNavn(staevneNavn);
@@ -12,7 +12,7 @@ public class Brystsvoenning extends Medlem{
       super.setDisciplin(disciplin);
       
       //gemmer til fil
-      super.saveIt("brystsvoemning.txt");
+      super.saveIt("hundesvoemning.txt");
    }
    
    @Override   
