@@ -70,7 +70,6 @@ public class Traener extends Ansat {
     
    public void printListe()throws Exception{
       System.out.println("<==|_Kom_ind_|==>");
-      transferToList("konkurrenceSvoemmere.txt");
       subMenu();
    }
    
@@ -92,9 +91,16 @@ public class Traener extends Ansat {
       Formand refMetode = new Formand();
       refMetode.vaelgDisciplin(console);
       
-      saveToFile(refMetode); 
+      saveToFile(refMetode);
       
+      subMenu();
    }
+   
+   /**
+   * Den laver et metodekald på vaelgDisciplin i formand klasse
+   * og sammenligner Disciplin.
+   * Udføre den pågælende case for disciplinen.
+   */
    
    public void saveToFile(Formand refMetode)throws Exception{
       switch(refMetode.getDisciplin()){
