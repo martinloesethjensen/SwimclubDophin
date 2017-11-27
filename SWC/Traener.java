@@ -87,10 +87,11 @@ public class Traener extends Ansat {
       super.setStaevneTid(console.nextDouble());
       System.out.println("Indtast placering");
       super.setPlacering(console.nextInt());
-      System.out.println("Vælg disciplin");
+      
+      //valg af disciplin
       Formand refMetode = new Formand();
       refMetode.vaelgDisciplin(console);
-      System.out.println(refMetode.getDisciplin());
+      
       saveToFile(refMetode); 
       
    }
@@ -99,6 +100,9 @@ public class Traener extends Ansat {
       switch(refMetode.getDisciplin()){
          case "Crawl":
             Crawl save = new Crawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
+            break;
+         default:
+            break;
       }
    }
    
