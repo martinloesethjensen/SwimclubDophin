@@ -82,9 +82,9 @@ public class Traener extends Ansat {
       int alder = konkurrence.nextInt();
       String medlemskab = konkurrence.next();
       String disciplin = konkurrence.next();
-      double tid = konkurrence.nextDouble();
+      String tid = konkurrence.next();
       
-      System.out.printf("%-10s %-10s %-7d %-11s %-15s %.02f\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
+      System.out.printf("%-10s %-10s %-7d %-11s %-15s %s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
       System.out.println(konkurrence.nextLine() + "  ");
       
    }
