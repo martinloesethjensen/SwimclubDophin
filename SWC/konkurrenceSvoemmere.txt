@@ -1,5 +1,5 @@
-Martin Jensen 20 Aktiv Rygcrawl 0.0
-Gert Sejsen 50 Passiv Hundesvoemning 0.0
-Kevin Hart 40 Passiv Brystsvoemning 0.0
-Soeren Soerensen 18 Aktiv Butterfly 0.0
-Henrik Koefod 17 Passiv Hundesvoemning 0.0
+Martin Jensen 20 Aktiv Rygcrawl 0,0
+Gert Sejsen 50 Passiv Hundesvoemning 0,0
+Kevin Hart 40 Passiv Brystsvoemning 0,0
+Soeren Soerensen 18 Aktiv Butterfly 0,0
+Henrik Koefod 17 Passiv Hundesvoemning 0,0
