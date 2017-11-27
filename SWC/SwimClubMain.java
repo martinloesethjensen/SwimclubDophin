@@ -17,16 +17,16 @@ public class SwimClubMain {
      
       int pass = 0;
       
-      System.out.print("Velkommen til svoemmeklubben Delfinen. Indtast password:\n");
          while (pass != 1) {
-         
+             
+            System.out.println("Velkommen til svoemmeklubben Delfinen. Indtast kode:\n");           
             Scanner console = new Scanner(System.in);
             String input;
             input = console.next();
             
             switch(input) {
             
-            case "Dolphin": 
+            case "Delfin": 
             System.out.println("Korrekt password.\n");
             Thread.sleep(2000);
             login();
@@ -38,6 +38,7 @@ public class SwimClubMain {
             
             }
          
+         pass = 1;
          }
            
       
