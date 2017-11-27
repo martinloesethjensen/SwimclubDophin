@@ -50,7 +50,6 @@ public class SwimClubMain {
                System.out.println("Ugyldigt password. Proev igen.\n");
                logon(); 
          }
-         pass = 1;
       }
    }
 	
