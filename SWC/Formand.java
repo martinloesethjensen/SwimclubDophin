@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.*;
 
 /**
-*
 * @Martin.Valhalla 
 * @Christian.C-Strunge
 */
@@ -34,6 +33,7 @@ public class Formand extends Ansat {
                super.menu(); //menu hos ansat
                break;
             default: 
+               System.out.println("Tast venligst et nummer der er fremvist");
                subMenu();
          }
          break; //for kun at komme ud af dette loop
@@ -65,6 +65,7 @@ public class Formand extends Ansat {
                opretKonkurrenceSvoemmer(console);
                break;
             default:
+               System.out.println("Tast venligst et nummer der er fremvist");
                opretMedlem(console);
          }
          dummy = 1;   
@@ -146,6 +147,7 @@ public class Formand extends Ansat {
                super.setDisciplin("Hundesvoemning");
                break;
             default:
+               System.out.println("Tast venligst et nummer der er fremvist");            
                vaelgDisciplin(console); //den kører i infinite loop               
          }
          dummy = -1;//kommer ud af whileloop 

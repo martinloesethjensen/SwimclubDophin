@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
 
+/**
+* @Martin.Valhalla
+*/
+
 public class Medlem {
    
    //fields
@@ -18,9 +22,7 @@ public class Medlem {
    //default constructor behøves ikke, da den jo er default
    public Medlem(){}
       
-   public String toString(){
-      return " ";
-   }
+   public String toString(){ return " "; }
    
    //Metode til at gemme til fil
    public void saveIt(String filNavn)throws Exception{
