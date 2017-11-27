@@ -96,11 +96,14 @@ public class Formand extends Ansat {
       
       vaelgDisciplin(console);
       
+      
       //tid i min?
       
       //set tid til 0.0, da det er et nyt medlem og har derfor ikke nogle 
       //tider på disciplinen
       setTid(0.0);
+      
+      //switch med gem til flere filer (disciplin)
       
       
       KonkurrenceSvoemmer nytMedlem = new KonkurrenceSvoemmer(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(), super.getDisciplin(), super.getTid());
