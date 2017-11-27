@@ -8,9 +8,10 @@ import java.io.*;
 
 public class Traener extends Ansat {
 
-	/**
-   * beskrivelse her
+   /**
+   * Beskrivelse her
    */
+   
 	public int subMenu()throws Exception{
 		Scanner console = new Scanner(System.in);
       int menu = -1;
@@ -57,32 +58,78 @@ public class Traener extends Ansat {
          
          super.testConsoleInput(console);
          
+         String fileName;
+         
          switch(this.menu){
             case 1: 
                super.setDisciplin("Crawl");
-               String fileName = "crawl.txt";
+               fileName = "crawl.txt";
                openFile(fileName);               
                break;   
             case 2:
                super.setDisciplin("Rygcrawl");
+               fileName = "rygcrawl.txt";
+               openFile(fileName);
                break;
             case 3:
                super.setDisciplin("Butterfly");
+               fileName = "butterfly.txt";
+               openFile(fileName);
                break;
             case 4:
                super.setDisciplin("Brystsvoemning");
+               fileName = "brystsvoemning.txt";
+               openFile(fileName);
                break;
             case 5:
                super.setDisciplin("Hundesvoemning");
+               fileName = "hundesvoemning.txt";
+               openFile(fileName);
                break;
             default:
                System.out.println("Tast venligst et nummer der er fremvist");            
                printDisciplin(console); //den kører i infinite loop               
          }
-         subMenu();
+         
+         //prompter om forsættelse
+         fortsaettelse(console);
+                  
          dummy = -1;//kommer ud af whileloop 
       }     
 	}
+   
+   /**
+   * prompter om fortsættelse her
+   */
+   
+   public void fortsaettelse(Scanner console)throws Exception{
+      int dummy = 0;
+      
+      while(dummy == 0){
+         System.out.println("Tast 1 for at print endnu en liste\nTast 0 for at returnere\n<==");
+            
+         super.testConsoleInput(console);
+            
+         switch(this.menu){
+            case 1:
+               printDisciplin(console);
+               break;
+            
+            case 0:
+               subMenu();
+               break;
+            
+            default:
+               System.out.println("Tast venligst et nummer der er fremvist");   
+               fortsaettelse(console);   
+         }
+         dummy = -1;
+      }
+   }
+   
+   /**
+   * Beskrivelse her
+   */
    
    public void openFile(String fileName)throws Exception{
       Scanner scanFile = new Scanner(new File(fileName));
