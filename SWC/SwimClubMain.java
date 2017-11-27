@@ -34,6 +34,8 @@ public class SwimClubMain {
             break;
             
             case "EXIT":
+            System.out.println("Lukker programmet. Tak for denne gang.");
+            Thread.sleep(1000);
             pass = 1;
             break;
             
