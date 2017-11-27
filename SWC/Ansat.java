@@ -56,11 +56,16 @@ public class Ansat {
       return 0;
 	}
    
-   public void menuInfo(){
-      System.out.println("Tast 1 for Formand");
+   public void menuInfo()throws Exception {
+      /*System.out.println("Tast 1 for Formand");
       System.out.println("Tast 2 for Kasserer");
       System.out.println("Tast 3 for Traener");
-      System.out.println("Tast 0 for at afslutte");
+      System.out.println("Tast 0 for at afslutte");*/
+      
+      System.out.println("VÆLG BRUGER:");
+      System.out.printf("%-15s%s\n", ">FORMAND:", "Tryk 1");
+      System.out.printf("%-15s%s\n", ">KASSERER:", "Tryk 2");
+      System.out.printf("%-15s%s\n", ">TRAENER:", "Tryk 3");
    }
    
    /**

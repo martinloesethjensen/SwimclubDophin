@@ -19,26 +19,31 @@ public class SwimClubMain {
       
          while (pass != 1) {
              
-            System.out.println("Velkommen til svoemmeklubben Delfinen. Indtast kode:\n");           
+            System.out.println("Velkommen til svoemmeklubben Delfinen.\n");
+            System.out.println("Tast password for at logge ind.\nEllers tast \"exit\" for at afslutte.\nPassword:");           
             Scanner console = new Scanner(System.in);
             String input;
             input = console.next();
             
-            switch(input) {
+            switch(input.toUpperCase()) {
             
-            case "Delfin": 
+            case "DELFIN": 
             System.out.println("Korrekt password.\n");
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             login();
             break;
             
+            case "EXIT":
+            pass = 1;
+            break;
+            
             default:
-            System.out.println("Ugyldigt password. Proev igen");
+            System.out.println("Ugyldigt password. Proev igen.");
             break;
             
             }
          
-         pass = 1;
+         
          }
            
       
