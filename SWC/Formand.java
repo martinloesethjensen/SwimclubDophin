@@ -41,8 +41,8 @@ public class Formand extends Ansat {
 	}
 
    public void subMenuInfo(){
-      System.out.println("Tast 1 for at oprette nyt medlem");
-      System.out.print("Tast 0 for at gaa tilbage\n<==\n");
+      System.out.printf("%-30s%s\n", "OPRET NYT MEDLEM", "TRYK 1");
+      System.out.printf("%-30s%s\n", "RETURNER TIL MENU", "TRYK 0");
    }
       
    /**
@@ -52,8 +52,7 @@ public class Formand extends Ansat {
    public void opretMedlem(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
-         System.out.println("Opret nyt medlem:\n\tTast 1 for at oprette" + 
-               "medlem som motionist\n\tTast 2 for at oprette medlem som konkurrencesvoemmer");
+         System.out.printf("%-30s%s\n%-30s%s", "OPRET MOTIONIST", "TRYK 1", "OPRET KONKURRENCESVOEMMER", "TRYK 2\n");
          
          super.testConsoleInput(console);
          
@@ -116,11 +115,11 @@ public class Formand extends Ansat {
    
    public void opretOplysninger(Scanner console){
       
-      System.out.println("Indtast fornavn");
+      System.out.println("INDTAST FORNAVN:");
       super.setFornavn(console.next());
-      System.out.println("Indtast efternavn");
+      System.out.println("INDTAST EFTERNAVN");
       super.setEfternavn(console.next()); 
-      System.out.println("Indtast alder");
+      System.out.println("INDTAST ALDER");
       
       /*super.testConsoleInput(console);
       
@@ -136,9 +135,10 @@ public class Formand extends Ansat {
    public void vaelgDisciplin(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
-         System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
-                                  +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
-         
+          
+         System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TRYK 1", "RYGCRAWL",
+          "TRYK 2", "BRYSTSVØMNING", "TAST 3",
+           "BUTTERFLY", "TAST 4", "HUNDESVØMNING", "TAST 5");
          super.testConsoleInput(console);
          
          switch(this.menu){
@@ -172,7 +172,7 @@ public class Formand extends Ansat {
    public void medlemsskab(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
-         System.out.println("Vaelg medlemstype:\n\tTast 1 for aktiv\n\tTast 2 for passiv"); 
+         System.out.printf("%s\n%-30s%s\n%-30s%s", "VAELG MEDLEMSTYPE", "AKTIV", "TRYK 1", "PASSIV", "TRYK 2\n"); 
          
          super.testConsoleInput(console);
          

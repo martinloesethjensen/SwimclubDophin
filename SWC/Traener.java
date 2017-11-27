@@ -39,11 +39,21 @@ public class Traener extends Ansat {
 	}
    
    public void traenerMenu(){
-      System.out.println("Tast 1 for disciplinliste med tilknyttede medlemmer");
+      
+      System.out.printf("%-35s%s\n", "DISCIPLINLISTE M. MEDLEMMER", "TRYK 1");
+      System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TRYK 2");
+      System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TRYK 3");
+      System.out.printf("%-35s%s\n", "REDIGER STAEVNEDELTAGERE", "TRYK 4");
+      System.out.println();
+      System.out.printf("%-35s%s\n", "RETURNER", "TRYK 0");
+
+
+      
+      /*System.out.println("Tast 1 for disciplinliste med tilknyttede medlemmer");
       System.out.println("Tast 2 for top 5 liste over disciplin"); //ændres
       System.out.println("Tast 3 for liste over konkurrencesvoemmere");
       System.out.println("Tast 4 for at registrere deltagelse i staevne");
-      System.out.println("Tast 0 for at returnere\n<=="); 
+      System.out.println("Tast 0 for at returnere\n<==");*/ 
    }
    
    /**

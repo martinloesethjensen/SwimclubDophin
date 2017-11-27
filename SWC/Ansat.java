@@ -62,12 +62,12 @@ public class Ansat {
       System.out.println("Tast 3 for Traener");
       System.out.println("Tast 0 for at afslutte");*/
       
-      System.out.println("VÆLG BRUGER:");
-      System.out.printf("%-15s%s\n", ">FORMAND:", "TRYK 1");
-      System.out.printf("%-15s%s\n", ">KASSERER:", "TRYK 2");
-      System.out.printf("%-15s%s\n", ">TRAENER:", "TRYK 3");
+      System.out.println("VAELG BRUGER:");
+      System.out.printf("%-15s%s\n", "FORMAND:", "TRYK 1");
+      System.out.printf("%-15s%s\n", "KASSERER:", "TRYK 2");
+      System.out.printf("%-15s%s\n", "TRAENER:", "TRYK 3");
       System.out.println();
-      System.out.printf("%-15s%s\n", ">LOG AF", "TRYK 0");
+      System.out.printf("%-15s%s\n", "LOG AF", "TRYK 0");
    }
    
    /**
