@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.*;
 
 /**
-*
 * @Martin.Valhalla
 * @Casper.ortismal
 */

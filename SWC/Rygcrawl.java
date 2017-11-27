@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
 
+/**
+* @Martin.Valhalla
+*/
+
 public class Rygcrawl extends Medlem{
 
    public Rygcrawl(String fornavn, String efternavn, String staevneNavn, double staevneTid, int placering, String disciplin)throws Exception{

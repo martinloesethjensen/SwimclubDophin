@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
 
+/**
+* @Martin.Valhalla
+*/
+
 public class Brystsvoemning extends Medlem{ 
    
    public Brystsvoemning(String fornavn, String efternavn, String staevneNavn, double staevneTid, int placering, String disciplin)throws Exception{
