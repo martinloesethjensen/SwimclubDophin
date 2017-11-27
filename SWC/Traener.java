@@ -68,11 +68,29 @@ public class Traener extends Ansat {
    * Beskrivelse her
    */  
     
-   public void printListe()throws Exception{
-      System.out.println("<==|_Kom_ind_|==>");
-      subMenu();
-   }
+    public void printListe()throws Exception{
    
+   Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
+   
+   System.out.printf(/*"%-5s %-10s %-5s %-10s %-10s %-10s\n",*/ "Navn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid");
+   System.out.println("--------------------------------------------------");
+   
+   while(konkurrence.hasNextLine()){
+      /*
+      String fornavn = konkurrence.next();
+      String efternavn = konkurrence.next();
+      int alder = konkurrence.nextInt();
+      String medlemskab = konkurrence.next();
+      String disciplin = konkurrence.next();
+      int tid = konkurrence.nextInt();
+      
+      System.out.printf("%-5s %-10s %-5s %-10s %-10s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);*/
+      System.out.println(konkurrence.nextLine(), "  ");
+      
+   }
+   System.out.println();
+   subMenu();
+   }   
    //Beskrivelse
    
    public void registrerStaevne(Scanner console)throws Exception{
