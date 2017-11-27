@@ -118,6 +118,14 @@ public class Formand extends Ansat {
       System.out.println("Indtast efternavn");
       super.setEfternavn(console.next()); 
       System.out.println("Indtast alder");
+      
+      /*super.testConsoleInput(console);
+      
+      while(true){
+         if (this.menu > 0)
+            this.alder
+            
+      }*/
       super.setAlder(super.testConsoleInput(console));
       
    }
