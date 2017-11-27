@@ -111,39 +111,4 @@ public class Traener extends Ansat {
             break;
       }
    }
-   
-   /**
-   * Læser fra fil ... Tilføj når metode er færdig 
-   * Ikke færdig
-   */
-   public void transferToList(String fileName)throws Exception{
-      Scanner oldFile = new Scanner(new File(fileName));
-      
-      while(oldFile.hasNextLine()){
-         this.count++;
-         if(oldFile.nextLine() == null)
-            break;
-      } 
-      
-      System.out.println(this.count);
-      
-      
-      String medlemmer[][] = new String[this.count][5];
-      
-      //skal initialisere ny scanner fordi får kørt et while loop til at counte
-      //så den skal have initialiseret en ny scanner til samme fil.
-      Scanner oF = new Scanner(new File(fileName));
-      while(oF.hasNext()){
-         for(int i = 0; i < this.count; i++){
-            for(int j = 0; j < 5; j++){
-               String item = oF.next();
-               medlemmer[i][j] = item;
-            } 
-         }
-         break;
-      }
-      for(int i = 0; i < this.count; i++){
-         
-      }
-   }
 }
