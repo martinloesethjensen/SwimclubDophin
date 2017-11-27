@@ -62,12 +62,18 @@ public class Ansat {
    
    /**
    * Tester input fra console om det er tal.
+   *
    * try/catch bruges til at håndtere Exceptions.
    * try indeholder den "normale" kode - den kode som vi forventer går godt.
    * Hvis alt går godt, så kører den videre, men hvis ikke kører catch blocken. 
    * catch hvis der kastes en exception.
    * En finally block er clean-up. Denne kører lige meget om den får kørt try eller catch. 
    * Vi bruger ikke finally block i vores kode her.  
+   *
+   * "Integer" er en klasse nedarvet fra "Numbers" klasse, der igen er nedarvet fra "Object" klassen
+   * Integer har en masse fields og methoder i sig, som vi gør brug af her.
+   * Integer.parseInt(input) tager imod String variable fra consolen.
+   * Den omdanner til int.  
    */
    
    public int testConsoleInput(Scanner console){
@@ -78,11 +84,12 @@ public class Ansat {
             return this.menu = Integer.parseInt(input);
          }catch(Exception e){
             System.out.println("Ugyldigt input\nTast venligst kun tal");
-            this.menu = -1;
-            break;//test
+            this.menu = -1; //sørger for at den ikke kan komme indi andre cases hvis den fejler
+            break;//hopper ud
          }
       }
-      return 0;//tester
+      return 0;//dummy eftersom vi har en break som afslutter i catch blocken
+               //derfor skal der være en return. 
    } 
 
    /**
