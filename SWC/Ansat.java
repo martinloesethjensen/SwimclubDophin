@@ -123,9 +123,9 @@ public class Ansat {
    
    public void setDisciplin(String disciplin) {this.disciplin = disciplin;}
    
-   public int getplacering(){return this.placering;}
+   public int getPlacering(){return this.placering;}
    
-   public void setplacering(int placering) {this.placering = placering;}
+   public void setPlacering(int placering) {this.placering = placering;}
    
    public String getStaevneNavn() {return this.staevneNavn;}
    

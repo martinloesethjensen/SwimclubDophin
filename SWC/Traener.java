@@ -77,19 +77,29 @@ public class Traener extends Ansat {
    //Beskrivelse
    
    public void registrerStaevne(Scanner console)throws Exception{
-      System.out.println("Enter-check");
       System.out.println("Indtast fornavn");
       super.setFornavn(console.next());
       System.out.println("Indtast efternavn");
       super.setEfternavn(console.next());
-      System.out.println("Indtast stævnenavn");
+      System.out.println("Indtast staevnenavn");
       super.setStaevneNavn(console.next());
-      
+      System.out.println("Indtast bedste staevnetid");
+      super.setStaevneTid(console.nextDouble());
+      System.out.println("Indtast placering");
+      super.setPlacering(console.nextInt());
       System.out.println("Vælg disciplin");
       Formand refMetode = new Formand();
       refMetode.vaelgDisciplin(console);
-      System.out.println(refMetode.getDisciplin()); 
+      System.out.println(refMetode.getDisciplin());
+      saveToFile(refMetode); 
       
+   }
+   
+   public void saveToFile(Formand refMetode)throws Exception{
+      switch(refMetode.getDisciplin()){
+         case "Crawl":
+            Crawl save = new Crawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
+      }
    }
    
    /**
