@@ -42,8 +42,8 @@ public class Traener extends Ansat {
       System.out.println("Tast 1 for disciplinliste med tilknyttede medlemmer");
       System.out.println("Tast 2 for top 5 liste over disciplin"); //ændres
       System.out.println("Tast 3 for liste over konkurrencesvoemmere");
-      System.out.println("Tast 4 for at registrere deltagelse i stævne");
-      System.out.println("Tast 0 for at gaa tilbage\n<=="); 
+      System.out.println("Tast 4 for at registrere deltagelse i staevne");
+      System.out.println("Tast 0 for at returnere\n<=="); 
    }
    
    /**

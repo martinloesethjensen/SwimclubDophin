@@ -14,11 +14,33 @@ import java.io.*;
 
 public class SwimClubMain {
    public static void main(String[] args)throws Exception{
-      //velkomst 
-      //efterfulgt af en sleep
-      //eventuelt logon screen med password?
+     
+      int pass = 0;
       
-      login();
+      System.out.print("Velkommen til svoemmeklubben Delfinen. Indtast password:\n");
+         while (pass != 1) {
+         
+            Scanner console = new Scanner(System.in);
+            String input;
+            input = console.next();
+            
+            switch(input) {
+            
+            case "Dolphin": 
+            System.out.println("Korrekt password.\n");
+            Thread.sleep(2000);
+            login();
+            break;
+            
+            default:
+            System.out.println("Ugyldigt password. Proev igen");
+            break;
+            
+            }
+         
+         }
+           
+      
    }
 	
    /**
