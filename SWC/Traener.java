@@ -20,7 +20,7 @@ public class Traener extends Ansat {
          super.testConsoleInput(console);               
          
          switch(this.menu){
-            case 1: printDisciplin(); break; //tilføj switch
+            case 1: printDisciplin(console); break; //tilføj switch
             case 2: printKandidater(); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
@@ -49,10 +49,62 @@ public class Traener extends Ansat {
    * Beskrivelse her
    */
    
-	public void printDisciplin(){
-		System.out.println("<==|_Kom_ind_|==>");
-      //switch
+	public void printDisciplin(Scanner console)throws Exception {
+      int dummy = 0;
+      while(dummy == 0){
+         System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
+                                  +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
+         
+         super.testConsoleInput(console);
+         
+         switch(this.menu){
+            case 1: 
+               super.setDisciplin("Crawl");
+               String fileName = "crawl.txt";
+               openFile(fileName);               
+               break;   
+            case 2:
+               super.setDisciplin("Rygcrawl");
+               break;
+            case 3:
+               super.setDisciplin("Butterfly");
+               break;
+            case 4:
+               super.setDisciplin("Brystsvoemning");
+               break;
+            case 5:
+               super.setDisciplin("Hundesvoemning");
+               break;
+            default:
+               System.out.println("Tast venligst et nummer der er fremvist");            
+               printDisciplin(console); //den kører i infinite loop               
+         }
+         subMenu();
+         dummy = -1;//kommer ud af whileloop 
+      }     
 	}
+   
+   public void openFile(String fileName)throws Exception{
+      Scanner scanFile = new Scanner(new File(fileName));
+      
+      System.out.printf("%-10s %-10s %-7s %-11s %-15s %-11s\n", "Fornavn", "Efternavn", "Staevnenavn", "Disciplin", "Tid", "Placering");
+      System.out.println("------------------------------------------------------------------");
+      
+      while(scanFile.hasNextLine()){
+         
+         String fornavn = scanFile.next();
+         String efternavn = scanFile.next();
+         String staevnenavn = scanFile.next();
+         String disciplin = scanFile.next();
+         String staevneTid = scanFile.next();
+         int placering = scanFile.nextInt();
+         
+         System.out.printf("%-10s %-10s %-7s %-11s %-11s %d\n", fornavn, efternavn, staevnenavn, disciplin, staevneTid, placering);
+         System.out.println(scanFile.nextLine() + "  ");
+         
+      }
+      System.out.println();
+   }
    
    /**
    * Beskrivelse her
@@ -68,30 +120,32 @@ public class Traener extends Ansat {
    */  
     
     public void printListe()throws Exception{
-   
-   Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
-   
-   System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid");
-   System.out.println("------------------------------------------------------------------");
-   
-   while(konkurrence.hasNextLine()){
+       Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
       
-      String fornavn = konkurrence.next();
-      String efternavn = konkurrence.next();
-      int alder = konkurrence.nextInt();
-      String medlemskab = konkurrence.next();
-      String disciplin = konkurrence.next();
-      String tid = konkurrence.next();
+       System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid");
+       System.out.println("------------------------------------------------------------------");
       
-      System.out.printf("%-10s %-10s %-7d %-11s %-15s %s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
-      System.out.println(konkurrence.nextLine() + "  ");
-      
-   }
-   System.out.println();
-   subMenu();
-   }   
-   //Beskrivelse
-   
+       while(konkurrence.hasNextLine()){
+         
+          String fornavn = konkurrence.next();
+          String efternavn = konkurrence.next();
+          int alder = konkurrence.nextInt();
+          String medlemskab = konkurrence.next();
+          String disciplin = konkurrence.next();
+          String tid = konkurrence.next();
+         
+          System.out.printf("%-10s %-10s %-7d %-11s %-15s %s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
+          System.out.println(konkurrence.nextLine() + "  ");
+         
+       }
+       System.out.println();
+       subMenu();
+    }     
+    
+   /**
+   *Beskrivelse
+   */
+    
    public void registrerStaevne(Scanner console)throws Exception{
       System.out.println("Indtast fornavn");
       super.setFornavn(console.next());
