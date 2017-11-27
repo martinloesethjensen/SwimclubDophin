@@ -27,9 +27,11 @@ public class SwimClubMain {
       
       while (pass != 1) {
              
-         System.out.println("Tast password for at logge ind.\nEllers tast \"exit\" for at afslutte.\nPassword:");           
+         System.out.print("Tast password for at logge ind.\nEllers tast \"exit\" for at afslutte.\nPassword:\t");           
          
          String input = console.next().toUpperCase();
+         
+         System.out.println(); 
             
          switch(input) {
             case "DELFIN": 
