@@ -44,7 +44,7 @@ public class Ansat {
             case 1: formandLogin.subMenu(); break;
             case 2: kassererLogin.subMenu(); break;
             case 3: traenerLogin.subMenu(); break;
-            case 0: System.out.print("Logger af..."); this.menu = 0; break; 
+            case 0: System.out.print("Logger af...\n\n"); this.menu = 0; break; 
             default: 
                System.out.println("Tast venligst et nummer der er fremvist");
                menu();
@@ -66,6 +66,8 @@ public class Ansat {
       System.out.printf("%-15s%s\n", ">FORMAND:", "Tryk 1");
       System.out.printf("%-15s%s\n", ">KASSERER:", "Tryk 2");
       System.out.printf("%-15s%s\n", ">TRAENER:", "Tryk 3");
+      System.out.println();
+      System.out.printf("%-15s%s\n", ">LOG AF", "TRYK 0");
    }
    
    /**
