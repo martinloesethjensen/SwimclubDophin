@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Rygcrawl extends Disciplin{
+public class Rygcrawl extends Medlem{
 
    public Rygcrawl(String fornavn, String efternavn, String staevneNavn, double staevneTid, int placering, String disciplin)throws Exception{
       super.setFornavn(fornavn);

@@ -123,8 +123,20 @@ public class Traener extends Ansat {
    public void saveToFile(Formand refMetode)throws Exception{
       switch(refMetode.getDisciplin()){
          case "Crawl":
-            Crawl save = new Crawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
+            Crawl gemCrawl = new Crawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
             break;
+         case "Brystsvoemning":
+            Brystsvoemning gemBrystsvoemning = new Brystsvoemning(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
+            break;
+         case "Rygcrawl":
+            Rygcrawl gemRygcrawl = new Rygcrawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
+            break;
+         case "Butterfly":
+            Butterfly gemButterfly = new Butterfly(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
+            break;
+         case "Hundesvoemning":
+            Hundesvoemning geHundesvoemning = new Hundesvoemning(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
+            break;   
          default:
             break;
       }
