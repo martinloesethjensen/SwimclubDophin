@@ -72,8 +72,8 @@ public class Traener extends Ansat {
    
    Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
    
-   System.out.printf("%-5s %-10s %-5s %-10s %-10s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid");
-   System.out.println("--------------------------------------------------");
+   System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid");
+   System.out.println("------------------------------------------------------------------");
    
    while(konkurrence.hasNextLine()){
       
@@ -84,7 +84,7 @@ public class Traener extends Ansat {
       String disciplin = konkurrence.next();
       double tid = konkurrence.nextDouble();
       
-      System.out.printf("%-5s %-10s %-5d %-10s %-10s %-10f\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
+      System.out.printf("%-10s %-10s %-7d %-11s %-15s %.02f\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
       System.out.println(konkurrence.nextLine() + "  ");
       
    }
