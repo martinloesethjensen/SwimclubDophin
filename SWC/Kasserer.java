@@ -26,9 +26,6 @@ public class Kasserer extends Ansat {
             case 1: 
                visRestance();
                
-               //if else 
-               //om det er konkurrence svømmer eller motion
-               //gem i fil dertil
                menu = 0;
                break;
             case 2:
@@ -49,13 +46,9 @@ public class Kasserer extends Ansat {
 	}
    
    public void subMenuInfo(){
-<<<<<<< HEAD
-      System.out.printf("%-20s%s\n%-20s%s\n", "PRINT RESTANCELISTE", "TRYK 1", "RETURNER", "TRYK 0");
-=======
-      System.out.println("Tast 1 for at printe restance");
-      System.out.println("Tast 2 for at printe betalingsstatus");
-      System.out.print("Tast 0 for at gaa tilbage\n<==\n");
->>>>>>> a0b9114d86bb589c953630637576cbf73e44dd88
+
+      System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n", "PRINT RESTANCELISTE", "TRYK 1", "PRINT BETALINGSSTATUS", "TRYK 2", "RETURNER", "TAST 0");
+
    }
 
    
@@ -69,6 +62,8 @@ public class Kasserer extends Ansat {
             String sline = status.nextLine();
                System.out.println(sline.toString());
              }
+      System.out.println();
+      subMenu();
    }
    
    /**
@@ -98,7 +93,11 @@ public class Kasserer extends Ansat {
          
          Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
          vis.add(kas);
-         }  
+         
+         
+         } 
+         System.out.println();
+         subMenu(); 
    }
    
    public String toString() {
