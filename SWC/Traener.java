@@ -8,7 +8,9 @@ import java.io.*;
 */
 
 public class Traener extends Ansat {
-
+   
+   protected int counter = 0;
+   
    /**
    * Beskrivelse her
    */
@@ -25,7 +27,8 @@ public class Traener extends Ansat {
             case 1: printDisciplin(console); break; //tilføj switch
             case 2: printKandidater(); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
-            case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
+            //case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
+            case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu(); //menu hos ansat
@@ -145,19 +148,20 @@ public class Traener extends Ansat {
    public void openFile(String fileName)throws Exception{
       Scanner scanFile = new Scanner(new File(fileName));
       
-      System.out.printf("%-10s %-10s %-7s %-11s %-15s %-11s\n", "Fornavn", "Efternavn", "Staevnenavn", "Disciplin", "Tid", "Placering");
+      System.out.printf("%-10s %-10s %-7s %-11s %-15s %-11s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemsskab", "Disciplin", "Tid", "Dato");
       System.out.println("------------------------------------------------------------------");
       
       while(scanFile.hasNextLine()){
          
          String fornavn = scanFile.next();
          String efternavn = scanFile.next();
-         String staevnenavn = scanFile.next();
+         int alder = scanFile.nextInt();
+         String medlemsskab = scanFile.next();
          String disciplin = scanFile.next();
-         String staevneTid = scanFile.next();
-         int placering = scanFile.nextInt();
+         String tid = scanFile.next();
+         String dato = scanFile.next();
          
-         System.out.printf("%-10s %-10s %-7s %-11s %-11s %d\n", fornavn, efternavn, staevnenavn, disciplin, staevneTid, placering);
+         System.out.printf("%-10s %-10s %-7d %-11s %-11s %s %s\n", fornavn, efternavn, alder, medlemsskab, disciplin, tid, dato);
          System.out.println(scanFile.nextLine() + "  ");
          
       }
@@ -198,13 +202,62 @@ public class Traener extends Ansat {
        }
        System.out.println();
        subMenu();
-    }     
+    } 
+    
+    public int count()throws Exception{
+      Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
+      //Printf
+      while(scanFil.hasNextLine()){
+         this.counter++;
+         System.out.println(this.counter + " " + scanFil.nextLine());
+      }
+      return this.counter;
+    }
+    
+    public void nyTid(Scanner console)throws Exception{
+      Scanner scanKonk = new Scanner(new File("konkurrenceSvoemmere.txt"));  
+      count();
+      String konkurrenceArray[][] = new String[this.counter][7];
+      
+      while(scanKonk.hasNext()){
+         for(int i = 0; i < this.counter; i++){
+            for(int j = 0; j < 7; j++){
+            String item = scanKonk.next();
+            konkurrenceArray[i][j] = item;
+            }
+         }
+      }
+      System.out.println("TAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE");
+      int num = console.nextInt(); //Check vaerdi
+      
+      System.out.println("INDTAST NY TID");
+      super.setTid(console.nextDouble());
+      double tidRet = super.getTid();
+      String rettet = String.valueOf(tidRet);
+      konkurrenceArray[num-1][5] = rettet;
+      
+      System.out.println("INDTAST NY DATO");
+      super.setDato(console.next());
+      konkurrenceArray[num-1][6] = super.getDato();
+      
+      //Overskriver plads i eksisterende fil
+      PrintStream addChange = new PrintStream(new File("konkurrenceSvoemmere.txt"));
+      for(int i = 0; i < this.counter; i++){
+         addChange.println(konkurrenceArray[i][0] + " " + konkurrenceArray[i][1] + " " 
+         + konkurrenceArray[i][2] + " " + konkurrenceArray[i][3] + " " 
+         + konkurrenceArray[i][4] + " " + konkurrenceArray[i][5] + " " 
+         + konkurrenceArray[i][6]);
+      }
+      //clean up
+      scanKonk.close();
+      subMenu();
+   }     
     
    /**
    *Beskrivelse
    */
     
-   public void registrerStaevne(Scanner console)throws Exception{
+   /*public void registrerStaevne(Scanner console)throws Exception{
       System.out.println("Indtast fornavn");
       super.setFornavn(console.next());
       System.out.println("Indtast efternavn");
@@ -231,7 +284,7 @@ public class Traener extends Ansat {
    * Udføre den pågælende case for disciplinen.
    */
    
-   public void saveToFile(Formand refMetode)throws Exception{
+   /*public void saveToFile(Formand refMetode)throws Exception{
       switch(refMetode.getDisciplin()){
          case "Crawl":
             Crawl gemCrawl = new Crawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
@@ -251,5 +304,5 @@ public class Traener extends Ansat {
          default:
             break;
       }
-   }
+   }*/
 }

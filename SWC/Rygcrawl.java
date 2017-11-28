@@ -7,13 +7,14 @@ import java.io.*;
 
 public class Rygcrawl extends Medlem{
 
-   public Rygcrawl(String fornavn, String efternavn, String staevneNavn, double staevneTid, int placering, String disciplin)throws Exception{
+   public Rygcrawl(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid, String dato)throws Exception{
       super.setFornavn(fornavn);
       super.setEfternavn(efternavn);
-      super.setStaevneNavn(staevneNavn);
-      super.setStaevneTid(staevneTid);
-      super.setPlacering(placering);
+      super.setAlder(alder);
+      super.setMedlemsskab(medlemsskab);
       super.setDisciplin(disciplin);
+      super.setTid(tid);
+      super.setDato(dato);
       
       //gemmer til fil
       super.saveIt("rygcrawl.txt");
@@ -21,7 +22,7 @@ public class Rygcrawl extends Medlem{
    
    @Override   
    public String toString(){
-      return super.getFornavn()+" "+super.getEfternavn()+" "+super.getStaevneNavn()+" "
-               +super.getDisciplin()+" "+super.getStaevneTid()+" "+super.getPlacering();
+      return super.getFornavn()+" "+super.getEfternavn()+" "+super.getAlder()+" "
+               +super.getMedlemsskab()+" "+super.getDisciplin()+" "+super.getTid()+" "+super.getDato();
    }
 }
