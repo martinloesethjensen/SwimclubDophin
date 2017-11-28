@@ -14,16 +14,10 @@ import java.io.*;
 
 public class SwimClubMain {
    public static void main(String[] args)throws Exception{
-      
-<<<<<<< HEAD
+     
       //logon();    
       bruger(); 
-=======
-      
-      bruger();
-      //logon();     
->>>>>>> aa423c4e9a9a285a8863955e1d2e3594fb5463cd
-      
+
    }
    
    
