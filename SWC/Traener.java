@@ -4,6 +4,7 @@ import java.io.*;
 /**
 * @Martin.Valhalla
 * @Casper.ortismal
+* @Christian.C-Strunge
 */
 
 public class Traener extends Ansat {
