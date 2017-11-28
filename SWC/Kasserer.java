@@ -1,7 +1,18 @@
 import java.util.*; // for Scanner
 import java.io.*; // for PrintStream
 
+
 public class Kasserer extends Ansat {
+   
+   public Kasserer(){}
+   
+   public Kasserer(String fornavn, String efternavn, String restance){
+      super.setFornavn(fornavn);
+      super.setEfternavn(efternavn);
+      super.setRestance(restance);   
+      
+      
+   }
 
 	public void subMenu()throws Exception {
 		Scanner console = new Scanner(System.in);
@@ -44,16 +55,44 @@ public class Kasserer extends Ansat {
    
    public void visRestance() throws Exception{
       Scanner RestanceKonti = new Scanner(new File("visRestance.txt"));
+      
+      List<Kasserer> vis = new ArrayList<>();
       while(RestanceKonti.hasNextLine()){
-         System.out.println(RestanceKonti.nextLine());
-      }
+         String line = RestanceKonti.nextLine();
+         Scanner token = new Scanner(line);
+         
+         String navn = token.next();
+         super.setFornavn(navn);
+         
+         String enavn = token.next();
+         super.setEfternavn(enavn);
+         
+         String rest = token.next();
+         super.setRestance(rest);
+         
+         if(rest.equals("Restance")){
+           
+           System.out.println(line.toString()); 
+         } 
+         
+         Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
+         vis.add(kas);
+         
+         }
+               //System.out.println(vis.toString());
+      
+       
    }
    
-   /**
-   * Beskrivelse her
-   */
+   public String toString() {
+      
+      return super.getFornavn()+" "+super.getEfternavn()+" "+ super.getRestance();
+   }
+   
+   
+   
    
    public void redigerKontigent(){
-      System.out.println("Hej konit");
+      System.out.println("Hej konti");
    }
 }

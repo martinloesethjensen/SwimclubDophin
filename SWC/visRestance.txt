@@ -1,1 +1,9 @@
-Hej
+Mads Hansen       Betalt
+Adam Cold         Restance 
+Anders Billen     Restance 
+David Pedersen    Betalt
+Lars olsen        Restance
+Casper Andersen   Betalt
+Martin Loeseth    Restance
+Christian Strunge Restance
+Rasmus Sadurski   Restance
