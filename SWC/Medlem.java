@@ -18,6 +18,7 @@ public class Medlem {
    private double staevneTid;
    private int placering;
    private double pris;
+   private String dato;
    
    //default constructor behøves ikke, da den jo er default
    public Medlem(){}
@@ -74,5 +75,9 @@ public class Medlem {
    public double getPris() { return this.pris; }
    
    public void setPris(double pris) { this.pris = pris; }
+      
+   public String getDato() {return this.dato;}
+   
+   public void setDato(String dato){this.dato = dato;}
 
 }

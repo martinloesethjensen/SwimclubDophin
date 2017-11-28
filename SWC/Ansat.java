@@ -20,6 +20,7 @@ public class Ansat {
    private int placering;
    public int menu = -1; //denne field bruges i switch
    protected int count = 0; //bruges nu i træner til 2d array
+   private String dato; //Bruges til dato for bedste tid opnået
    
    /** 
    * Denne metode lader en vælge hvilke bruger 
@@ -141,4 +142,8 @@ public class Ansat {
    public double getStaevneTid() {return this.staevneTid;}
    
    public void setStaevneTid(double staevneTid) {this.staevneTid = staevneTid;}
+   
+   public String getDato() {return this.dato;}
+   
+   public void setDato(String dato){this.dato = dato;}
 }
