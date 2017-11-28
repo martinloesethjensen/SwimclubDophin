@@ -31,6 +31,11 @@ public class Kasserer extends Ansat {
                //gem i fil dertil
                menu = 0;
                break;
+            case 2:
+               betalingsstatus();
+               
+               menu = 0;
+               break;
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu(); //menu hos ansat
@@ -44,7 +49,8 @@ public class Kasserer extends Ansat {
 	}
    
    public void subMenuInfo(){
-      System.out.println("Tast 1 for at printe liste");
+      System.out.println("Tast 1 for at printe restance");
+      System.out.println("Tast 2 for at printe betalingsstatus");
       System.out.print("Tast 0 for at gaa tilbage\n<==\n");
    }
 
@@ -52,7 +58,18 @@ public class Kasserer extends Ansat {
    /**
    * Beskrivelse her
    */
+   public void betalingsstatus() throws Exception {
+      Scanner status = new Scanner(new File("visRestance.txt"));
+      while(status.hasNextLine()){
+            
+            String sline = status.nextLine();
+               System.out.println(sline.toString());
+             }
+   }
    
+   /**
+   * Beskrivelse her
+   */
    public void visRestance() throws Exception{
       Scanner RestanceKonti = new Scanner(new File("visRestance.txt"));
       
@@ -77,20 +94,12 @@ public class Kasserer extends Ansat {
          
          Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
          vis.add(kas);
-         
-         }
-               //System.out.println(vis.toString());
-      
-       
+         }  
    }
    
    public String toString() {
-      
       return super.getFornavn()+" "+super.getEfternavn()+" "+ super.getRestance();
    }
-   
-   
-   
    
    public void redigerKontigent(){
       System.out.println("Hej konti");
