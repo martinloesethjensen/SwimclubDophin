@@ -66,8 +66,15 @@ public class Kasserer extends Ansat {
       subMenu();
    }
    
-   /**
-   * Beskrivelse her
+   /* Denne funktion laver først en ny scanner ved navn RestanceKonti, som læser fra visRestance.txt filen.
+      Dernæst laver den et nyt objekt i form af en ArrayList kaldet vis.
+      While-loopet beder vi køre så længe, der er indhold på næste linje i filen.
+      Vi initialiserer en String line til at være den næste linje i filen hver gang loopet gentager sig.
+      Efterfølgende laver vi et Scanner objekt kaldet token, som indeholder vores String line
+      Vi setter tokens til navn, enavn og rest
+      Hvis token rest = restance (i stedet for betalt), printer vi den linje i txt filen til konsollen.
+      Når while-loopet afslutter, vender programmet tilbage til submenu'en.
+   
    */
    public void visRestance() throws Exception{
       Scanner RestanceKonti = new Scanner(new File("visRestance.txt"));
@@ -86,14 +93,10 @@ public class Kasserer extends Ansat {
          String rest = token.next();
          super.setRestance(rest);
          
-         if(rest.equals("Restance")){
+            if(rest.equals("Restance")){
            
-           System.out.println(line.toString()); 
-         } 
-         
-         Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
-         vis.add(kas);
-         
+            System.out.println(line.toString()); 
+            }         
          
          } 
          System.out.println();
