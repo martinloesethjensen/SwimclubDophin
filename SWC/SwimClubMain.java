@@ -14,13 +14,21 @@ import java.io.*;
 
 public class SwimClubMain {
    public static void main(String[] args)throws Exception{
-      
-      //logon();
-      bruger();     
-      
+     
+      //logon();    
+      bruger(); 
+
    }
+   
+   
    /*
-   public static void logon()throws Exception{
+   @Casper Frost Andersen
+   Når programmet startes prompter systemet for et korrekt password.
+   Hvis dette bliver indtastet, vil systemet fortsaette til de ansattes login-side.
+   
+   */
+   
+   /*public static void logon()throws Exception{
       Scanner console = new Scanner(System.in);
       int pass = 0;
       
@@ -52,8 +60,8 @@ public class SwimClubMain {
                logon(); 
          }
       }
-   }
-	*/
+   }*/
+	
    /**
    * Denne metode opretter et objekt og laver et 
    * metodekald, hvor man kan vælge hvilken slags ansat 

@@ -9,6 +9,8 @@ import java.io.*;
 
 public class Traener extends Ansat {
 
+   protected int counter = 0; //Brugt i nyTid()
+
    /**
    * Beskrivelse her
    */
@@ -26,6 +28,7 @@ public class Traener extends Ansat {
             case 2: printKandidater(); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
+            case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu(); //menu hos ansat
@@ -45,6 +48,7 @@ public class Traener extends Ansat {
       System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TRYK 2");
       System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TRYK 3");
       System.out.printf("%-35s%s\n", "REDIGER STAEVNEDELTAGERE", "TRYK 4");
+      System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TRYK 5");
       System.out.println();
       System.out.printf("%-35s%s\n", "RETURNER", "TRYK 0");
 
@@ -180,8 +184,8 @@ public class Traener extends Ansat {
     public void printListe()throws Exception{
        Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
       
-       System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid");
-       System.out.println("------------------------------------------------------------------");
+       System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid", "Dato");
+       System.out.println("----------------------------------------------------------------------------------");
       
        while(konkurrence.hasNextLine()){
          
@@ -191,14 +195,65 @@ public class Traener extends Ansat {
           String medlemskab = konkurrence.next();
           String disciplin = konkurrence.next();
           String tid = konkurrence.next();
+          String dato = konkurrence.next();
          
-          System.out.printf("%-10s %-10s %-7d %-11s %-15s %s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
+          System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid, dato);
           System.out.println(konkurrence.nextLine() + "  ");
          
        }
        System.out.println();
        subMenu();
-    }     
+    }
+    
+    public int count()throws Exception{
+      Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
+      //Printf
+      while(scanFil.hasNextLine()){
+         this.counter++;
+         System.out.println(this.counter + " " + scanFil.nextLine());
+      }
+      return this.counter;
+    }
+    
+    public void nyTid(Scanner console)throws Exception{
+      Scanner scanKonk = new Scanner(new File("konkurrenceSvoemmere.txt"));  
+      count();
+      String konkurrenceArray[][] = new String[this.counter][7];
+      
+      while(scanKonk.hasNext()){
+         for(int i = 0; i < this.counter; i++){
+            for(int j = 0; j < 7; j++){
+            String item = scanKonk.next();
+            konkurrenceArray[i][j] = item;
+            }
+         }
+      }
+      System.out.println("TAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE");
+      int num = console.nextInt(); //Check vaerdi
+      
+      System.out.println("INDTAST NY TID");
+      super.setTid(console.nextDouble());
+      double tidRet = super.getTid();
+      String rettet = String.valueOf(tidRet);
+      konkurrenceArray[num-1][5] = rettet;
+      
+      System.out.println("INDTAST NY DATO");
+      super.setDato(console.next());
+      konkurrenceArray[num-1][6] = super.getDato();
+      
+      //Overskriver plads i eksisterende fil
+      PrintStream addChange = new PrintStream(new File("konkurrenceSvoemmere.txt"));
+      for(int i = 0; i < this.counter; i++){
+         addChange.println(konkurrenceArray[i][0] + " " + konkurrenceArray[i][1] + " " 
+         + konkurrenceArray[i][2] + " " + konkurrenceArray[i][3] + " " 
+         + konkurrenceArray[i][4] + " " + konkurrenceArray[i][5] + " " 
+         + konkurrenceArray[i][6]);
+      }
+      //clean up
+      scanKonk.close();
+      subMenu();
+   }   
+  
     
    /**
    *Beskrivelse

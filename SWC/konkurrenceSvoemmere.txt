@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 casper frost 19 Aktiv Hundesvoemning 0.0 00/00/00
+=======
+h g 12 Aktiv Crawl 78.12 23/12/15
+hr Larsen 20 Aktiv Rygcrawl 2.56 12/04/17
+Hans Henrik 25 Passiv Rygcrawl 12.0 12/12/17
+>>>>>>> a0b9114d86bb589c953630637576cbf73e44dd88
