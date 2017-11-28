@@ -12,7 +12,7 @@ public class Rygcrawl extends Medlem{
       super.setEfternavn(efternavn);
       super.setStaevneNavn(staevneNavn);
       super.setStaevneTid(staevneTid);
-      super.setPlacering(placering); 
+      super.setPlacering(placering);
       super.setDisciplin(disciplin);
       
       //gemmer til fil
