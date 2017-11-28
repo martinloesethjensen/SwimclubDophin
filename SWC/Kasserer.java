@@ -7,8 +7,11 @@ public class Kasserer extends Ansat {
    public Kasserer(){}
    
    public Kasserer(String fornavn, String efternavn, String restance){
-      //statement
-   
+      super.setFornavn(fornavn);
+      super.setEfternavn(efternavn);
+      super.setRestance(restance);   
+      
+      
    }
 
 	public void subMenu()throws Exception {
@@ -57,28 +60,33 @@ public class Kasserer extends Ansat {
       while(RestanceKonti.hasNextLine()){
          String line = RestanceKonti.nextLine();
          Scanner token = new Scanner(line);
-         String fornavn = token.next();
-         String efternavn = token.next();
-         String restance = token.next();
+         String navn = token.next();
+         super.setFornavn(navn);
          
-         Kasserer kas = new Kasserer(fornavn, efternavn, restance);
+         String enavn = token.next();
+         super.setEfternavn(enavn);
+         
+         String rest = token.next();
+         super.setRestance(rest); 
+         
+         Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
          vis.add(kas);
-      }
-      
-      for(Kasserer visReastance : vis){
-         for (int i = 0; i < vis.size(); i++){
-            //if(vis.indexOf("Restance")){
-               System.out.println(vis.get(i));
-            //}
+         
          }
-      }
+               System.out.println(vis.toString());
+      
+       
    }
    
-   /**
-   * Beskrivelse her
-   */
+   public String toString() {
+      
+      return super.getFornavn()+" "+super.getEfternavn()+" "+ super.getRestance();
+   }
+   
+   
+   
    
    public void redigerKontigent(){
-      System.out.println("Hej konit");
+      System.out.println("Hej konti");
    }
 }

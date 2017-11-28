@@ -11,6 +11,7 @@ public class Ansat {
 	private String fornavn;
 	private String efternavn;
    private int alder;
+   private String restance;
    private String aktivitetsform;
    private String medlemsskab;
    private String disciplin;
@@ -146,4 +147,8 @@ public class Ansat {
    public String getDato() {return this.dato;}
    
    public void setDato(String dato){this.dato = dato;}
+   
+   public String getRestance() {return this.restance;}
+   
+   public void setRestance(String restance) {this.restance = restance;}
 }
