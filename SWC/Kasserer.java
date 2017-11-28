@@ -60,6 +60,7 @@ public class Kasserer extends Ansat {
       while(RestanceKonti.hasNextLine()){
          String line = RestanceKonti.nextLine();
          Scanner token = new Scanner(line);
+         
          String navn = token.next();
          super.setFornavn(navn);
          
@@ -67,13 +68,18 @@ public class Kasserer extends Ansat {
          super.setEfternavn(enavn);
          
          String rest = token.next();
-         super.setRestance(rest); 
+         super.setRestance(rest);
+         
+         if(rest.equals("Restance")){
+           
+           System.out.println(line.toString()); 
+         } 
          
          Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
          vis.add(kas);
          
          }
-               System.out.println(vis.toString());
+               //System.out.println(vis.toString());
       
        
    }
