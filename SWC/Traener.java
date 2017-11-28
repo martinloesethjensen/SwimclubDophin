@@ -8,15 +8,9 @@ import java.io.*;
 */
 
 public class Traener extends Ansat {
-<<<<<<< HEAD
-   
-   protected int counter = 0;
-   
-=======
 
    protected int counter = 0; //Brugt i nyTid()
 
->>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
    /**
    * Beskrivelse her
    */
@@ -33,11 +27,7 @@ public class Traener extends Ansat {
             case 1: printDisciplin(console); break; //tilføj switch
             case 2: printKandidater(); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
-<<<<<<< HEAD
             //case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
-=======
-            case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
->>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
@@ -61,14 +51,6 @@ public class Traener extends Ansat {
       System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TRYK 5");
       System.out.println();
       System.out.printf("%-35s%s\n", "RETURNER", "TRYK 0");
-
-
-      
-      /*System.out.println("Tast 1 for disciplinliste med tilknyttede medlemmer");
-      System.out.println("Tast 2 for top 5 liste over disciplin"); //ændres
-      System.out.println("Tast 3 for liste over konkurrencesvoemmere");
-      System.out.println("Tast 4 for at registrere deltagelse i staevne");
-      System.out.println("Tast 0 for at returnere\n<==");*/ 
    }
    
    /**
@@ -214,11 +196,8 @@ public class Traener extends Ansat {
        }
        System.out.println();
        subMenu();
-<<<<<<< HEAD
+
     } 
-=======
-    }
->>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
     
     public int count()throws Exception{
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
@@ -267,12 +246,7 @@ public class Traener extends Ansat {
       //clean up
       scanKonk.close();
       subMenu();
-<<<<<<< HEAD
    }     
-=======
-   }   
-  
->>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
     
    /**
    *Beskrivelse
