@@ -24,13 +24,13 @@ public class Kasserer extends Ansat {
          
          switch(this.menu){
             case 1: 
-               visRestance();
+               betalingsstatus();
                
                menu = 0;
                break;
             case 2:
-               betalingsstatus();
                
+               visRestance();
                menu = 0;
                break;
             case 0: 
@@ -47,7 +47,7 @@ public class Kasserer extends Ansat {
    
    public void subMenuInfo(){
 
-      System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n", "PRINT RESTANCELISTE", "TRYK 1", "PRINT BETALINGSSTATUS", "TRYK 2", "RETURNER", "TAST 0");
+      System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n", "PRINT BETALINGSSTATUS", "TRYK 1", "PRINT RESTANCELISTE", "TRYK 2", "RETURNER", "TAST 0");
 
    }
 
