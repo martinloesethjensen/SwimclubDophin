@@ -1,7 +1,15 @@
 import java.util.*; // for Scanner
 import java.io.*; // for PrintStream
 
+
 public class Kasserer extends Ansat {
+   
+   public Kasserer(){}
+   
+   public Kasserer(String fornavn, String efternavn, String restance){
+      //statement
+   
+   }
 
 	public void subMenu()throws Exception {
 		Scanner console = new Scanner(System.in);
@@ -44,8 +52,25 @@ public class Kasserer extends Ansat {
    
    public void visRestance() throws Exception{
       Scanner RestanceKonti = new Scanner(new File("visRestance.txt"));
+      
+      List<Kasserer> vis = new ArrayList<>();
       while(RestanceKonti.hasNextLine()){
-         System.out.println(RestanceKonti.nextLine());
+         String line = RestanceKonti.nextLine();
+         Scanner token = new Scanner(line);
+         String fornavn = token.next();
+         String efternavn = token.next();
+         String restance = token.next();
+         
+         Kasserer kas = new Kasserer(fornavn, efternavn, restance);
+         vis.add(kas);
+      }
+      
+      for(Kasserer visReastance : vis){
+         for (int i = 0; i < vis.size(); i++){
+            //if(vis.indexOf("Restance")){
+               System.out.println(vis.get(i));
+            //}
+         }
       }
    }
    
