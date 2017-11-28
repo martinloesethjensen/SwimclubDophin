@@ -36,7 +36,7 @@ public class Kasserer extends Ansat {
                super.menu(); //menu hos ansat
                break;
             default: 
-               System.out.println("Tast venligst et nummer der er fremvist");
+               System.out.println("Tast venligst et nummer der er fremvist\n");
                subMenu();
          }
          break; //for kun at komme ud af dette loop
@@ -44,8 +44,7 @@ public class Kasserer extends Ansat {
 	}
    
    public void subMenuInfo(){
-      System.out.println("Tast 1 for at printe liste");
-      System.out.print("Tast 0 for at gaa tilbage\n<==\n");
+      System.out.printf("%-20s%s\n%-20s%s\n", "PRINT RESTANCELISTE", "TRYK 1", "RETURNER", "TRYK 0");
    }
 
    
