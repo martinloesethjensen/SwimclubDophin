@@ -8,9 +8,15 @@ import java.io.*;
 */
 
 public class Traener extends Ansat {
+<<<<<<< HEAD
    
    protected int counter = 0;
    
+=======
+
+   protected int counter = 0; //Brugt i nyTid()
+
+>>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
    /**
    * Beskrivelse her
    */
@@ -27,7 +33,11 @@ public class Traener extends Ansat {
             case 1: printDisciplin(console); break; //tilføj switch
             case 2: printKandidater(); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
+<<<<<<< HEAD
             //case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
+=======
+            case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
+>>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
@@ -48,6 +58,7 @@ public class Traener extends Ansat {
       System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TRYK 2");
       System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TRYK 3");
       System.out.printf("%-35s%s\n", "REDIGER STAEVNEDELTAGERE", "TRYK 4");
+      System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TRYK 5");
       System.out.println();
       System.out.printf("%-35s%s\n", "RETURNER", "TRYK 0");
 
@@ -184,8 +195,8 @@ public class Traener extends Ansat {
     public void printListe()throws Exception{
        Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
       
-       System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid");
-       System.out.println("------------------------------------------------------------------");
+       System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid", "Dato");
+       System.out.println("----------------------------------------------------------------------------------");
       
        while(konkurrence.hasNextLine()){
          
@@ -195,14 +206,19 @@ public class Traener extends Ansat {
           String medlemskab = konkurrence.next();
           String disciplin = konkurrence.next();
           String tid = konkurrence.next();
+          String dato = konkurrence.next();
          
-          System.out.printf("%-10s %-10s %-7d %-11s %-15s %s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid);
+          System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid, dato);
           System.out.println(konkurrence.nextLine() + "  ");
          
        }
        System.out.println();
        subMenu();
+<<<<<<< HEAD
     } 
+=======
+    }
+>>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
     
     public int count()throws Exception{
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
@@ -251,7 +267,12 @@ public class Traener extends Ansat {
       //clean up
       scanKonk.close();
       subMenu();
+<<<<<<< HEAD
    }     
+=======
+   }   
+  
+>>>>>>> 855b50ed3e36437b0dc9bd9b46305ab016a839dd
     
    /**
    *Beskrivelse
