@@ -11,12 +11,11 @@ public class Traener extends Ansat {
 
    protected int counter = 0; //Brugt i nyTid()
 
-   /**
-   * Beskrivelse her
-   */
-   
+   //default constructor
 	public Traener(){}
    
+   
+   //constructor der tager imod parametre  
    public Traener(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid, String dato){
       super.setFornavn(fornavn);
       super.setEfternavn(efternavn);
@@ -26,6 +25,10 @@ public class Traener extends Ansat {
       super.setTid(tid);
       super.setDato(dato);
    }
+   
+   /**
+   * beskrivelse her
+   */
    
    public int subMenu()throws Exception{
 		Scanner console = new Scanner(System.in);
@@ -39,11 +42,11 @@ public class Traener extends Ansat {
             case 1: printDisciplin(console); break; //tilføj switch
             case 2: printKandidater(); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
-            //case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
+            case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
-               super.menu(); //menu hos ansat
+               super.menu();  //menu hos ansat
                break;
             default: 
                System.out.println("Tast venligst et nummer der er fremvist");
@@ -71,7 +74,7 @@ public class Traener extends Ansat {
 	public void printDisciplin(Scanner console)throws Exception {
       Scanner scanKonkurrence = new Scanner(new File("konkurrenceSvoemmere.txt"));
       
-      int count = 0;
+      int count = 0; //en count der bruges i switch om hvilken disciplin der skal printes for 
        
       //initialisere et ArrayList med Traener objekt 
       List<Traener> print = new ArrayList<>();
@@ -194,7 +197,7 @@ public class Traener extends Ansat {
    }
    
    /**
-   * Bruges ikke 
+   * Bruges ikke, men pricinppet kan bruges i flere udprint metoder 
    */
    
    public void openFile(String fileName)throws Exception{
@@ -257,6 +260,10 @@ public class Traener extends Ansat {
 
     } 
     
+    /**
+    * Beskrivelse her
+    */
+    
     public int count()throws Exception{
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
       //Printf så det ser pænt og formateret ud 
@@ -266,6 +273,10 @@ public class Traener extends Ansat {
       }
       return this.counter;
     }
+    
+    /**
+    * Beskrivelse her
+    */ 
     
     public void nyTid(Scanner console)throws Exception{
       Scanner scanKonk = new Scanner(new File("konkurrenceSvoemmere.txt"));  
@@ -308,7 +319,7 @@ public class Traener extends Ansat {
    }     
     
    /**
-   * Beskrivelse her
+   * Sætter input værdierne i setterne
    */
     
    public void registrerStaevne(Scanner console)throws Exception{
@@ -329,14 +340,26 @@ public class Traener extends Ansat {
       
       saveToFile(refMetode);
       
+      System.out.println("...Medlem gemt i Staevneliste...\n");
+      
       subMenu();
    }
    
    /**
-   * Beskrivelse her
+   * gemmer oplysninger i fil
    */
    
    public void saveToFile(Formand refMetode)throws Exception{
-      
+      PrintStream nytMemberInfo = new PrintStream(new FileOutputStream("staevneliste.txt",true));
+      nytMemberInfo.println(toStringStaevne());
+      System.out.print("\n"); 
+   }
+   
+   /**
+   * en toString metodde for registrerStaevne metode
+   */
+   
+   public String toStringStaevne(){
+      return super.getFornavn()+" "+super.getEfternavn()+" "+super.getStaevneNavn()+" "+super.getStaevneTid()+" "+super.getPlacering();
    }
 }

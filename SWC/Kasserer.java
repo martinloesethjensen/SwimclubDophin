@@ -15,6 +15,7 @@ public class Kasserer extends Ansat {
 	public void subMenu()throws Exception {
 		Scanner console = new Scanner(System.in);
       int menu = -1;
+      
       while(menu != 0){
          subMenuInfo();
          
@@ -23,12 +24,10 @@ public class Kasserer extends Ansat {
          switch(this.menu){
             case 1: 
                visRestance();
-               
                menu = 0;
                break;
             case 2:
                betalingsstatus();
-               
                menu = 0;
                break;
             case 0: 
@@ -44,9 +43,7 @@ public class Kasserer extends Ansat {
 	}
    
    public void subMenuInfo(){
-
       System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n", "PRINT RESTANCELISTE", "TRYK 1", "PRINT BETALINGSSTATUS", "TRYK 2", "RETURNER", "TAST 0");
-
    }
 
    
@@ -93,8 +90,7 @@ public class Kasserer extends Ansat {
          
       Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
       vis.add(kas);
-         
-         
+           
       } 
       System.out.println();
       subMenu(); 
