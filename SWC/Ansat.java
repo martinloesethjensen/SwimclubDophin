@@ -103,6 +103,8 @@ public class Ansat {
       return 0;//dummy eftersom vi har en break som afslutter i catch blocken
                //derfor skal der være en return. 
    } 
+   
+   public String toString(){ return " "; } 
 
    /**
    * getters and setters

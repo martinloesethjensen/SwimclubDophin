@@ -98,14 +98,6 @@ public class Formand extends Ansat {
       
       vaelgDisciplin(console);
       
-      
-      //tid i min?
-      
-      //set tid til 0.0, da det er et nyt medlem og har derfor ikke nogle 
-      //tider på disciplinen
-      
-      //switch med gem til flere filer (disciplin)
-      
       KonkurrenceSvoemmer nytMedlem = new KonkurrenceSvoemmer(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(), super.getDisciplin(), super.getTid(), super.getDato());
    
    }
@@ -121,14 +113,7 @@ public class Formand extends Ansat {
       System.out.println("INDTAST EFTERNAVN");
       super.setEfternavn(console.next()); 
       System.out.println("INDTAST ALDER");
-      
-      /*super.testConsoleInput(console);
-      
-      while(true){
-         if (this.menu > 0)
-            this.alder
-            
-      }*/
+
       super.setAlder(super.testConsoleInput(console));
       
    }
@@ -145,23 +130,18 @@ public class Formand extends Ansat {
          switch(this.menu){
             case 1: 
                super.setDisciplin("Crawl");
-               Crawl gemCrawl = new Crawl(super.getFornavn(),super.getEfternavn(), super.getAlder(), super.getMedlemsskab(), super.getDisciplin(), super.getTid(), super.getDato());
                break;   
             case 2:
                super.setDisciplin("Rygcrawl");
-               Rygcrawl gemRygcrawl = new Rygcrawl(super.getFornavn(),super.getEfternavn(), super.getAlder(), super.getMedlemsskab(), super.getDisciplin(), super.getTid(), super.getDato());
                break;
             case 3:
                super.setDisciplin("Butterfly");
-               Butterfly gemButterfly = new Butterfly(super.getFornavn(),super.getEfternavn(), super.getAlder(), super.getMedlemsskab(), super.getDisciplin(), super.getTid(), super.getDato());
                break;
             case 4:
                super.setDisciplin("Brystsvoemning");
-               Brystsvoemning gemBrystsvoemning = new Brystsvoemning(super.getFornavn(),super.getEfternavn(), super.getAlder(), super.getMedlemsskab(), super.getDisciplin(), super.getTid(), super.getDato());
                break;
             case 5:
                super.setDisciplin("Hundesvoemning");
-               Hundesvoemning gemHundesvoemning = new Hundesvoemning(super.getFornavn(),super.getEfternavn(), super.getAlder(), super.getMedlemsskab(), super.getDisciplin(), super.getTid(), super.getDato());
                break;
             default:
                System.out.println("Tast venligst et nummer der er fremvist");            

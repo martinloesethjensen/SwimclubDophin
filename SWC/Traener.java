@@ -15,7 +15,19 @@ public class Traener extends Ansat {
    * Beskrivelse her
    */
    
-	public int subMenu()throws Exception{
+	public Traener(){}
+   
+   public Traener(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid, String dato){
+      super.setFornavn(fornavn);
+      super.setEfternavn(efternavn);
+      super.setAlder(alder);
+      super.setMedlemsskab(medlemsskab);
+      super.setDisciplin(disciplin);
+      super.setTid(tid);
+      super.setDato(dato);
+   }
+   
+   public int subMenu()throws Exception{
 		Scanner console = new Scanner(System.in);
       int menu = -1;
       while (menu != 0){
@@ -43,7 +55,6 @@ public class Traener extends Ansat {
 	}
    
    public void traenerMenu(){
-      
       System.out.printf("%-35s%s\n", "DISCIPLINLISTE M. MEDLEMMER", "TRYK 1");
       System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TRYK 2");
       System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TRYK 3");
@@ -54,59 +65,107 @@ public class Traener extends Ansat {
    }
    
    /**
-   * Beskrivelse her
+   * Metode der scanner fil og putter værdierne ind i et object hvor så dette obekt gemmes i en ArrayList
    */
    
 	public void printDisciplin(Scanner console)throws Exception {
-      int dummy = 0;
-      while(dummy == 0){
-         System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
+      Scanner scanKonkurrence = new Scanner(new File("konkurrenceSvoemmere.txt"));
+      
+      int count = 0;
+       
+      //initialisere et ArrayList med Traener objekt 
+      List<Traener> print = new ArrayList<>();
+      while(scanKonkurrence.hasNextLine()){
+         String line = scanKonkurrence.nextLine();
+         Scanner token = new Scanner(line);
+         
+         String fornavn = token.next();
+         super.setFornavn(fornavn);
+         
+         String efternavn = token.next();
+         super.setEfternavn(efternavn);
+         
+         int alder = token.nextInt();
+         super.setAlder(alder);
+         
+         String medlemsskab = token.next();
+         super.setMedlemsskab(medlemsskab);
+         
+         String disciplin = token.next();
+         super.setDisciplin(disciplin);
+         
+         String tid = token.next();
+         double tTid = Double.valueOf(tid); //returnere String repræsentationen af en double
+         super.setTid(tTid);
+         
+         String dato = token.next();
+         super.setDato(dato);
+         
+         //spørger om hvilken disciplin der skal printes
+         if(count == 0){
+            System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
                                   +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
-         
-         super.testConsoleInput(console);
-         
-         String fileName;
-         
+            super.testConsoleInput(console);
+            count++;//increment
+         }
+         //sammenlign og print medlem hvis dette eksistere for det pågældende medlem 
          switch(this.menu){
             case 1: 
-               super.setDisciplin("Crawl");
-               fileName = "crawl.txt";
-               openFile(fileName);               
+               if(disciplin.equals("Crawl")){
+                  System.out.println(line.toString());
+               }else if (count == 1) System.out.println("Ingen medlem(er) er tilknyttet crawl");                
+               count++;
                break;   
             case 2:
-               super.setDisciplin("Rygcrawl");
-               fileName = "rygcrawl.txt";
-               openFile(fileName);
+               if(disciplin.equals("Rygcrawl")){
+                  System.out.println(line.toString());
+               }else if (count == 1)System.out.println("Ingen medlem(er) er tilknyttet rygcrawl");
+               count++;
                break;
             case 3:
-               super.setDisciplin("Butterfly");
-               fileName = "butterfly.txt";
-               openFile(fileName);
+               if(disciplin.equals("Butterfly")){
+                  System.out.println(line.toString());
+               }else if(count == 1) System.out.println("Ingen medlem(er) er tilknyttet butterfly");
+               count++;
                break;
             case 4:
-               super.setDisciplin("Brystsvoemning");
-               fileName = "brystsvoemning.txt";
-               openFile(fileName);
+               if(disciplin.equals("Brystsvoemning")){
+                  System.out.println(line.toString());
+               }else if(count == 1) System.out.println("Ingen medlem(er) er tilknyttet brystsvoemning");
+               count++;
                break;
             case 5:
-               super.setDisciplin("Hundesvoemning");
-               fileName = "hundesvoemning.txt";
-               openFile(fileName);
+               if(disciplin.equals("Hundesvoemning")){
+                  System.out.println(line.toString());
+               }else if(count == 1)System.out.println("Ingen medlem(er) er tilknyttet hundesvoemning");
+               count++;
                break;
             default:
                System.out.println("Tast venligst et nummer der er fremvist");            
                printDisciplin(console); //den kører i infinite loop               
          }
          
-         //prompter om forsættelse
-         fortsaettelse(console);
-                  
-         dummy = -1;//kommer ud af whileloop 
-      }     
+         //tilføjer traener objekt til arraylist
+         Traener traen = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+         print.add(traen);
+      
+      }
+      System.out.println();
+      //prompter om fortsættelse
+      fortsaettelse(console);
 	}
    
+   //tostring metode skal have printf så den efterligner et udprint der er formateret pænt
+   @Override
+   public String toString(){
+      return super.getFornavn()+" "+super.getEfternavn()+" "+super.getAlder()+" "
+                           +super.getMedlemsskab()+" "+super.getDisciplin()+" "+
+                                         super.getTid()+" "+super.getDato();
+   
+   } 
+   
    /**
-   * prompter om fortsættelse her
+   * prompter om fortsættelse
    */
    
    public void fortsaettelse(Scanner console)throws Exception{
@@ -135,7 +194,7 @@ public class Traener extends Ansat {
    }
    
    /**
-   * Beskrivelse her
+   * Bruges ikke 
    */
    
    public void openFile(String fileName)throws Exception{
@@ -162,16 +221,15 @@ public class Traener extends Ansat {
    }
    
    /**
-   * Beskrivelse her
+   * UC004 top 5
    */
    
    public void printKandidater(){
       System.out.println("<==|_Kom_ind_|==>");
-      //switch
    }
 
    /**
-   * Beskrivelse her
+   * Printer liste over alle konkurrencesvoemmere
    */  
     
     public void printListe()throws Exception{
@@ -201,7 +259,7 @@ public class Traener extends Ansat {
     
     public int count()throws Exception{
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
-      //Printf
+      //Printf så det ser pænt og formateret ud 
       while(scanFil.hasNextLine()){
          this.counter++;
          System.out.println(this.counter + " " + scanFil.nextLine());
@@ -228,6 +286,7 @@ public class Traener extends Ansat {
       System.out.println("INDTAST NY TID");
       super.setTid(console.nextDouble());
       double tidRet = super.getTid();
+      //returnere String repræsentationen af en double
       String rettet = String.valueOf(tidRet);
       konkurrenceArray[num-1][5] = rettet;
       
@@ -249,10 +308,10 @@ public class Traener extends Ansat {
    }     
     
    /**
-   *Beskrivelse
+   * Beskrivelse her
    */
     
-   /*public void registrerStaevne(Scanner console)throws Exception{
+   public void registrerStaevne(Scanner console)throws Exception{
       System.out.println("Indtast fornavn");
       super.setFornavn(console.next());
       System.out.println("Indtast efternavn");
@@ -274,30 +333,10 @@ public class Traener extends Ansat {
    }
    
    /**
-   * Den laver et metodekald på vaelgDisciplin i formand klasse
-   * og sammenligner Disciplin.
-   * Udføre den pågælende case for disciplinen.
+   * Beskrivelse her
    */
    
-   /*public void saveToFile(Formand refMetode)throws Exception{
-      switch(refMetode.getDisciplin()){
-         case "Crawl":
-            Crawl gemCrawl = new Crawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
-            break;
-         case "Brystsvoemning":
-            Brystsvoemning gemBrystsvoemning = new Brystsvoemning(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
-            break;
-         case "Rygcrawl":
-            Rygcrawl gemRygcrawl = new Rygcrawl(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
-            break;
-         case "Butterfly":
-            Butterfly gemButterfly = new Butterfly(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
-            break;
-         case "Hundesvoemning":
-            Hundesvoemning geHundesvoemning = new Hundesvoemning(super.getFornavn(),super.getEfternavn(), super.getStaevneNavn(), super.getStaevneTid(), super.getPlacering(), refMetode.getDisciplin());
-            break;   
-         default:
-            break;
-      }
-   }*/
+   public void saveToFile(Formand refMetode)throws Exception{
+      
+   }
 }

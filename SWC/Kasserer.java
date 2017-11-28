@@ -10,8 +10,6 @@ public class Kasserer extends Ansat {
       super.setFornavn(fornavn);
       super.setEfternavn(efternavn);
       super.setRestance(restance);   
-      
-      
    }
 
 	public void subMenu()throws Exception {
@@ -55,6 +53,7 @@ public class Kasserer extends Ansat {
    /**
    * Beskrivelse her
    */
+   
    public void betalingsstatus() throws Exception {
       Scanner status = new Scanner(new File("visRestance.txt"));
       while(status.hasNextLine()){
@@ -69,6 +68,7 @@ public class Kasserer extends Ansat {
    /**
    * Beskrivelse her
    */
+   
    public void visRestance() throws Exception{
       Scanner RestanceKonti = new Scanner(new File("visRestance.txt"));
       
@@ -88,18 +88,19 @@ public class Kasserer extends Ansat {
          
          if(rest.equals("Restance")){
            
-           System.out.println(line.toString()); 
-         } 
+         System.out.println(line.toString()); 
+      } 
          
-         Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
-         vis.add(kas);
+      Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
+      vis.add(kas);
          
          
-         } 
-         System.out.println();
-         subMenu(); 
+      } 
+      System.out.println();
+      subMenu(); 
    }
    
+   @Override
    public String toString() {
       return super.getFornavn()+" "+super.getEfternavn()+" "+ super.getRestance();
    }
