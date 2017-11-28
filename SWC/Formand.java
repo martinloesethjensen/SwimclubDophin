@@ -137,8 +137,8 @@ public class Formand extends Ansat {
       while(dummy == 0){
           
          System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TRYK 1", "RYGCRAWL",
-          "TRYK 2", "BRYSTSVØMNING", "TAST 3",
-           "BUTTERFLY", "TAST 4", "HUNDESVØMNING", "TAST 5");
+          "TRYK 2", "BRYSTSVOEMNING", "TAST 3",
+           "BUTTERFLY", "TAST 4", "HUNDESVOEMNING", "TAST 5");
          super.testConsoleInput(console);
          
          switch(this.menu){
