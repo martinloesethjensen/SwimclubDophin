@@ -40,7 +40,7 @@ public class Traener extends Ansat {
          
          switch(this.menu){
             case 1: printDisciplin(console); break; //tilføj switch
-            case 2: printKandidater(); break; //tilføj switch
+            case 2: printKandidater(console); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
@@ -170,9 +170,45 @@ public class Traener extends Ansat {
    
    } 
    
-   /**
-   * prompter om fortsættelse
-   */
+   public int countThis()throws Exception{
+      Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
+      while(scanFil.hasNextLine()){
+         this.counter++;
+      }
+      return this.counter;
+   }
+   
+   public void printKandidater(Scanner console)throws Exception{
+      Scanner file = new Scanner(new File("konkurrenceSvoemmere.txt"));
+      countThis();
+      String array[][] = new String[this.counter][7];
+      
+      while(file.hasNext()){
+         for(int i = 0; i < this.counter; i++){
+            for(int j = 0; j < 7; j++){
+               String item = file.next();
+               array[i][j] = item;
+            }
+         }
+      }
+      double tal = 0.1;
+      for(int i = 0; i < this.counter; i++){
+         //for(int j = 0; j < this.counter; j++){
+            String str = array[i][5];
+            double d = Double.valueOf(str);
+            
+            for(int j = 0; j < 100; j++){
+               if(d <= tal){
+                  System.out.println("kom ind");
+                  break;
+               }else
+               tal += 0.1;
+            }
+
+      }
+   }
+   
+   
    
    public void fortsaettelse(Scanner console)throws Exception{
       int dummy = 0;
@@ -203,7 +239,7 @@ public class Traener extends Ansat {
    * Bruges ikke, men pricinppet kan bruges i flere udprint metoder 
    */
    
-   public void openFile(String fileName)throws Exception{
+   /*public void openFile(String fileName)throws Exception{
       Scanner scanFile = new Scanner(new File(fileName));
       
       System.out.printf("%-10s %-10s %-7s %-11s %-15s %-11s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemsskab", "Disciplin", "Tid", "Dato");
@@ -224,15 +260,7 @@ public class Traener extends Ansat {
          
       }
       System.out.println();
-   }
-   
-   /**
-   * UC004 top 5
-   */
-   
-   public void printKandidater(){
-      System.out.println("<==|_Kom_ind_|==>");
-   }
+   }*/
 
    /**
    * Printer liste over alle konkurrencesvoemmere
