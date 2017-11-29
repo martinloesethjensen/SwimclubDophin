@@ -28,7 +28,7 @@ public class SwimClubMain {
    
    */
    
-   public static void logon()throws Exception{
+   /*public static void logon()throws Exception{
       Scanner console = new Scanner(System.in);
       int pass = 0;
       
@@ -60,7 +60,7 @@ public class SwimClubMain {
                logon(); 
          }
       }
-   }
+   }*/
 	
    /**
    * Denne metode opretter et objekt og laver et 
