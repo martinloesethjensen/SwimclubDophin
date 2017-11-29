@@ -74,7 +74,7 @@ public class Traener extends Ansat {
 	public void printDisciplin(Scanner console)throws Exception {
       Scanner scanKonkurrence = new Scanner(new File("konkurrenceSvoemmere.txt"));
       
-      int count = 0; //en count der bruges i switch om hvilken disciplin der skal printes for 
+      int count = -1; //en count der bruges i switch om hvilken disciplin der skal printes for 
        
       //initialisere et ArrayList med Traener objekt 
       List<Traener> print = new ArrayList<>();
@@ -105,7 +105,7 @@ public class Traener extends Ansat {
          super.setDato(dato);
          
          //spørger om hvilken disciplin der skal printes
-         if(count == 0){
+         if(count == -1){
             System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
                                   +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
             super.testConsoleInput(console);
@@ -116,32 +116,32 @@ public class Traener extends Ansat {
             case 1: 
                if(disciplin.equals("Crawl")){
                   System.out.println(line.toString());
-               }else if (count == 1) System.out.println("Ingen medlem(er) er tilknyttet crawl");                
-               count++;
+                  count++;
+               }
                break;   
             case 2:
                if(disciplin.equals("Rygcrawl")){
                   System.out.println(line.toString());
-               }else if (count == 1)System.out.println("Ingen medlem(er) er tilknyttet rygcrawl");
-               count++;
+                  count++;
+               }
                break;
             case 3:
                if(disciplin.equals("Butterfly")){
                   System.out.println(line.toString());
-               }else if(count == 1) System.out.println("Ingen medlem(er) er tilknyttet butterfly");
-               count++;
+                  count++;
+               }
                break;
             case 4:
                if(disciplin.equals("Brystsvoemning")){
                   System.out.println(line.toString());
-               }else if(count == 1) System.out.println("Ingen medlem(er) er tilknyttet brystsvoemning");
-               count++;
+                  count++;
+               }
                break;
             case 5:
                if(disciplin.equals("Hundesvoemning")){
                   System.out.println(line.toString());
-               }else if(count == 1)System.out.println("Ingen medlem(er) er tilknyttet hundesvoemning");
-               count++;
+                  count++;
+               }
                break;
             default:
                System.out.println("Tast venligst et nummer der er fremvist");            
@@ -153,6 +153,9 @@ public class Traener extends Ansat {
          print.add(traen);
       
       }
+      
+      if (count == 0)System.out.println("Ingen medlem(er) er tilknyttet disciplin");
+     
       System.out.println();
       //prompter om fortsættelse
       fortsaettelse(console);
@@ -340,7 +343,7 @@ public class Traener extends Ansat {
       
       saveToFile(refMetode);
       
-      System.out.println("...Medlem gemt i Staevneliste...\n");
+      System.out.println("...Medlem gemt i Staevneliste...\n\n");
       
       subMenu();
    }
@@ -356,7 +359,7 @@ public class Traener extends Ansat {
    }
    
    /**
-   * en toString metodde for registrerStaevne metode
+   * En toString metodde for registrerStaevne metode
    */
    
    public String toStringStaevne(){
