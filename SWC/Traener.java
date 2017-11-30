@@ -41,7 +41,7 @@ public class Traener extends Ansat {
          
          switch(this.menu){
             case 1: printDisciplin(console); break; //tilføj switch
-            case 2: printKandidater(); break; //tilføj switch
+            case 2: printKandidater(console); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
@@ -183,63 +183,97 @@ public class Traener extends Ansat {
       return this.counter;
    }
    
-   public void printKandidater()throws Exception{
-      Scanner file = new Scanner(new File("konkurrenceSvoemmere.txt"));
-      System.out.println("Hey");
-      countThis();
-      String array[][] = new String[this.counter][7];
+   public void printKandidater(Scanner console)throws Exception{
+      Scanner scanKonkurrence = new Scanner(new File("konkurrenceSvoemmere.txt"));
       
-      while(file.hasNext()){
-         for(int i = 0; i < this.counter; i++){
-            for(int j = 0; j < 7; j++){
-               String item = file.next();
-               array[i][j] = item;
-            }
+      int count = -1; //en count der bruges i switch om hvilken disciplin der skal printes for 
+       
+      //initialisere et ArrayList med Traener objekt 
+      List<Traener> print = new ArrayList<>();
+      while(scanKonkurrence.hasNextLine()){
+         String line = scanKonkurrence.nextLine();
+         Scanner token = new Scanner(line);
+         
+         String fornavn = token.next();
+         super.setFornavn(fornavn);
+         
+         String efternavn = token.next();
+         super.setEfternavn(efternavn);
+         
+         int alder = token.nextInt();
+         super.setAlder(alder);
+         
+         String medlemsskab = token.next();
+         super.setMedlemsskab(medlemsskab);
+         
+         String disciplin = token.next();
+         super.setDisciplin(disciplin);
+         
+         String tid = token.next();
+         double tTid = Double.valueOf(tid); //returnere String repræsentationen af en double
+         super.setTid(tTid);
+         
+         String dato = token.next();
+         super.setDato(dato);
+         
+         //spørger om hvilken disciplin der skal printes
+         if(count == -1){
+            System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
+                                  +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
+            super.testConsoleInput(console);
+            count++;//increment
          }
+         //sammenlign og print medlem hvis dette eksistere for det pågældende medlem 
+         switch(this.menu){
+            case 1: 
+               if(disciplin.equals("Crawl")){
+                  ArrayList<String> crawlTop = new ArrayList<>();
+                  crawlTop.add(super.getFornavn()+" "+super.getEfternavn()+" "+super.getTid());
+                  //TESTER
+                  System.out.print(crawlTop);
+                  count++;
+               }
+               break;   
+            case 2:
+               if(disciplin.equals("Rygcrawl")){
+                  ArrayList<String> rygCrawlTop = new ArrayList<>();
+                  rygCrawl.add(super.getFornavn()+" "+super.getEfternavn()+" "+super.getTid());
+                  count++;
+               }
+               break;
+            case 3:
+               if(disciplin.equals("Butterfly")){
+                  count++;
+               }
+               break;
+            case 4:
+               if(disciplin.equals("Brystsvoemning")){
+                  count++;
+               }
+               break;
+            case 5:
+               if(disciplin.equals("Hundesvoemning")){
+                  count++;
+               }
+               break;
+            default:
+               System.out.println("Tast venligst et nummer der er fremvist");            
+               printDisciplin(console); //den kører i infinite loop               
+         }
+         
+         //tilføjer traener objekt til arraylist
+         Traener traen = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+         print.add(traen);
+      
       }
-      int tal = 0;
-      double num = 0;
-      double num2 = 0;
-      double num3 = 0;
-      double num4 = 0;
-      double num5 = 0;
-      for(int i = 0; i < this.counter; i++){
-         //for(int j = 0; j < i; j++){
-            String str = array[i][5];
-            double d = Double.valueOf(str);
-            
-            if (tal == 0 || d < num){
-               num = d;
-               tal++;
-            }else if(d < num){
-               num2 = d;
-            }else if(d < num2){
-               num3 = d;
-            }else if(d < num3){
-               num4 = d;
-            }else if(d < num4){
-               num5 = d;
-            } 
-            
-            //String str2 = array[j][5];
-            //double d2 = Double.valueOf(str2);
-            
-            //if(d < d2){
-              // System.out.println(array[i][0]+" "+array[i][1]+" "+array[i][2]+" "+array[i][3]+" "+array[i][4]+" "+array[i][5]+" "+array[i][6]);
-           // }
-            
-            //for(int k = 0; k < 1000; k++){
-              // if(d <= tal && d != d2){
-               //lav til printf 
-                  //System.out.println(array[i][0]+" "+array[i][1]+" "+array[i][2]+" "+array[i][3]+" "+array[i][4]+" "+array[i][5]+" "+array[i][6]);
-                //  break;
-               //}else
-               //tal += 0.1;
-            //}
-         //}
-
-      }
-   }
+      
+      if (count == 0)System.out.println("Ingen medlem(er) er tilknyttet disciplin");
+     
+      System.out.println();
+      //prompter om fortsættelse
+      fortsaettelse(console);
+	}
+   
    
    
    public void fortsaettelse(Scanner console)throws Exception{
