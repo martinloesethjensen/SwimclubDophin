@@ -36,11 +36,12 @@ public class Traener extends Ansat {
       while (menu != 0){
          traenerMenu();
          
-         super.testConsoleInput(console);               
+         super.testConsoleInput(console);  
+         //this.menu=2;              
          
          switch(this.menu){
             case 1: printDisciplin(console); break; //tilføj switch
-            case 2: printKandidater(console); break; //tilføj switch
+            case 2: printKandidater(); break; //tilføj switch
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
@@ -174,12 +175,17 @@ public class Traener extends Ansat {
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
       while(scanFil.hasNextLine()){
          this.counter++;
+         if (scanFil.nextLine() == null){ 
+            break;
+         }
       }
+      scanFil.close();
       return this.counter;
    }
    
-   public void printKandidater(Scanner console)throws Exception{
+   public void printKandidater()throws Exception{
       Scanner file = new Scanner(new File("konkurrenceSvoemmere.txt"));
+      System.out.println("Hey");
       countThis();
       String array[][] = new String[this.counter][7];
       
@@ -191,23 +197,49 @@ public class Traener extends Ansat {
             }
          }
       }
-      double tal = 0.1;
+      int tal = 0;
+      double num = 0;
+      double num2 = 0;
+      double num3 = 0;
+      double num4 = 0;
+      double num5 = 0;
       for(int i = 0; i < this.counter; i++){
-         //for(int j = 0; j < this.counter; j++){
+         //for(int j = 0; j < i; j++){
             String str = array[i][5];
             double d = Double.valueOf(str);
             
-            for(int j = 0; j < 100; j++){
-               if(d <= tal){
-                  System.out.println("kom ind");
-                  break;
-               }else
-               tal += 0.1;
-            }
+            if (tal == 0 || d < num){
+               num = d;
+               tal++;
+            }else if(d < num){
+               num2 = d;
+            }else if(d < num2){
+               num3 = d;
+            }else if(d < num3){
+               num4 = d;
+            }else if(d < num4){
+               num5 = d;
+            } 
+            
+            //String str2 = array[j][5];
+            //double d2 = Double.valueOf(str2);
+            
+            //if(d < d2){
+              // System.out.println(array[i][0]+" "+array[i][1]+" "+array[i][2]+" "+array[i][3]+" "+array[i][4]+" "+array[i][5]+" "+array[i][6]);
+           // }
+            
+            //for(int k = 0; k < 1000; k++){
+              // if(d <= tal && d != d2){
+               //lav til printf 
+                  //System.out.println(array[i][0]+" "+array[i][1]+" "+array[i][2]+" "+array[i][3]+" "+array[i][4]+" "+array[i][5]+" "+array[i][6]);
+                //  break;
+               //}else
+               //tal += 0.1;
+            //}
+         //}
 
       }
    }
-   
    
    
    public void fortsaettelse(Scanner console)throws Exception{
