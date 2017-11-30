@@ -7,9 +7,9 @@ public class Kasserer extends Ansat {
    public Kasserer(){}
    
    public Kasserer(String fornavn, String efternavn, String restance){
-      super.setFornavn(fornavn);
-      super.setEfternavn(efternavn);
-      super.setRestance(restance);   
+      setFornavn(fornavn);
+      setEfternavn(efternavn);
+      setRestance(restance);   
    }
 
 	public void subMenu()throws Exception {
@@ -30,6 +30,10 @@ public class Kasserer extends Ansat {
                betalingsstatus();
                menu = 0;
                break;
+            case 3:
+               redigerKontigent(console);
+               menu = 0;   
+               break;
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu(); //menu hos ansat
@@ -43,7 +47,8 @@ public class Kasserer extends Ansat {
 	}
    
    public void subMenuInfo(){
-      System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n", "PRINT RESTANCELISTE", "TRYK 1", "PRINT BETALINGSSTATUS", "TRYK 2", "RETURNER", "TAST 0");
+      System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n", "PRINT RESTANCELISTE", 
+            "TRYK 1", "PRINT BETALINGSSTATUS", "TRYK 2", "RETURNER", "TAST 0");
    }
 
    
@@ -52,7 +57,7 @@ public class Kasserer extends Ansat {
    */
    public void betalingsstatus() throws Exception {
       Scanner status = new Scanner(new File("visRestance.txt"));
-         System.out.printf("%-10s%-15s%-10s\n", "Fornavn", "Efternavn", "Status");
+         System.out.printf("%-10s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "STATUS");
          System.out.printf("---------------------------------\n");
             List<Kasserer> vis = new ArrayList<>();
             while(status.hasNextLine()){ 
@@ -60,16 +65,15 @@ public class Kasserer extends Ansat {
                Scanner token = new Scanner(line);
                
                String navn = token.next();
-               super.setFornavn(navn);
+               setFornavn(navn);
                
                String enavn = token.next();
-               super.setEfternavn(enavn);
+               setEfternavn(enavn);
                
                String rest = token.next();
-               super.setRestance(rest); 
+               setRestance(rest); 
                
-               System.out.printf("%-10s%-15s%-10s\n\n", super.getFornavn(),super.getEfternavn(),super.getRestance());
-  
+               System.out.printf("%-10s%-15s%-10s\n\n", getFornavn(),getEfternavn(),getRestance());
             }
             subMenu();
    }
@@ -80,7 +84,7 @@ public class Kasserer extends Ansat {
    
    public void visRestance() throws Exception{
       Scanner RestanceKonti = new Scanner(new File("visRestance.txt"));
-         System.out.printf("%-12s%-15s%-10s\n", "Fornavn", "Efternavn", "Status");
+         System.out.printf("%-12s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "STATUS");
             System.out.printf("-----------------------------------\n");
             List<Kasserer> vis = new ArrayList<>();
             
@@ -89,20 +93,20 @@ public class Kasserer extends Ansat {
                Scanner token = new Scanner(line);
                
                String navn = token.next();
-               super.setFornavn(navn);
+               setFornavn(navn);
                
                String enavn = token.next();
-               super.setEfternavn(enavn);
+               setEfternavn(enavn);
                
                String rest = token.next();
-               super.setRestance(rest);
+               setRestance(rest);
                
                if(rest.equals("Restance")){
                  
-               System.out.printf("%-12s%-15s%-10s\n\n", super.getFornavn(),super.getEfternavn(),super.getRestance()); 
+               System.out.printf("%-12s%-15s%-10s\n\n", getFornavn(),getEfternavn(),getRestance()); 
             } 
          
-      Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
+      Kasserer kas = new Kasserer(getFornavn(),getEfternavn(),getRestance());
       vis.add(kas);
            
       } 
@@ -115,7 +119,7 @@ public class Kasserer extends Ansat {
       return " ";
    }
    
-   public void redigerKontigent(){
+   public void redigerKontigent(Scanner console){
       System.out.println("Hej konti");
    }
 }
