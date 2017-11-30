@@ -222,8 +222,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
-            System.out.println("VAELG DISCIPLIN:\n\tTAST 1 FOR CRAWL\n\tTAST 2 FOR RYGCRAWL\n\tTAST 3 FOR " 
-                                  +"BUTTERFLY\n\tTAST 4 FOR BRYSTSVOEMNING\n\tTAST 5 FOR HUNDESVOEMNING"); 
+            System.out.printf("%-25s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n","VAELG DISCIPLIN:", "CRAWL", "TRYK 1","RYGCRAWL","TRYK 2","BUTTERLFY","TRYK 3","BRYSTSVOEMNING","TRYK 4","HUNDESVOEMNING","TRYK 5"); 
             super.testConsoleInput(console);
             count++;//increment
          }
@@ -297,9 +296,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(crawlTop.size() > 5){ 
             k = 5; 
          }else k = crawlTop.size();
+         System.out.println("----------------------------------------------------------------------------------");
+         System.out.printf("%-10s%-12s%-7s%-15s%-15s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("----------------------------------------------------------------------------------");
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",crawlTop.get(i).getFornavn(),
+            System.out.printf("%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n\n",crawlTop.get(i).getFornavn(),
                crawlTop.get(i).getEfternavn(),crawlTop.get(i).getAlder(),crawlTop.get(i).getMedlemsskab(),
                crawlTop.get(i).getDisciplin(),crawlTop.get(i).getTid(),crawlTop.get(i).getDato()); 
          }
@@ -310,9 +312,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(rygCrawlTop.size() > 5){ 
             k = 5; 
          }else k = rygCrawlTop.size();
+         System.out.println("----------------------------------------------------------------------------------");
+         System.out.printf("%-10s%-12s%-7s%-15s%-15s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("----------------------------------------------------------------------------------");
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",rygCrawlTop.get(i).getFornavn(),
+            System.out.printf("%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n\n",rygCrawlTop.get(i).getFornavn(),
                rygCrawlTop.get(i).getEfternavn(),rygCrawlTop.get(i).getAlder(),rygCrawlTop.get(i).getMedlemsskab(),
                rygCrawlTop.get(i).getDisciplin(),rygCrawlTop.get(i).getTid(),rygCrawlTop.get(i).getDato()); 
          }
@@ -323,9 +328,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(butterflyTop.size() > 5){ 
             k = 5; 
          }else k = butterflyTop.size();
-         
-         for(int i = 0; i < k; i++){ 
-            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",butterflyTop.get(i).getFornavn(),
+         System.out.println("----------------------------------------------------------------------------------");
+         System.out.printf("%-10s%-12s%-7s%-15s%-15s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("----------------------------------------------------------------------------------");
+         for(int i = 0; i < k; i++){
+            
+            System.out.printf("%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n\n",butterflyTop.get(i).getFornavn(),
                butterflyTop.get(i).getEfternavn(),butterflyTop.get(i).getAlder(),butterflyTop.get(i).getMedlemsskab(),
                butterflyTop.get(i).getDisciplin(),butterflyTop.get(i).getTid(),butterflyTop.get(i).getDato()); 
          }
@@ -336,9 +344,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(brystsvoemningTop.size() > 5){ 
             k = 5; 
          }else k = brystsvoemningTop.size();
+         System.out.println("----------------------------------------------------------------------------------");
+         System.out.printf("%-10s%-12s%-7s%-15s%-17s%-7s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("----------------------------------------------------------------------------------");
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",brystsvoemningTop.get(i).getFornavn(),
+            System.out.printf("%-10s%-14s%-5d%-15s%-17s%-7.01f%-15s\n\n",brystsvoemningTop.get(i).getFornavn(),
                brystsvoemningTop.get(i).getEfternavn(),brystsvoemningTop.get(i).getAlder(),brystsvoemningTop.get(i).getMedlemsskab(),
                brystsvoemningTop.get(i).getDisciplin(),brystsvoemningTop.get(i).getTid(),brystsvoemningTop.get(i).getDato()); 
          }
@@ -349,9 +360,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(hundesvoemningTop.size() > 5){ 
             k = 5; 
          }else k = hundesvoemningTop.size();
+         System.out.println("----------------------------------------------------------------------------------");
+         System.out.printf("%-10s%-12s%-7s%-15s%-17s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("----------------------------------------------------------------------------------");
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",hundesvoemningTop.get(i).getFornavn(),
+            System.out.printf("%-10s%-14s%-5d%-15s%-17s%-10.01f%-15s\n\n",hundesvoemningTop.get(i).getFornavn(),
                hundesvoemningTop.get(i).getEfternavn(),hundesvoemningTop.get(i).getAlder(),hundesvoemningTop.get(i).getMedlemsskab(),
                hundesvoemningTop.get(i).getDisciplin(),hundesvoemningTop.get(i).getTid(),hundesvoemningTop.get(i).getDato()); 
          }
@@ -423,6 +437,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          String tid = konkurrence.next();
          String dato = konkurrence.next();
          
+        
          System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid, dato);
          System.out.println(konkurrence.nextLine() + "  ");
       }
