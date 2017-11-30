@@ -15,7 +15,7 @@ public class Ansat {
    private String aktivitetsform;
    private String medlemsskab;
    private String disciplin;
-   private double tid;
+   protected double tid;
    private double staevneTid;
    private String staevneNavn;
    private int placering;
