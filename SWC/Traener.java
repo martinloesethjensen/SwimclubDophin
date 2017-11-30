@@ -119,8 +119,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
-            System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
-                                  +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
+            System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "CRAWL", "TRYK 1","RYGCRAWL","TRYK 2","BUTTERLFY","TRYK 3","BRYSTSVOEMNING","TRYK 4","HUNDESVOEMNING","TRYK 5"); 
             super.testConsoleInput(console);
             count++;//increment
          }
