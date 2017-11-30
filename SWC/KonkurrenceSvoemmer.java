@@ -8,13 +8,13 @@ import java.io.*;
 public class KonkurrenceSvoemmer extends Medlem {
    
    public KonkurrenceSvoemmer(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid, String dato)throws Exception{
-      super.setFornavn(fornavn);
-      super.setEfternavn(efternavn);
-      super.setAlder(alder);
-      super.setMedlemsskab(medlemsskab);
-      super.setDisciplin(disciplin);
-      super.setTid(tid);
-      super.setDato(dato);
+      setFornavn(fornavn);
+      setEfternavn(efternavn);
+      setAlder(alder);
+      setMedlemsskab(medlemsskab);
+      setDisciplin(disciplin);
+      setTid(tid);
+      setDato(dato);
       
       //gemmer til fil
       super.saveIt("konkurrenceSvoemmere.txt");
@@ -22,10 +22,11 @@ public class KonkurrenceSvoemmer extends Medlem {
       System.out.println("...Medlem gemt som konkurrencesvoemmer...\n\nVil du oprette endnu et medlem?\n");
    }    
    
+   //***her skal der være en printf***
    //overskriver toString metoden i forældreklassen
    @Override
    public String toString(){
-      return super.getFornavn()+" "+super.getEfternavn()+" "+super.getAlder()+" "
-               +super.getMedlemsskab()+" "+super.getDisciplin()+" "+super.getTid()+" "+super.getDato();
+      return getFornavn()+" "+getEfternavn()+" "+getAlder()+" "
+               +getMedlemsskab()+" "+getDisciplin()+" "+getTid()+" "+getDato();
    }
 }
