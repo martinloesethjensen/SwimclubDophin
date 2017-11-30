@@ -81,7 +81,7 @@ public class Formand extends Ansat {
       medlemsskab(console);
       
       //opretter et objekt med parameter
-      Motionist nytMedlem = new Motionist(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab());
+      Motionist nytMedlem = new Motionist(getFornavn(),getEfternavn(),getAlder(),getMedlemsskab());
    }
    
    /**
@@ -98,8 +98,8 @@ public class Formand extends Ansat {
       
       vaelgDisciplin(console);
       
-      KonkurrenceSvoemmer nytMedlem = new KonkurrenceSvoemmer(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(), super.getDisciplin(), super.getTid(), super.getDato());
-   
+      KonkurrenceSvoemmer nytMedlem = new KonkurrenceSvoemmer(getFornavn(),getEfternavn(),
+                           getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
    }
    
    /**
@@ -109,12 +109,12 @@ public class Formand extends Ansat {
    public void opretOplysninger(Scanner console){
       
       System.out.println("INDTAST FORNAVN:");
-      super.setFornavn(console.next());
+      setFornavn(console.next());
       System.out.println("INDTAST EFTERNAVN");
-      super.setEfternavn(console.next()); 
+      setEfternavn(console.next()); 
       System.out.println("INDTAST ALDER");
 
-      super.setAlder(super.testConsoleInput(console));
+      setAlder(super.testConsoleInput(console));
       
    }
    
@@ -129,22 +129,22 @@ public class Formand extends Ansat {
          
          switch(this.menu){
             case 1: 
-               super.setDisciplin("Crawl");
+               setDisciplin("Crawl");
                break;   
             case 2:
-               super.setDisciplin("Rygcrawl");
+               setDisciplin("Rygcrawl");
                break;
             case 3:
-               super.setDisciplin("Butterfly");
+               setDisciplin("Butterfly");
                break;
             case 4:
-               super.setDisciplin("Brystsvoemning");
+               setDisciplin("Brystsvoemning");
                break;
             case 5:
-               super.setDisciplin("Hundesvoemning");
+               setDisciplin("Hundesvoemning");
                break;
             default:
-               System.out.println("Tast venligst et nummer der er fremvist");            
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");            
                vaelgDisciplin(console); //den kører i infinite loop               
          }
          dummy = -1;//kommer ud af whileloop 
@@ -164,13 +164,13 @@ public class Formand extends Ansat {
          
          switch(this.menu){
             case 1: 
-               super.setMedlemsskab("Aktiv");
+               setMedlemsskab("Aktiv");
                break;
             case 2:
-               super.setMedlemsskab("Passiv");
+               setMedlemsskab("Passiv");
                break;
             default:
-               System.out.println("Tast venligst et nummer der er fremvist");  
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");            
                medlemsskab(console); //den kører i infinite loop               
          }
          dummy = -1;
