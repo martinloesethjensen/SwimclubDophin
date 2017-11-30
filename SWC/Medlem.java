@@ -8,24 +8,26 @@ import java.io.*;
 public class Medlem {
    
    //fields
-   private String fornavn;
-   private String efternavn;
-   private String medlemsskab;
-   private String disciplin;
-   private String staevneNavn;
-   private int alder;
-   private double tid;
-   private double staevneTid;
-   private int placering;
-   private double pris;
-   private String dato;
+   protected String fornavn;
+   protected String efternavn;
+   protected String medlemsskab;
+   protected String disciplin;
+   protected String staevneNavn;
+   protected int alder;
+   protected double tid;
+   protected double staevneTid;
+   protected int placering;
+   protected double pris;
+   protected String dato;
    
-   //default constructor behøves ikke, da den jo er default
+   //default constructor
    public Medlem(){}
       
    public String toString(){ return " "; }
    
    //Metode til at gemme til fil
+   
+   
    public void saveIt(String filNavn)throws Exception{
       PrintStream nytMemberInfo = new PrintStream(new FileOutputStream(filNavn,true));
       nytMemberInfo.println(toString());

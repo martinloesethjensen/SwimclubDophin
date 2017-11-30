@@ -8,20 +8,20 @@ import java.io.*;
 public class Ansat {
 
    //fields der også bruges af children
-	private String fornavn;
-	private String efternavn;
-   private int alder;
-   private String restance;
-   private String aktivitetsform;
-   private String medlemsskab;
-   private String disciplin;
+	protected String fornavn;
+	protected String efternavn;
+   protected int alder;
+   protected String restance;
+   protected String aktivitetsform;
+   protected String medlemsskab;
+   protected String disciplin;
    protected double tid;
-   private double staevneTid;
-   private String staevneNavn;
-   private int placering;
+   protected double staevneTid;
+   protected String staevneNavn;
+   protected int placering;
    public int menu = -1; //denne field bruges i switch
    protected int count = 0; //bruges nu i træner til 2d array
-   private String dato; //Bruges til dato for bedste tid opnået
+   protected String dato; //Bruges til dato for bedste tid opnået
    
    /** 
    * Denne metode lader en vælge hvilke bruger 
@@ -46,9 +46,9 @@ public class Ansat {
             case 1: formandLogin.subMenu(); break;
             case 2: kassererLogin.subMenu(); break;
             case 3: traenerLogin.subMenu(); break;
-            case 0: System.out.print("Logger af...\n\n"); this.menu = 0; break; 
+            case 0: System.out.print("...LOGGER AF...\n\n"); this.menu = 0; break; 
             default: 
-               System.out.println("Tast venligst et nummer der er fremvist");
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");
                menu();
          }
          this.menu = 0; // Denne springer ud af whileloop
@@ -58,12 +58,7 @@ public class Ansat {
       return 0;
 	}
    
-   public void menuInfo()throws Exception {
-      /*System.out.println("Tast 1 for Formand");
-      System.out.println("Tast 2 for Kasserer");
-      System.out.println("Tast 3 for Traener");
-      System.out.println("Tast 0 for at afslutte");*/
-      
+   public void menuInfo()throws Exception {      
       System.out.println("VAELG BRUGER:");
       System.out.printf("%-15s%s\n", "FORMAND:", "TRYK 1");
       System.out.printf("%-15s%s\n", "KASSERER:", "TRYK 2");
@@ -95,7 +90,7 @@ public class Ansat {
          try{
             return this.menu = Integer.parseInt(input);
          }catch(Exception e){
-            System.out.println("Ugyldigt input");
+            System.out.println("UGYLDIGT INPUT");
             this.menu = -1; //sørger for at den ikke kan komme indi andre cases hvis den fejler
             break;//hopper ud
          }

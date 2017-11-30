@@ -7,30 +7,24 @@ import java.io.*;
 * @Christian.C-Strunge
 */
 
+//FORKLAR OM COMPARABLE
 public class Traener extends Ansat implements Comparable<Traener>{
 
    protected int counter = 0; //Brugt i nyTid()
+   protected int fort = 0; //bruges i forsættelse om top 5 udprint
 
    //default constructor
    public Traener(){}
    
-   /*public Traener(String fornavn, String efternavn, double tid){
-      super.setFornavn(fornavn);
-      super.setEfternavn(efternavn);
-      super.setTid(tid);   
-   }*/
-   
    //constructor der tager imod parametre  
    public Traener(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid, String dato){
-      
-      
-      super.setFornavn(fornavn);
-      super.setEfternavn(efternavn);
-      super.setAlder(alder);
-      super.setMedlemsskab(medlemsskab);
-      super.setDisciplin(disciplin);
-      super.setTid(tid);
-      super.setDato(dato);
+      setFornavn(fornavn);
+      setEfternavn(efternavn);
+      setAlder(alder);
+      setMedlemsskab(medlemsskab);
+      setDisciplin(disciplin);
+      setTid(tid);
+      setDato(dato);
    }
    
    /**
@@ -43,26 +37,20 @@ public class Traener extends Ansat implements Comparable<Traener>{
       while (menu != 0){
          traenerMenu();
          
-         super.testConsoleInput(console);  
-         //this.menu=2;              
+         super.testConsoleInput(console);               
          
          switch(this.menu){
-            case 1: printDisciplin(console); 
-               break; //tilføj switch
-            case 2: printKandidater(console); 
-               break; //tilføj switch
-            case 3: printListe(); 
-               break; //printe fra konkurrencesvømmere fil
-            case 4: registrerStaevne(console); 
-               break; //tilføjer navn + stævne til fil
-            case 5: nyTid(console); 
-               break; //Ændrer tid og dato på medlem
+            case 1: printDisciplin(console); break;
+            case 2: printKandidater(console); break;
+            case 3: printListe(); break; //printe fra konkurrencesvømmere fil
+            case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
+            case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu();  //menu hos ansat
                break;
             default: 
-               System.out.println("Tast venligst et nummer der er fremvist");
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");
                subMenu();
          }
          break;
@@ -96,31 +84,31 @@ public class Traener extends Ansat implements Comparable<Traener>{
          Scanner token = new Scanner(line);
          
          String fornavn = token.next();
-         super.setFornavn(fornavn);
+         setFornavn(fornavn);
          
          String efternavn = token.next();
-         super.setEfternavn(efternavn);
+         setEfternavn(efternavn);
          
          int alder = token.nextInt();
-         super.setAlder(alder);
+         setAlder(alder);
          
          String medlemsskab = token.next();
-         super.setMedlemsskab(medlemsskab);
+         setMedlemsskab(medlemsskab);
          
          String disciplin = token.next();
-         super.setDisciplin(disciplin);
+         setDisciplin(disciplin);
          
          String tid = token.next();
          double tTid = Double.valueOf(tid); //returnere String repræsentationen af en double
-         super.setTid(tTid);
+         setTid(tTid);
          
          String dato = token.next();
-         super.setDato(dato);
+         setDato(dato);
          
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
-            System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
-                                  +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
+            System.out.println("VAELG DISCIPLIN:\n\tTAST 1 FOR CRAWL\n\tTAST 2 FOR RYGCRAWL\n\tTAST 3 FOR " 
+                                  +"BUTTERFLY\n\tTAST 4 FOR BRYSTSVOEMNING\n\tTAST 5 FOR HUNDESVOEMNING"); 
             super.testConsoleInput(console);
             count++;//increment
          }
@@ -157,17 +145,17 @@ public class Traener extends Ansat implements Comparable<Traener>{
                }
                break;
             default:
-               System.out.println("Tast venligst et nummer der er fremvist");            
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");            
                printDisciplin(console); //den kører i infinite loop               
          }
          
-         //tilføjer traener objekt til arraylist
-         Traener traen = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+         //tilføjer traen objekt til arraylist
+         Traener traen = new Traener(getFornavn(),getEfternavn(),getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
          print.add(traen);
       
       }
       
-      if (count == 0)System.out.println("Ingen medlem(er) er tilknyttet disciplin");
+      if (count == 0)System.out.println("INGEN MEDLEM(ER) ER TILKNYTTET DISCIPLIN");
      
       System.out.println();
       //prompter om fortsættelse
@@ -177,19 +165,18 @@ public class Traener extends Ansat implements Comparable<Traener>{
    //tostring metode skal have printf så den efterligner et udprint der er formateret pænt
    @Override
    public String toString(){
-      return super.getFornavn()+" "+super.getEfternavn()+" "+super.getAlder()+" "
-                           +super.getMedlemsskab()+" "+super.getDisciplin()+" "+
-                                         super.getTid()+" "+super.getDato();
+      return getFornavn()+" "+getEfternavn()+" "+getAlder()+" "
+                           +getMedlemsskab()+" "+getDisciplin()+" "+
+                                         getTid()+" "+getDato();
    
    } 
    
+   //beskrivelse her
    public int countThis()throws Exception{
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
       while(scanFil.hasNextLine()){
          this.counter++;
-         if (scanFil.nextLine() == null){ 
-            break;
-         }
+         if (scanFil.nextLine() == null) break;
       }
       scanFil.close();
       return this.counter;
@@ -202,10 +189,9 @@ public class Traener extends Ansat implements Comparable<Traener>{
       ArrayList<Traener> butterflyTop = new ArrayList<>();
       ArrayList<Traener> brystsvoemningTop = new ArrayList<>();
       ArrayList<Traener> hundesvoemningTop = new ArrayList<>();
-   
       
       int count = -1; //en count der bruges i switch om hvilken disciplin der skal printes for 
-      int top = 0;
+      int top = 0; //til at udskrive arraylist 
        
       //initialisere et ArrayList med Traener objekt 
       List<Traener> print = new ArrayList<>();
@@ -214,51 +200,51 @@ public class Traener extends Ansat implements Comparable<Traener>{
          Scanner token = new Scanner(line);
          
          String fornavn = token.next();
-         super.setFornavn(fornavn);
+         setFornavn(fornavn);
          
          String efternavn = token.next();
-         super.setEfternavn(efternavn);
+         setEfternavn(efternavn);
          
          int alder = token.nextInt();
-         super.setAlder(alder);
+         setAlder(alder);
          
          String medlemsskab = token.next();
-         super.setMedlemsskab(medlemsskab);
+         setMedlemsskab(medlemsskab);
          
          String disciplin = token.next();
-         super.setDisciplin(disciplin);
+         setDisciplin(disciplin);
          
          String tid = token.next();
          double tTid = Double.valueOf(tid); //returnere String repræsentationen af en double
-         super.setTid(tTid);
+         setTid(tTid);
          
          String dato = token.next();
-         super.setDato(dato);
+         setDato(dato);
          
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
-            System.out.println("Vaelg discipling:\n\tTast 1 for crawl\n\tTast 2 for rygcrawl\n\tTast 3 for " 
-                                  +"butterfly\n\tTast 4 for brystsvoemning\n\tTast 5 for hundesvoemning"); 
+            System.out.println("VAELG DISCIPLIN:\n\tTAST 1 FOR CRAWL\n\tTAST 2 FOR RYGCRAWL\n\tTAST 3 FOR " 
+                                  +"BUTTERFLY\n\tTAST 4 FOR BRYSTSVOEMNING\n\tTAST 5 FOR HUNDESVOEMNING"); 
             super.testConsoleInput(console);
             count++;//increment
          }
-         //sammenlign og print medlem hvis dette eksistere for det pågældende medlem 
-         //Scanner sc = new Scanner(new File("konkurrenceSvoemmere.txt"));
          
          switch(this.menu){
             case 1: 
                if(disciplin.equals("Crawl")){
-                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  Traener traener = new Traener(getFornavn(),getEfternavn(),
+                  getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
                   crawlTop.add(traener);
-               
+                  
                   top = 1;
                   count++;
                }
                break;   
             case 2:
                if(disciplin.equals("Rygcrawl")){
-                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  Traener traener = new Traener(getFornavn(),getEfternavn(),
+                  getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
                   rygCrawlTop.add(traener);
                   
@@ -268,7 +254,8 @@ public class Traener extends Ansat implements Comparable<Traener>{
                break;
             case 3:
                if(disciplin.equals("Butterfly")){
-                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  Traener traener = new Traener(getFornavn(),getEfternavn(),
+                  getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
                   butterflyTop.add(traener);
                   
@@ -278,7 +265,8 @@ public class Traener extends Ansat implements Comparable<Traener>{
                break;
             case 4:
                if(disciplin.equals("Brystsvoemning")){
-                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  Traener traener = new Traener(getFornavn(),getEfternavn(),
+                  getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
                   brystsvoemningTop.add(traener);
                   
@@ -288,7 +276,8 @@ public class Traener extends Ansat implements Comparable<Traener>{
                break;
             case 5:
                if(disciplin.equals("Hundesvoemning")){
-                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  Traener traener = new Traener(getFornavn(),getEfternavn(),
+                  getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
                   
                   hundesvoemningTop.add(traener);
                   
@@ -297,37 +286,83 @@ public class Traener extends Ansat implements Comparable<Traener>{
                }
                break;
             default:
-               System.out.println("Tast venligst et nummer der er fremvist");            
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");            
                printDisciplin(console); //den kører i infinite loop               
-         }
-         
-         //tilføjer traener objekt til arraylist
-         Traener traen = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
-         print.add(traen);
-      
+         }      
       }
-      
+      int k = 0; //bruges til at hvor mange gange der skal printes ud 
       if(top == 1){
          Collections.sort(crawlTop);
-         System.out.print(crawlTop.toString());
+         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
+         
+         if(crawlTop.size() > 5){ 
+            k = 5; 
+         }else k = crawlTop.size();
+         
+         for(int i = 0; i < k; i++){ 
+            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",crawlTop.get(i).getFornavn(),
+               crawlTop.get(i).getEfternavn(),crawlTop.get(i).getAlder(),crawlTop.get(i).getMedlemsskab(),
+               crawlTop.get(i).getDisciplin(),crawlTop.get(i).getTid(),crawlTop.get(i).getDato()); 
+         }
       }else if(top == 2){
          Collections.sort(rygCrawlTop);
-         System.out.print(rygCrawlTop.toString());
+         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
+         
+         if(rygCrawlTop.size() > 5){ 
+            k = 5; 
+         }else k = rygCrawlTop.size();
+         
+         for(int i = 0; i < k; i++){ 
+            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",rygCrawlTop.get(i).getFornavn(),
+               rygCrawlTop.get(i).getEfternavn(),rygCrawlTop.get(i).getAlder(),rygCrawlTop.get(i).getMedlemsskab(),
+               rygCrawlTop.get(i).getDisciplin(),rygCrawlTop.get(i).getTid(),rygCrawlTop.get(i).getDato()); 
+         }
       }else if(top == 3){
          Collections.sort(butterflyTop);
-         System.out.print(butterflyTop.toString());
+         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
+         
+         if(butterflyTop.size() > 5){ 
+            k = 5; 
+         }else k = butterflyTop.size();
+         
+         for(int i = 0; i < k; i++){ 
+            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",butterflyTop.get(i).getFornavn(),
+               butterflyTop.get(i).getEfternavn(),butterflyTop.get(i).getAlder(),butterflyTop.get(i).getMedlemsskab(),
+               butterflyTop.get(i).getDisciplin(),butterflyTop.get(i).getTid(),butterflyTop.get(i).getDato()); 
+         }
       }else if(top == 4){
          Collections.sort(brystsvoemningTop);
-         System.out.print(brystsvoemningTop.toString());
+         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
+         
+         if(brystsvoemningTop.size() > 5){ 
+            k = 5; 
+         }else k = brystsvoemningTop.size();
+         
+         for(int i = 0; i < k; i++){ 
+            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",brystsvoemningTop.get(i).getFornavn(),
+               brystsvoemningTop.get(i).getEfternavn(),brystsvoemningTop.get(i).getAlder(),brystsvoemningTop.get(i).getMedlemsskab(),
+               brystsvoemningTop.get(i).getDisciplin(),brystsvoemningTop.get(i).getTid(),brystsvoemningTop.get(i).getDato()); 
+         }
       }else if(top == 5){
          Collections.sort(hundesvoemningTop);
-         System.out.print(hundesvoemningTop.toString());
+         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
+         
+         if(hundesvoemningTop.size() > 5){ 
+            k = 5; 
+         }else k = hundesvoemningTop.size();
+         
+         for(int i = 0; i < k; i++){ 
+            System.out.printf("%s / %s / %d / %s / %s / %f / %s\n\n",hundesvoemningTop.get(i).getFornavn(),
+               hundesvoemningTop.get(i).getEfternavn(),hundesvoemningTop.get(i).getAlder(),hundesvoemningTop.get(i).getMedlemsskab(),
+               hundesvoemningTop.get(i).getDisciplin(),hundesvoemningTop.get(i).getTid(),hundesvoemningTop.get(i).getDato()); 
+         }
       }  
       
-      if (count == 0)System.out.println("Ingen medlem(er) er tilknyttet disciplin");
-      
+      if (count == 0)System.out.println("INGEN MEDLEM(ER) ER TILKNYTTET DISCIPLIN");
       
       System.out.println();
+      
+      this.fort = 1;
       //prompter om fortsættelse
       fortsaettelse(console);
    } 
@@ -338,25 +373,31 @@ public class Traener extends Ansat implements Comparable<Traener>{
       return new Double(getTid()).compareTo(other.getTid());
    }  
    
+   //skal rettes
+   
    public void fortsaettelse(Scanner console)throws Exception{
       int dummy = 0;
       
       while(dummy == 0){
-         System.out.println("Tast 1 for at print endnu en liste\nTast 0 for at returnere\n<==");
+         System.out.println("TAST 1 FOR AT PRINTE ENDNU EN LISTE\nTAST 0 FOR AT RETURNERE\n<==");
             
          super.testConsoleInput(console);
             
          switch(this.menu){
             case 1:
-               printDisciplin(console);
+               if(this.fort == 1){ 
+                  printKandidater(console); 
+               }else printDisciplin(console);
+               this.fort = 0;
                break;
             
             case 0:
+               this.fort = 0;
                subMenu();
                break;
             
             default:
-               System.out.println("Tast venligst et nummer der er fremvist");   
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");   
                fortsaettelse(console);   
          }
          dummy = -1;
@@ -370,7 +411,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
    public void printListe()throws Exception{
       Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
       
-      System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid", "Dato");
+      System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s %-10s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
       System.out.println("----------------------------------------------------------------------------------");
       
       while(konkurrence.hasNextLine()){
@@ -385,11 +426,9 @@ public class Traener extends Ansat implements Comparable<Traener>{
          
          System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid, dato);
          System.out.println(konkurrence.nextLine() + "  ");
-         
       }
       System.out.println();
       subMenu();
-   
    } 
     
     /**
@@ -427,15 +466,15 @@ public class Traener extends Ansat implements Comparable<Traener>{
       int num = console.nextInt(); //Check vaerdi
       
       System.out.println("INDTAST NY TID");
-      super.setTid(console.nextDouble());
-      double tidRet = super.getTid();
+      setTid(console.nextDouble());
+      double tidRet = getTid();
       //returnere String repræsentationen af en double
       String rettet = String.valueOf(tidRet);
       konkurrenceArray[num-1][5] = rettet;
       
       System.out.println("INDTAST NY DATO");
-      super.setDato(console.next());
-      konkurrenceArray[num-1][6] = super.getDato();
+      setDato(console.next());
+      konkurrenceArray[num-1][6] = getDato();
       
       //Overskriver plads i eksisterende fil
       PrintStream addChange = new PrintStream(new File("konkurrenceSvoemmere.txt"));
@@ -455,16 +494,16 @@ public class Traener extends Ansat implements Comparable<Traener>{
    */
     
    public void registrerStaevne(Scanner console)throws Exception{
-      System.out.println("Indtast fornavn");
-      super.setFornavn(console.next());
-      System.out.println("Indtast efternavn");
-      super.setEfternavn(console.next());
-      System.out.println("Indtast staevnenavn");
-      super.setStaevneNavn(console.next());
-      System.out.println("Indtast bedste staevnetid");
-      super.setStaevneTid(console.nextDouble());
-      System.out.println("Indtast placering");
-      super.setPlacering(console.nextInt());
+      System.out.println("INDTAST FORNAVN");
+      setFornavn(console.next());
+      System.out.println("INDTAST EFTERNAVN");
+      setEfternavn(console.next());
+      System.out.println("INDTAST STAEVNENAVN");
+      setStaevneNavn(console.next());
+      System.out.println("INDTAST BEDSTE STAEVNETID");
+      setStaevneTid(console.nextDouble());
+      System.out.println("INDTAST PLACERING");
+      setPlacering(console.nextInt());
       
       //valg af disciplin
       Formand refMetode = new Formand();
@@ -472,7 +511,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       saveToFile(refMetode);
       
-      System.out.println("...Medlem gemt i Staevneliste...\n\n");
+      System.out.println("...MEDLEM GEMT I STAEVNELISTE...\n\n");
       
       subMenu();
    }
@@ -492,6 +531,6 @@ public class Traener extends Ansat implements Comparable<Traener>{
    */
    
    public String toStringStaevne(){
-      return super.getFornavn()+" "+super.getEfternavn()+" "+super.getStaevneNavn()+" "+super.getStaevneTid()+" "+super.getPlacering();
+      return getFornavn()+" "+getEfternavn()+" "+getStaevneNavn()+" "+getStaevneTid()+" "+getPlacering();
    }
 }
