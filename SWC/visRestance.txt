@@ -1,9 +1,9 @@
-Mads Hansen       Betalt
-Adam Cold         Restance 
-Anders Billen     Restance 
-David Pedersen    Betalt
-Lars olsen        Restance
-Casper Andersen   Betalt
-Martin Loeseth    Restance
+Mads Hansen Betalt
+Adam Cold Restance 
+Anders Billen Restance 
+David Pedersen Betalt
+Lars Olsen Restance
+Casper Andersen Betalt
+Martin Loeseth Restance
 Christian Strunge Restance
-Rasmus Sadurski   Restance
+Rasmus Sadurski Restance

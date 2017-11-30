@@ -50,43 +50,57 @@ public class Kasserer extends Ansat {
    /**
    * Beskrivelse her
    */
-   
    public void betalingsstatus() throws Exception {
       Scanner status = new Scanner(new File("visRestance.txt"));
-      while(status.hasNextLine()){
-            
-            String sline = status.nextLine();
-               System.out.println(sline.toString());
-             }
-      System.out.println();
-      subMenu();
+         System.out.printf("%-10s%-15s%-10s\n", "Fornavn", "Efternavn", "Status");
+         System.out.printf("---------------------------------\n");
+            List<Kasserer> vis = new ArrayList<>();
+            while(status.hasNextLine()){ 
+               String line = status.nextLine();
+               Scanner token = new Scanner(line);
+               
+               String navn = token.next();
+               super.setFornavn(navn);
+               
+               String enavn = token.next();
+               super.setEfternavn(enavn);
+               
+               String rest = token.next();
+               super.setRestance(rest); 
+               
+               System.out.printf("%-10s%-15s%-10s\n\n", super.getFornavn(),super.getEfternavn(),super.getRestance());
+  
+            }
+            subMenu();
    }
-   
+  
    /**
    * Beskrivelse her
    */
    
    public void visRestance() throws Exception{
       Scanner RestanceKonti = new Scanner(new File("visRestance.txt"));
-      
-      List<Kasserer> vis = new ArrayList<>();
-      while(RestanceKonti.hasNextLine()){
-         String line = RestanceKonti.nextLine();
-         Scanner token = new Scanner(line);
-         
-         String navn = token.next();
-         super.setFornavn(navn);
-         
-         String enavn = token.next();
-         super.setEfternavn(enavn);
-         
-         String rest = token.next();
-         super.setRestance(rest);
-         
-         if(rest.equals("Restance")){
-           
-         System.out.println(line.toString()); 
-      } 
+         System.out.printf("%-12s%-15s%-10s\n", "Fornavn", "Efternavn", "Status");
+            System.out.printf("-----------------------------------\n");
+            List<Kasserer> vis = new ArrayList<>();
+            
+            while(RestanceKonti.hasNextLine()){
+               String line = RestanceKonti.nextLine();
+               Scanner token = new Scanner(line);
+               
+               String navn = token.next();
+               super.setFornavn(navn);
+               
+               String enavn = token.next();
+               super.setEfternavn(enavn);
+               
+               String rest = token.next();
+               super.setRestance(rest);
+               
+               if(rest.equals("Restance")){
+                 
+               System.out.printf("%-12s%-15s%-10s\n\n", super.getFornavn(),super.getEfternavn(),super.getRestance()); 
+            } 
          
       Kasserer kas = new Kasserer(super.getFornavn(), super.getEfternavn(), super.getRestance());
       vis.add(kas);
@@ -98,7 +112,7 @@ public class Kasserer extends Ansat {
    
    @Override
    public String toString() {
-      return super.getFornavn()+" "+super.getEfternavn()+" "+ super.getRestance();
+      return " ";
    }
    
    public void redigerKontigent(){
