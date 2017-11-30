@@ -7,16 +7,23 @@ import java.io.*;
 * @Christian.C-Strunge
 */
 
-public class Traener extends Ansat {
+public class Traener extends Ansat implements Comparable<Traener>{
 
    protected int counter = 0; //Brugt i nyTid()
 
    //default constructor
-	public Traener(){}
+   public Traener(){}
    
+   /*public Traener(String fornavn, String efternavn, double tid){
+      super.setFornavn(fornavn);
+      super.setEfternavn(efternavn);
+      super.setTid(tid);   
+   }*/
    
    //constructor der tager imod parametre  
    public Traener(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid, String dato){
+      
+      
       super.setFornavn(fornavn);
       super.setEfternavn(efternavn);
       super.setAlder(alder);
@@ -31,7 +38,7 @@ public class Traener extends Ansat {
    */
    
    public int subMenu()throws Exception{
-		Scanner console = new Scanner(System.in);
+      Scanner console = new Scanner(System.in);
       int menu = -1;
       while (menu != 0){
          traenerMenu();
@@ -40,11 +47,16 @@ public class Traener extends Ansat {
          //this.menu=2;              
          
          switch(this.menu){
-            case 1: printDisciplin(console); break; //tilføj switch
-            case 2: printKandidater(console); break; //tilføj switch
-            case 3: printListe(); break; //printe fra konkurrencesvømmere fil
-            case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
-            case 5: nyTid(console); break; //Ændrer tid og dato på medlem
+            case 1: printDisciplin(console); 
+               break; //tilføj switch
+            case 2: printKandidater(console); 
+               break; //tilføj switch
+            case 3: printListe(); 
+               break; //printe fra konkurrencesvømmere fil
+            case 4: registrerStaevne(console); 
+               break; //tilføjer navn + stævne til fil
+            case 5: nyTid(console); 
+               break; //Ændrer tid og dato på medlem
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu();  //menu hos ansat
@@ -56,7 +68,7 @@ public class Traener extends Ansat {
          break;
       }
       return 0;            
-	}
+   }
    
    public void traenerMenu(){
       System.out.printf("%-35s%s\n", "DISCIPLINLISTE M. MEDLEMMER", "TRYK 1");
@@ -72,7 +84,7 @@ public class Traener extends Ansat {
    * Metode der scanner fil og putter værdierne ind i et object hvor så dette obekt gemmes i en ArrayList
    */
    
-	public void printDisciplin(Scanner console)throws Exception {
+   public void printDisciplin(Scanner console)throws Exception {
       Scanner scanKonkurrence = new Scanner(new File("konkurrenceSvoemmere.txt"));
       
       int count = -1; //en count der bruges i switch om hvilken disciplin der skal printes for 
@@ -160,7 +172,7 @@ public class Traener extends Ansat {
       System.out.println();
       //prompter om fortsættelse
       fortsaettelse(console);
-	}
+   }
    
    //tostring metode skal have printf så den efterligner et udprint der er formateret pænt
    @Override
@@ -185,8 +197,15 @@ public class Traener extends Ansat {
    
    public void printKandidater(Scanner console)throws Exception{
       Scanner scanKonkurrence = new Scanner(new File("konkurrenceSvoemmere.txt"));
+      ArrayList<Traener> crawlTop = new ArrayList<>();
+      ArrayList<Traener> rygCrawlTop = new ArrayList<>();
+      ArrayList<Traener> butterflyTop = new ArrayList<>();
+      ArrayList<Traener> brystsvoemningTop = new ArrayList<>();
+      ArrayList<Traener> hundesvoemningTop = new ArrayList<>();
+   
       
       int count = -1; //en count der bruges i switch om hvilken disciplin der skal printes for 
+      int top = 0;
        
       //initialisere et ArrayList med Traener objekt 
       List<Traener> print = new ArrayList<>();
@@ -224,35 +243,56 @@ public class Traener extends Ansat {
             count++;//increment
          }
          //sammenlign og print medlem hvis dette eksistere for det pågældende medlem 
+         //Scanner sc = new Scanner(new File("konkurrenceSvoemmere.txt"));
+         
          switch(this.menu){
             case 1: 
                if(disciplin.equals("Crawl")){
-                  ArrayList<String> crawlTop = new ArrayList<>();
-                  crawlTop.add(super.getFornavn()+" "+super.getEfternavn()+" "+super.getTid());
-                  //TESTER
-                  System.out.print(crawlTop);
+                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  
+                  crawlTop.add(traener);
+               
+                  top = 1;
                   count++;
                }
                break;   
             case 2:
                if(disciplin.equals("Rygcrawl")){
-                  ArrayList<String> rygCrawlTop = new ArrayList<>();
-                  rygCrawl.add(super.getFornavn()+" "+super.getEfternavn()+" "+super.getTid());
+                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  
+                  rygCrawlTop.add(traener);
+                  
+                  top = 2;
                   count++;
                }
                break;
             case 3:
                if(disciplin.equals("Butterfly")){
+                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  
+                  butterflyTop.add(traener);
+                  
+                  top = 3; 
                   count++;
                }
                break;
             case 4:
                if(disciplin.equals("Brystsvoemning")){
+                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  
+                  brystsvoemningTop.add(traener);
+                  
+                  top = 4;
                   count++;
                }
                break;
             case 5:
                if(disciplin.equals("Hundesvoemning")){
+                  Traener traener = new Traener(super.getFornavn(),super.getEfternavn(),super.getAlder(),super.getMedlemsskab(),super.getDisciplin(),super.getTid(),super.getDato());
+                  
+                  hundesvoemningTop.add(traener);
+                  
+                  top = 5;
                   count++;
                }
                break;
@@ -267,14 +307,36 @@ public class Traener extends Ansat {
       
       }
       
+      if(top == 1){
+         Collections.sort(crawlTop);
+         System.out.print(crawlTop.toString());
+      }else if(top == 2){
+         Collections.sort(rygCrawlTop);
+         System.out.print(rygCrawlTop.toString());
+      }else if(top == 3){
+         Collections.sort(butterflyTop);
+         System.out.print(butterflyTop.toString());
+      }else if(top == 4){
+         Collections.sort(brystsvoemningTop);
+         System.out.print(brystsvoemningTop.toString());
+      }else if(top == 5){
+         Collections.sort(hundesvoemningTop);
+         System.out.print(hundesvoemningTop.toString());
+      }  
+      
       if (count == 0)System.out.println("Ingen medlem(er) er tilknyttet disciplin");
-     
+      
+      
       System.out.println();
       //prompter om fortsættelse
       fortsaettelse(console);
-	}
+   } 
+  
+   //meget vigtig
    
-   
+   public int compareTo(Traener other){
+      return new Double(getTid()).compareTo(other.getTid());
+   }  
    
    public void fortsaettelse(Scanner console)throws Exception{
       int dummy = 0;
@@ -300,68 +362,41 @@ public class Traener extends Ansat {
          dummy = -1;
       }
    }
-   
-   /**
-   * Bruges ikke, men pricinppet kan bruges i flere udprint metoder 
-   */
-   
-   /*public void openFile(String fileName)throws Exception{
-      Scanner scanFile = new Scanner(new File(fileName));
-      
-      System.out.printf("%-10s %-10s %-7s %-11s %-15s %-11s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemsskab", "Disciplin", "Tid", "Dato");
-      System.out.println("------------------------------------------------------------------");
-      
-      while(scanFile.hasNextLine()){
-         
-         String fornavn = scanFile.next();
-         String efternavn = scanFile.next();
-         int alder = scanFile.nextInt();
-         String medlemsskab = scanFile.next();
-         String disciplin = scanFile.next();
-         String tid = scanFile.next();
-         String dato = scanFile.next();
-         
-         System.out.printf("%-10s %-10s %-7d %-11s %-11s %s %s\n", fornavn, efternavn, alder, medlemsskab, disciplin, tid, dato);
-         System.out.println(scanFile.nextLine() + "  ");
-         
-      }
-      System.out.println();
-   }*/
 
    /**
    * Printer liste over alle konkurrencesvoemmere
    */  
     
-    public void printListe()throws Exception{
-       Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
+   public void printListe()throws Exception{
+      Scanner konkurrence = new Scanner(new File("konkurrenceSvoemmere.txt")); 
       
-       System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid", "Dato");
-       System.out.println("----------------------------------------------------------------------------------");
+      System.out.printf("%-10s %-10s %-7s %-11s %-15s %-15s %-10s\n", "Fornavn", "Efternavn", "Alder", "Medlemskab", "Disciplin", "Tid", "Dato");
+      System.out.println("----------------------------------------------------------------------------------");
       
-       while(konkurrence.hasNextLine()){
+      while(konkurrence.hasNextLine()){
          
-          String fornavn = konkurrence.next();
-          String efternavn = konkurrence.next();
-          int alder = konkurrence.nextInt();
-          String medlemskab = konkurrence.next();
-          String disciplin = konkurrence.next();
-          String tid = konkurrence.next();
-          String dato = konkurrence.next();
+         String fornavn = konkurrence.next();
+         String efternavn = konkurrence.next();
+         int alder = konkurrence.nextInt();
+         String medlemskab = konkurrence.next();
+         String disciplin = konkurrence.next();
+         String tid = konkurrence.next();
+         String dato = konkurrence.next();
          
-          System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid, dato);
-          System.out.println(konkurrence.nextLine() + "  ");
+         System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid, dato);
+         System.out.println(konkurrence.nextLine() + "  ");
          
-       }
-       System.out.println();
-       subMenu();
-
-    } 
+      }
+      System.out.println();
+      subMenu();
+   
+   } 
     
     /**
     * Beskrivelse her
     */
     
-    public int count()throws Exception{
+   public int count()throws Exception{
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
       //Printf så det ser pænt og formateret ud 
       while(scanFil.hasNextLine()){
@@ -369,13 +404,13 @@ public class Traener extends Ansat {
          System.out.println(this.counter + " " + scanFil.nextLine());
       }
       return this.counter;
-    }
+   }
     
     /**
     * Beskrivelse her
     */ 
     
-    public void nyTid(Scanner console)throws Exception{
+   public void nyTid(Scanner console)throws Exception{
       Scanner scanKonk = new Scanner(new File("konkurrenceSvoemmere.txt"));  
       count();
       String konkurrenceArray[][] = new String[this.counter][7];
@@ -383,8 +418,8 @@ public class Traener extends Ansat {
       while(scanKonk.hasNext()){
          for(int i = 0; i < this.counter; i++){
             for(int j = 0; j < 7; j++){
-            String item = scanKonk.next();
-            konkurrenceArray[i][j] = item;
+               String item = scanKonk.next();
+               konkurrenceArray[i][j] = item;
             }
          }
       }
@@ -406,9 +441,9 @@ public class Traener extends Ansat {
       PrintStream addChange = new PrintStream(new File("konkurrenceSvoemmere.txt"));
       for(int i = 0; i < this.counter; i++){
          addChange.println(konkurrenceArray[i][0] + " " + konkurrenceArray[i][1] + " " 
-         + konkurrenceArray[i][2] + " " + konkurrenceArray[i][3] + " " 
-         + konkurrenceArray[i][4] + " " + konkurrenceArray[i][5] + " " 
-         + konkurrenceArray[i][6]);
+            + konkurrenceArray[i][2] + " " + konkurrenceArray[i][3] + " " 
+            + konkurrenceArray[i][4] + " " + konkurrenceArray[i][5] + " " 
+            + konkurrenceArray[i][6]);
       }
       //clean up
       scanKonk.close();
