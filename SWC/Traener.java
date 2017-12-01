@@ -553,7 +553,10 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       subMenu();
    }
-   
+   /*
+   Denne metode beder brugeren vælge,
+   om der skal printes et juniorhold eller seniorhold.
+   */
    public void juniorSenior() throws Exception {
       Scanner console = new Scanner(System.in);
       int menu = -1;
@@ -581,6 +584,9 @@ public class Traener extends Ansat implements Comparable<Traener>{
    
    }
    
+   /*Junior og senior metoderne tjekker konkurrencesvømmere.txt for
+   token "alder". I junior vil den returnere line hvis alder er < 18,
+   og vice versa for senior*/
    public void junior() throws Exception {
       Scanner alder = new Scanner(new File("Konkurrencesvoemmere.txt"));
          System.out.printf("%-12s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "ALDER");
