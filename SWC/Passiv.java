@@ -5,7 +5,7 @@ public class Passiv extends Kontingent  {
    
    // denne skal nok bare implementeres direkte i kontigent klassen
    
-   public Passiv(double pris){ super(pris); }   
+   public Passiv(){}   
    
    //polymorphisme
    //type casting to int because it might be lossy

@@ -20,7 +20,6 @@ public class SwimClubMain {
 
    }
    
-   
    /*
    @Casper Frost Andersen
    Når programmet startes prompter systemet for et korrekt password.
