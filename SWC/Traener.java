@@ -534,6 +534,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       }
       //clean up
       scanKonk.close();
+      System.out.println();
       subMenu();
    }     
     
