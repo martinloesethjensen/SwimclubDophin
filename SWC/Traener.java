@@ -46,6 +46,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 6: printStaevne(console); break;//Printer liste(Staevne)
+            case 7: juniorSenior(); break;
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu();  //menu hos ansat
@@ -66,6 +67,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       System.out.printf("%-35s%s\n", "OPRET NY STAEVNEDELTAGER", "TRYK 4");
       System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TRYK 5");
       System.out.printf("%-35s%s\n", "PRINT STAEVNELISTE", "TRYK 6");
+      System.out.printf("%-35s%s\n", "PRINT JUNIOR/SENIOR-HOLD", "TRYK 7");
       System.out.println();
       System.out.printf("%-35s%s\n", "RETURNER", "TRYK 0");
    }
@@ -551,6 +553,94 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       subMenu();
    }
+   
+   public void juniorSenior() throws Exception {
+      Scanner console = new Scanner(System.in);
+      int menu = -1;
+      
+      while(menu != 0){
+         System.out.printf("%-25s%-5s\n%-25s%-5s\n","PRINT JUNIORHOLD", "TRYK 1", "PRINT SENIORHOLD", "TRYK 2");
+      super.testConsoleInput(console);
+      
+      switch(this.menu){
+         
+         case 1:
+            junior();
+            menu = 0;
+            break;
+         case 2:
+            senior();
+            menu = 0;
+         default:
+            System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST\n");
+            juniorSenior();           
+         
+         }
+         break;   //exit loop
+      }
+   
+   }
+   
+   public void junior() throws Exception {
+      Scanner alder = new Scanner(new File("Konkurrencesvoemmere.txt"));
+         System.out.printf("%-12s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "ALDER");
+         System.out.println("--------------------------------");
+         
+         List<Traener>junior = new ArrayList<>();
+         
+            while(alder.hasNextLine()){
+               String line = alder.nextLine();
+               Scanner token = new Scanner(line);
+               
+               String jFornavn = token.next();
+               setFornavn(jFornavn);
+               
+               String jEfternavn = token.next();
+               setEfternavn(jEfternavn);
+               
+               int jAlder = token.nextInt();
+               setAlder(jAlder);
+               
+               if(jAlder < 18) {
+               
+                  System.out.printf("%-12s%-15s%-10s", getFornavn(), getEfternavn(), getAlder());
+                  System.out.println();
+               }
+            }
+         System.out.println();
+         subMenu();
+   }
+    public void senior() throws Exception {
+      Scanner alder = new Scanner(new File("Konkurrencesvoemmere.txt"));
+         System.out.printf("%-12s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "ALDER");
+         System.out.println("--------------------------------");
+         
+         List<Traener>senior = new ArrayList<>();
+         
+            while(alder.hasNextLine()){
+               String line = alder.nextLine();
+               Scanner token = new Scanner(line);
+               
+               String sFornavn = token.next();
+               setFornavn(sFornavn);
+               
+               String sEfternavn = token.next();
+               setEfternavn(sEfternavn);
+               
+               int sAlder = token.nextInt();
+               setAlder(sAlder);
+               
+               if(sAlder > 18) {
+               
+                  System.out.printf("%-12s%-15s%-10s", getFornavn(), getEfternavn(), getAlder());
+                  System.out.println();
+               }
+               
+            }
+         System.out.println();
+         subMenu();
+   }
+
    
    /**
    * gemmer oplysninger i fil
