@@ -4,4 +4,5 @@ Hana Hansen 20 Passiv
 Helle Hellesoe 49 Passiv
 Ole Ericksen 28 Passiv
 Carl Bergson 25 Aktiv
-Tage Tagterasse 99 AktivMorten Skildpadde 20 Aktiv
+Tage Tagterasse 99 Aktiv
+Morten Skildpadde 20 Aktiv

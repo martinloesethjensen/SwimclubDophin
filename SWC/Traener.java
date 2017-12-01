@@ -288,7 +288,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
                printDisciplin(console); //den kører i infinite loop               
          }      
       }
-      int k = 0; //bruges til at hvor mange gange der skal printes ud 
+      int k = 0; //bruges til at holde styr på,hvor mange gange der skal printes ud 
       if(top == 1){
          Collections.sort(crawlTop);
          System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");

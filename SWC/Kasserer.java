@@ -75,8 +75,10 @@ public class Kasserer extends Ansat {
                String rest = token.next();
                setRestance(rest); 
                
-               System.out.printf("%-10s%-15s%-10s\n\n", getFornavn(),getEfternavn(),getRestance());
+               System.out.printf("%-10s%-15s%-10s", getFornavn(),getEfternavn(),getRestance());
+               System.out.println(); 
             }
+            System.out.println(); 
             subMenu();
    }
   
@@ -105,7 +107,8 @@ public class Kasserer extends Ansat {
                
                if(rest.equals("Restance")){
                  
-               System.out.printf("%-12s%-15s%-10s\n\n", getFornavn(),getEfternavn(),getRestance()); 
+               System.out.printf("%-12s%-15s%-10s", getFornavn(),getEfternavn(),getRestance());
+               System.out.println(); 
             } 
          
       Kasserer kas = new Kasserer(getFornavn(),getEfternavn(),getRestance());
