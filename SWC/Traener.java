@@ -113,13 +113,14 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(count == -1){
             System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "CRAWL", "TRYK 1","RYGCRAWL","TRYK 2","BUTTERLFY","TRYK 3","BRYSTSVOEMNING","TRYK 4","HUNDESVOEMNING","TRYK 5");
             super.testConsoleInput(console);
+            System.out.printf(
             count++;//increment
          }
          //sammenlign og print medlem hvis dette eksistere for det pågældende medlem 
          switch(this.menu){
-            case 1: 
+            case 1:
                if(disciplin.equals("Crawl")){
-                  System.out.println(line.toString());
+                  System.out.printf("%-8s%-12s%-8d%-12s%-8s%-6.01f%s\n", getFornavn(),getEfternavn(), getAlder(), getMedlemsskab(), getDisciplin(), getTid(), getDato());
                   count++;
                }
                break;   
@@ -168,7 +169,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
    //tostring metode skal have printf så den efterligner et udprint der er formateret pænt
    @Override
    public String toString(){
-      return getFornavn()+" "+getEfternavn()+" "+getAlder()+" "
+      return String.format(getFornavn())+" "+getEfternavn()+" "+getAlder()+" "
                            +getMedlemsskab()+" "+getDisciplin()+" "+
                                          getTid()+" "+getDato();
    
@@ -456,13 +457,13 @@ public class Traener extends Ansat implements Comparable<Traener>{
          String fornavn = konkurrence.next();
          String efternavn = konkurrence.next();
          int alder = konkurrence.nextInt();
-         String medlemskab = konkurrence.next();
+         String medlemsskab = konkurrence.next();
          String disciplin = konkurrence.next();
          String tid = konkurrence.next();
          String dato = konkurrence.next();
          
         
-         System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemskab, disciplin, tid, dato);
+         System.out.printf("%-10s %-10s %-7d %-11s %-15s %-15s %-10s\n", fornavn, efternavn, alder, medlemsskab, disciplin, tid, dato);
          System.out.println(konkurrence.nextLine() + "  ");
       }
       System.out.println();
