@@ -113,7 +113,6 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(count == -1){
             System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "CRAWL", "TRYK 1","RYGCRAWL","TRYK 2","BUTTERLFY","TRYK 3","BRYSTSVOEMNING","TRYK 4","HUNDESVOEMNING","TRYK 5");
             super.testConsoleInput(console);
-            //insæt printf header her
             count++;
             //increment
          }
@@ -121,31 +120,38 @@ public class Traener extends Ansat implements Comparable<Traener>{
          switch(this.menu){
             case 1:
                if(disciplin.equals("Crawl")){
-                  System.out.prinln(line.toString());
+                  if(count == 0){System.out.printf("%-20s%-20s%-10s%-20s%-20s%-15s%-15s\n","FORNAVN","EFTERNAVN","ALDER","MEDLEMSSKAB","DISCIPLIN","TID","DATO");
+                  for(int i = 0; i < 113; i++){System.out.print("_");}}
+                  System.out.println();
+                  System.out.printf("%-20s%-20s%-10d%-20s%-20s%-15.2f%-15s",getFornavn(),getEfternavn(),getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
                   count++;
                }
                break;   
             case 2:
                if(disciplin.equals("Rygcrawl")){
-                  System.out.println(line.toString());
+                  if(count == 0){System.out.printf("%-20s%-20s%-10s%-20s%-20s%-15s%-15s\n\n","FORNAVN","EFTERNAVN","ALDER","MEDLEMSSKAB","DISCIPLIN","TID","DATO");}
+                  System.out.printf("%-20s%-20s%-10d%-20s%-20s%-15.2f%-15s\n",getFornavn(),getEfternavn(),getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
                   count++;
                }
                break;
             case 3:
                if(disciplin.equals("Butterfly")){
-                  System.out.println(line.toString());
+                  if(count == 0){System.out.printf("%-20s%-20s%-10s%-20s%-20s%-15s%-15s\n\n","FORNAVN","EFTERNAVN","ALDER","MEDLEMSSKAB","DISCIPLIN","TID","DATO");}
+                  System.out.printf("%-20s%-20s%-10d%-20s%-20s%-15.2f%-15s\n",getFornavn(),getEfternavn(),getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
                   count++;
                }
                break;
             case 4:
                if(disciplin.equals("Brystsvoemning")){
-                  System.out.println(line.toString());
+                  if(count == 0){System.out.printf("%-20s%-20s%-10s%-20s%-20s%-15s%-15s\n\n","FORNAVN","EFTERNAVN","ALDER","MEDLEMSSKAB","DISCIPLIN","TID","DATO");}
+                  System.out.printf("%-20s%-20s%-10d%-20s%-20s%-15.2f%-15s\n",getFornavn(),getEfternavn(),getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
                   count++;
                }
                break;
             case 5:
                if(disciplin.equals("Hundesvoemning")){
-                  System.out.println(line.toString());
+                  if(count == 0){System.out.printf("%-20s%-20s%-10s%-20s%-20s%-15s%-15s\n\n","FORNAVN","EFTERNAVN","ALDER","MEDLEMSSKAB","DISCIPLIN","TID","DATO");}                  
+                  System.out.printf("%-20s%-20s%-10d%-20s%-20s%-15.2f%-15s\n",getFornavn(),getEfternavn(),getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
                   count++;
                }
                break;
@@ -162,22 +168,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       if (count == 0)System.out.println("INGEN MEDLEM(ER) ER TILKNYTTET DISCIPLIN");
      
-      System.out.println();
+      System.out.println("\n");
       //prompter om fortsættelse
       fortsaettelse(console);
    }
    
-   //tostring metode skal have printf så den efterligner et udprint der er formateret pænt
-   @Override
-   
-   
-   public String toString(){
-      return String.format("%-20s",getFornavn(),getEfternavn(),getAlder(),
-             getMedlemsskab(),getDisciplin(),
-                                         getTid()+" +getDato();
-   
-   } 
-   
+      
    //beskrivelse her
    public int countThis()throws Exception{
       Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
@@ -504,17 +500,27 @@ public class Traener extends Ansat implements Comparable<Traener>{
             }
          }
       }
-      System.out.println("TAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE");
+      System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE");
       int num = console.nextInt(); //Check vaerdi
+      int dummy = 0;
+      while (dummy == 0) {
+            if (num <= 0 || num > this.counter) {
+               System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE BETALING PAA");
+               num = console.nextInt(); //Check vaerdi?
+            }
+            else if (num > 0 && num <= this.counter){
+               dummy = 1;
+            }
+      }
       
-      System.out.println("INDTAST NY TID");
+      System.out.println("INDTAST NY TID (SS,MS)");
       setTid(console.nextDouble());
       double tidRet = getTid();
       //returnere String repræsentationen af en double
       String rettet = String.valueOf(tidRet);
       konkurrenceArray[num-1][5] = rettet;
       
-      System.out.println("INDTAST NY DATO");
+      System.out.println("INDTAST NY DATO (DD/MM/YY)");
       setDato(console.next());
       konkurrenceArray[num-1][6] = getDato();
       
@@ -528,6 +534,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       }
       //clean up
       scanKonk.close();
+      System.out.println();
       subMenu();
    }     
     
