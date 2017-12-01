@@ -113,14 +113,15 @@ public class Traener extends Ansat implements Comparable<Traener>{
          if(count == -1){
             System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "CRAWL", "TRYK 1","RYGCRAWL","TRYK 2","BUTTERLFY","TRYK 3","BRYSTSVOEMNING","TRYK 4","HUNDESVOEMNING","TRYK 5");
             super.testConsoleInput(console);
-            System.out.printf(
-            count++;//increment
+            //insæt printf header her
+            count++;
+            //increment
          }
          //sammenlign og print medlem hvis dette eksistere for det pågældende medlem 
          switch(this.menu){
             case 1:
                if(disciplin.equals("Crawl")){
-                  System.out.printf("%-8s%-12s%-8d%-12s%-8s%-6.01f%s\n", getFornavn(),getEfternavn(), getAlder(), getMedlemsskab(), getDisciplin(), getTid(), getDato());
+                  System.out.prinln(line.toString());
                   count++;
                }
                break;   
@@ -168,10 +169,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
    
    //tostring metode skal have printf så den efterligner et udprint der er formateret pænt
    @Override
+   
+   
    public String toString(){
-      return String.format(getFornavn())+" "+getEfternavn()+" "+getAlder()+" "
-                           +getMedlemsskab()+" "+getDisciplin()+" "+
-                                         getTid()+" "+getDato();
+      return String.format("%-20s",getFornavn(),getEfternavn(),getAlder(),
+             getMedlemsskab(),getDisciplin(),
+                                         getTid()+" +getDato();
    
    } 
    
