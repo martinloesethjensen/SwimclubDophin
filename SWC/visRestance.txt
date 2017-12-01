@@ -5,7 +5,7 @@ David Pedersen Betalt
 Lars Olsen Restance
 Casper Andersen Restance
 Martin Loeseth Betalt
-Christian Strunge Restance
-Rasmus Sadurski Restance
-Helle Helle Betalt
-Tue Berggren Betalt
+Christian Strunge Betalt
+Rasmus Sadurski Betalt
+Helle Helle Restance
+Tue Berggren Restance

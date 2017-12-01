@@ -152,6 +152,15 @@ public class Kasserer extends Ansat {
          System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE BETALING PAA");
          int num = console.nextInt(); //Check vaerdi?
          
+         while (dummy == 0) {
+            if (num <= 0 || num > this.counter) {
+               System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE BETALING PAA");
+               num = console.nextInt(); //Check vaerdi?
+            }
+            else if (num > 0 && num <= this.counter){
+                  dummy = 1;
+            }
+         }
          System.out.println("HAR MEDLEMMET BETALT TAST 1\nMANGLER MEDLEMMET AT BETALE TAST 2");
          String input = console.next();
          if(input.equals("1")){
@@ -162,7 +171,7 @@ public class Kasserer extends Ansat {
             setRestance("Restance");
             redigerRestance[num-1][2] = getRestance();
             dummy = 1; 
-         }else{ 
+         }else { 
             System.out.println("UGYLDIGT INPUT\nTAST VENLIGST ET TAL DER ER FREMVIST"); 
             this.counter = 0;
             redigerKontigent(console);
