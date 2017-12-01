@@ -563,23 +563,25 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       while(menu != 0){
          System.out.printf("%-25s%-5s\n%-25s%-5s\n","PRINT JUNIORHOLD", "TRYK 1", "PRINT SENIORHOLD", "TRYK 2");
-      super.testConsoleInput(console);
+         
+         super.testConsoleInput(console);
       
-      switch(this.menu){
-         
-         case 1:
-            junior();
-            menu = 0;
-            break;
-         case 2:
-            senior();
-            menu = 0;
-         default:
-            System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST\n");
-            juniorSenior();           
-         
-         }
-         break;   //exit loop
+         switch(this.menu){
+            
+            case 1:
+               junior();
+               menu = 0;
+               break;
+            case 2:
+               senior();
+               menu = 0;
+               break;
+            default:
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST\n");
+               juniorSenior();           
+            
+            }
+            break;   //exit loop
       }
    
    }
