@@ -45,6 +45,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
             case 3: printListe(); break; //printe fra konkurrencesvømmere fil
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
+            case 6: printStaevne(console); break;//Printer liste(Staevne)
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu();  //menu hos ansat
@@ -62,8 +63,9 @@ public class Traener extends Ansat implements Comparable<Traener>{
       System.out.printf("%-35s%s\n", "DISCIPLINLISTE M. MEDLEMMER", "TRYK 1");
       System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TRYK 2");
       System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TRYK 3");
-      System.out.printf("%-35s%s\n", "REDIGER STAEVNEDELTAGERE", "TRYK 4");
+      System.out.printf("%-35s%s\n", "OPRET NY STAEVNEDELTAGER", "TRYK 4");
       System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TRYK 5");
+      System.out.printf("%-35s%s\n", "PRINT STAEVNELISTE", "TRYK 6");
       System.out.println();
       System.out.printf("%-35s%s\n", "RETURNER", "TRYK 0");
    }
@@ -385,6 +387,26 @@ public class Traener extends Ansat implements Comparable<Traener>{
    public int compareTo(Traener other){
       return new Double(getTid()).compareTo(other.getTid());
    }  
+   //Metode for at printe staevneliste
+   public void printStaevne(Scanner console)throws Exception{
+      Scanner scanStaevne = new Scanner(new File("staevneliste.txt"));
+      System.out.printf("%-10s %-13s %-15s %-11s %-15s %-15s\n", "FORNAVN", "EFTERNAVN", "STAEVNE", "TID", "PLACERING", "DISCIPLIN");
+      System.out.println("-----------------------------------------------------------------------------");;
+      while (scanStaevne.hasNext()){
+         String fornavn = scanStaevne.next();
+         String efternavn = scanStaevne.next();
+         String staevne = scanStaevne.next();
+         String tid = scanStaevne.next();
+         String placering = scanStaevne.next();
+         String disciplin = scanStaevne.next();
+         
+        
+         System.out.printf("%-10s %-13s %-15s %-11s %-15s %-15s\n", fornavn, efternavn, staevne, tid, placering, disciplin);
+         System.out.println(scanStaevne.nextLine() + "  ");
+      }
+      System.out.println();
+      subMenu(); 
+   }
    
    //skal rettes
    
@@ -520,10 +542,10 @@ public class Traener extends Ansat implements Comparable<Traener>{
       setPlacering(console.nextInt());
       
       //valg af disciplin
-      Formand refMetode = new Formand();
-      refMetode.vaelgDisciplin(console);
+      //Formand refMetode = new Formand();
+      vaelgDisciplin(console);
       
-      saveToFile(refMetode);
+      saveToFile();
       
       System.out.println("...MEDLEM GEMT I STAEVNELISTE...\n\n");
       
@@ -534,7 +556,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
    * gemmer oplysninger i fil
    */
    
-   public void saveToFile(Formand refMetode)throws Exception{
+   public void saveToFile()throws Exception{
       PrintStream nytMemberInfo = new PrintStream(new FileOutputStream("staevneliste.txt",true));
       nytMemberInfo.println(toStringStaevne());
       System.out.print("\n"); 
@@ -545,6 +567,40 @@ public class Traener extends Ansat implements Comparable<Traener>{
    */
    
    public String toStringStaevne(){
-      return getFornavn()+" "+getEfternavn()+" "+getStaevneNavn()+" "+getStaevneTid()+" "+getPlacering();
+      return getFornavn()+" "+getEfternavn()+" "+getStaevneNavn()+" "+getStaevneTid()+" "+getPlacering()+ " "+getDisciplin();
    }
+   
+   public void vaelgDisciplin(Scanner console)throws Exception{
+      int dummy = 0;
+      while(dummy == 0){
+          
+         System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TRYK 1", "RYGCRAWL",
+          "TRYK 2", "BRYSTSVOEMNING", "TAST 3",
+           "BUTTERFLY", "TAST 4", "HUNDESVOEMNING", "TAST 5");
+         super.testConsoleInput(console);
+         
+         switch(this.menu){
+            case 1: 
+               setDisciplin("Crawl");
+               break;   
+            case 2:
+               setDisciplin("Rygcrawl");
+               break;
+            case 3:
+               setDisciplin("Butterfly");
+               break;
+            case 4:
+               setDisciplin("Brystsvoemning");
+               break;
+            case 5:
+               setDisciplin("Hundesvoemning");
+               break;
+            default:
+               System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");            
+               vaelgDisciplin(console); //den kører i infinite loop               
+         }
+         dummy = -1;//kommer ud af whileloop 
+      }    
+   }
+
 }
