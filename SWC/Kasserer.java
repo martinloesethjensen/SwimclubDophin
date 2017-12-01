@@ -13,7 +13,24 @@ public class Kasserer extends Ansat {
       setEfternavn(efternavn);
       setRestance(restance);   
    }
-
+   
+   public Kasserer(String fornavn, String efternavn, int alder, String medlemsskab){
+      setFornavn(fornavn);
+      setEfternavn(efternavn);
+      setAlder(alder);
+      setMedlemsskab(medlemsskab);
+   }
+   
+   public Kasserer(String fornavn, String efternavn, int alder, String medlemsskab, String disciplin, double tid, String dato){ 
+      setFornavn(fornavn);
+      setEfternavn(efternavn);
+      setAlder(alder);
+      setMedlemsskab(medlemsskab);
+      setDisciplin(disciplin);
+      setTid(tid);
+      setDato(dato);
+   }
+   
 	public void subMenu()throws Exception {
 		Scanner console = new Scanner(System.in);
       int menu = -1;
@@ -36,6 +53,10 @@ public class Kasserer extends Ansat {
                redigerKontigent(console);
                menu = 0;   
                break;
+            case 4:
+               kontingentPris(console);
+               menu = 0;
+               break;
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu(); //menu hos ansat
@@ -50,7 +71,7 @@ public class Kasserer extends Ansat {
    
    public void subMenuInfo(){
       System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "PRINT RESTANCELISTE", 
-            "TRYK 1", "PRINT BETALINGSSTATUS", "TRYK 2", "REDIGER BETALING","TAST 3", "RETURNER", "TAST 0");
+            "TRYK 1", "PRINT BETALINGSSTATUS", "TRYK 2", "REDIGER BETALING","TAST 3","KONTINGENTPRIS FOR MEDLEM","TAST 4", "RETURNER", "TAST 0");
    }
 
    
@@ -124,8 +145,8 @@ public class Kasserer extends Ansat {
       return " ";
    }
    
-   public int count()throws Exception{
-      Scanner scanFil = new Scanner(new File("visRestance.txt"));  
+   public int count(String fileName)throws Exception{
+      Scanner scanFil = new Scanner(new File(fileName));  
       //Printf så det ser pænt og formateret ud 
       while(scanFil.hasNextLine()){
          this.counter++;
@@ -136,7 +157,8 @@ public class Kasserer extends Ansat {
    
    public void redigerKontigent(Scanner console)throws Exception{
       Scanner scanRest = new Scanner(new File("visRestance.txt")); 
-      count();
+      String fileName = "visRestance.txt";
+      count(fileName);
       String redigerRestance[][] = new String[this.counter][3];
       
       while(scanRest.hasNext()){
@@ -203,5 +225,77 @@ public class Kasserer extends Ansat {
             System.out.println("UGYLDIGT INPUT\nTAST VENLIGST ET TAL DER ER FREMVIST"); 
          }
       }
+   }
+   
+   public void kontingentPris(Scanner console)throws Exception{
+      Scanner scK = new Scanner(new File("konkurrenceSvoemmere.txt"));
+      Scanner scM = new Scanner(new File("motionister.txt"));
+      ArrayList<Kasserer> konkurrence = new ArrayList<>();
+      ArrayList<Kasserer> motionist = new ArrayList<>();
+      
+      System.out.println("TAST 1 FOR MOTIONIST MEDLEM\nTAST 2 FOR KONKURRENCE MEDLEM");
+      String num = console.next();
+      
+      if(num.equals("1")){
+         String fileName = "motionister.txt";
+         count(fileName);
+         
+         while(scM.hasNextLine()){
+               String line = scM.nextLine();
+               Scanner token = new Scanner(line);
+               
+               String fornavn = token.next();
+               setFornavn(fornavn);
+               
+               String efternavn = token.next();
+               setEfternavn(efternavn);
+               
+               int alder = token.nextInt();
+               setAlder(alder);
+               
+               String medlemsskab = token.next();
+               setMedlemsskab(medlemsskab);
+               
+               Kasserer kas = new Kasserer(fornavn, efternavn, alder, medlemsskab);
+               motionist.add(kas);
+         }
+
+         int dummy = 0;
+         while(dummy == 0){
+            System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT SE KONTINGENTPRIS PAA");
+            int number = console.nextInt(); //Check vaerdi?
+            
+            while (dummy == 0) {
+               if (number <= 0 || number > this.counter) {
+                  System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT SE KONTINGENTPRIS PAA");
+                  number = console.nextInt(); //Check vaerdi?
+               }
+               else if (number > 0 && number <= this.counter){
+                  dummy = 1;
+               }
+            }
+            
+            if(motionist.get(number-1).getMedlemsskab().equals("Passiv")){
+               Passiv pas = new Passiv();
+               System.out.println(motionist.get(number-1).getFornavn() + " " + motionist.get(number-1).getEfternavn()+" "+motionist.get(number-1).getMedlemsskab()+" "+pas.getPris()+"kr.");
+            }else if(motionist.get(number-1).getAlder() < 18){
+               Junior ju = new Junior();
+               System.out.println(motionist.get(number-1).getFornavn() + " " + motionist.get(number-1).getEfternavn()+" "+motionist.get(number-1).getMedlemsskab()+" "+ju.getPris()+"kr.");
+            } 
+            //else if alder             
+         }    
+               
+         //System.out.println("hej");
+      }else if(num.equals("2")){
+         String fileName = "konkurrenceSvoemmere.txt";
+         count(fileName);
+         System.out.println("hej1");
+      }else{
+         System.out.println("UGYLDIGT INPUT\nTAST VENLIGST ET TAL DER ER FREMVIST");
+         kontingentPris(console); 
+      }
+      this.counter = 0;
+      System.out.println();
+      subMenu();
    }
 }
