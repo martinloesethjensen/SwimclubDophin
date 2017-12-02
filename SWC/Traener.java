@@ -1,5 +1,5 @@
-import java.util.*;
-import java.io.*;
+import java.util.*; // for Scanner
+import java.io.*; // for PrintStream
 
 /**
 * @Martin.Valhalla
@@ -61,15 +61,15 @@ public class Traener extends Ansat implements Comparable<Traener>{
    }
    
    public void traenerMenu(){
-      System.out.printf("%-35s%s\n", "DISCIPLINLISTE M. MEDLEMMER", "TRYK 1");
-      System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TRYK 2");
-      System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TRYK 3");
-      System.out.printf("%-35s%s\n", "OPRET NY STAEVNEDELTAGER", "TRYK 4");
-      System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TRYK 5");
-      System.out.printf("%-35s%s\n", "PRINT STAEVNELISTE", "TRYK 6");
-      System.out.printf("%-35s%s\n", "PRINT JUNIOR/SENIOR-HOLD", "TRYK 7");
+      System.out.printf("%-35s%s\n", "DISCIPLINLISTE M. MEDLEMMER", "TAST 1");
+      System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TAST 2");
+      System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TAST 3");
+      System.out.printf("%-35s%s\n", "OPRET NY STAEVNEDELTAGER", "TAST 4");
+      System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TAST 5");
+      System.out.printf("%-35s%s\n", "PRINT STAEVNELISTE", "TAST 6");
+      System.out.printf("%-35s%s\n", "PRINT JUNIOR/SENIOR-HOLD", "TAST 7");
       System.out.println();
-      System.out.printf("%-35s%s\n", "RETURNER", "TRYK 0");
+      System.out.printf("%-35s%s\n", "RETURNER", "TAST 0");
    }
    
    /**
@@ -111,7 +111,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
-            System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "CRAWL", "TRYK 1","RYGCRAWL","TRYK 2","BUTTERLFY","TRYK 3","BRYSTSVOEMNING","TRYK 4","HUNDESVOEMNING","TRYK 5");
+            System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "CRAWL", "TAST 1","RYGCRAWL","TAST 2","BUTTERLFY","TAST 3","BRYSTSVOEMNING","TAST 4","HUNDESVOEMNING","TAST 5");
             super.testConsoleInput(console);
             count++;
             //increment
@@ -226,7 +226,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
-            System.out.printf("%-25s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n","VAELG DISCIPLIN:", "CRAWL", "TRYK 1","RYGCRAWL","TRYK 2","BUTTERLFY","TRYK 3","BRYSTSVOEMNING","TRYK 4","HUNDESVOEMNING","TRYK 5"); 
+            System.out.printf("%-25s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n","VAELG DISCIPLIN:", "CRAWL", "TAST 1","RYGCRAWL","TAST 2","BUTTERLFY","TAST 3","BRYSTSVOEMNING","TAST 4","HUNDESVOEMNING","TAST 5"); 
             super.testConsoleInput(console);
             count++;//increment
          }
@@ -573,7 +573,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       int menu = -1;
       
       while(menu != 0){
-         System.out.printf("%-25s%-5s\n%-25s%-5s\n","PRINT JUNIORHOLD", "TRYK 1", "PRINT SENIORHOLD", "TRYK 2");
+         System.out.printf("%-25s%-5s\n%-25s%-5s\n","PRINT JUNIORHOLD", "TAST 1", "PRINT SENIORHOLD", "TAST 2");
          
          super.testConsoleInput(console);
       
@@ -683,8 +683,8 @@ public class Traener extends Ansat implements Comparable<Traener>{
       int dummy = 0;
       while(dummy == 0){
           
-         System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TRYK 1", "RYGCRAWL",
-          "TRYK 2", "BRYSTSVOEMNING", "TAST 3",
+         System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TAST 1", "RYGCRAWL",
+          "TAST 2", "BRYSTSVOEMNING", "TAST 3",
            "BUTTERFLY", "TAST 4", "HUNDESVOEMNING", "TAST 5");
          super.testConsoleInput(console);
          

@@ -19,7 +19,7 @@ public class KonkurrenceSvoemmer extends Medlem {
       //gemmer til fil
       super.saveIt("konkurrenceSvoemmere.txt");
       
-      System.out.println("...MEDLEM GEM SOM KONKURRENCESVOEMMER...\n\nVIL DU OPRETTE ENDNU ET MEDLEM?\n");
+      System.out.println("...MEDLEM GEM SOM KONKURRENCESVOEMMER...\n\n");
    }    
    
    //overskriver toString metoden i forældreklassen Medlem

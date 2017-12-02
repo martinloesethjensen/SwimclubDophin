@@ -16,7 +16,7 @@ public class Motionist extends Medlem {
       //gemmer til fil
       super.saveIt("motionister.txt");
       
-      System.out.println("...MEDLEM GEMT SOM MOTIONIST...\n\nVIL DU OPRETTE ENDNU ET MEDLEM?\n");
+      System.out.println("...MEDLEM GEMT SOM MOTIONIST...\n\n");
    }
    
    //overskriver toString metoden i forældreklassen Medlem

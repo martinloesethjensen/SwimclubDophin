@@ -1,5 +1,5 @@
-import java.util.*;
-import java.io.*;
+import java.util.*; // for Scanner
+import java.io.*; // for PrintStream
 
 /**
 * @Martin.Valhalla
@@ -19,9 +19,9 @@ public class Ansat {
    protected double staevneTid;
    protected String staevneNavn;
    protected int placering;
-   public int menu = -1; //denne field bruges i switch
-   protected int count = 0; //bruges nu i træner til 2d array
-   protected String dato; //Bruges til dato for bedste tid opnået
+   public int menu = -1; //denne field bruges i switch i flere klasser. Disse klasser kalder
+                        //på den. (for at være sikker på at vi har gøre med en field bruges "this")
+   protected String dato; //Bruges blandt andet til dato for bedste tid opnået i traener
    
    /** 
    * Denne metode lader en vælge hvilke bruger 
@@ -39,11 +39,11 @@ public class Ansat {
       while (this.menu != 0){
          menuInfo();
          
-         // metode der tester input
+         // metode der tester input linje 86
          testConsoleInput(console);
          
          switch(this.menu){
-            case 1: formandLogin.subMenu(); break;
+            case 1: formandLogin.subMenu(); break; //metodekald i anden klasse
             case 2: kassererLogin.subMenu(); break;
             case 3: traenerLogin.subMenu(); break;
             case 0: System.out.print("...LOGGER AF...\n\n"); this.menu = 0; break; 

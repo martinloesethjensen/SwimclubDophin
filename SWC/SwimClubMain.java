@@ -18,26 +18,24 @@ public class SwimClubMain {
    public static void main(String[] args)throws Exception{
      
       //logon();    
-      bruger(); 
+      bruger(); //MIDLERTIDID
 
    }
    
    /*
-   @Casper Frost Andersen
-   Når programmet startes prompter systemet for et korrekt password.
-   Hvis dette bliver indtastet, vil systemet fortsaette til de ansattes login-side.
-   
+   * Når programmet startes prompter systemet for et korrekt password.
+   * Hvis dette bliver indtastet, vil systemet fortsaette til de ansattes login-side.
    */
    
-   /*public static void logon()throws Exception{
+   public static void logon()throws Exception{
       Scanner console = new Scanner(System.in);
       int pass = 0;
       
-      System.out.println("Velkommen til svoemmeklubben Delfinen.\n");
+      System.out.println("VELKOMMEN TIL SVOEMMEKLUBBEN DELFINEN\n");
       
       while (pass != 1) {
              
-         System.out.print("Tast password for at logge ind.\nEllers tast \"exit\" for at afslutte.\nPassword:\t");           
+         System.out.print("TAST PASSWORD FOR AT LOGGE IND\nELLERS TAST \"EXIT\" FOR AT AFSLUTTE\nPASSWORD:\t");           
          
          String input = console.next().toUpperCase();
          
@@ -45,23 +43,23 @@ public class SwimClubMain {
             
          switch(input) {
             case "DELFIN": 
-               System.out.println("Korrekt password.\n");
-               Thread.sleep(1000);
+               System.out.println("KORREKT PASSWORD\n");
+               Thread.sleep(1000); //en timer 1 sek
                bruger();
                break;
             
             case "EXIT":
-               System.out.println("Lukker programmet. Tak for denne gang.");
+               System.out.println("LUKKER PROGRAMMET\n\nTAK FOR DENNE GANG");
                Thread.sleep(1000);
                pass = 1;
                break;
             
             default:
-               System.out.println("Ugyldigt password. Proev igen.\n");
+               System.out.println("UGYLDIGT PASSWORD\nPROEV IGEN\n");
                logon(); 
          }
       }
-   }*/
+   }
 	
    /**
    * Denne metode opretter et objekt og laver et 

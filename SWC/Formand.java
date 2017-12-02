@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 /**
 * @Martin.Valhalla 
@@ -41,8 +40,8 @@ public class Formand extends Ansat {
 	}
 
    public void subMenuInfo(){
-      System.out.printf("%-30s%s\n", "OPRET NYT MEDLEM", "TRYK 1");
-      System.out.printf("%-30s%s\n", "RETURNER TIL MENU", "TRYK 0");
+      System.out.printf("%-30s%s\n", "OPRET NYT MEDLEM", "TAST 1");
+      System.out.printf("%-30s%s\n", "RETURNER TIL MENU", "TAST 0");
    }
       
    /**
@@ -52,7 +51,7 @@ public class Formand extends Ansat {
    public void opretMedlem(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
-         System.out.printf("%-30s%s\n%-30s%s", "OPRET MOTIONIST", "TRYK 1", "OPRET KONKURRENCESVOEMMER", "TRYK 2\n");
+         System.out.printf("%-30s%s\n%-30s%s", "OPRET MOTIONIST", "TAST 1", "OPRET KONKURRENCESVOEMMER", "TAST 2\n");
          
          super.testConsoleInput(console);
          
@@ -78,25 +77,26 @@ public class Formand extends Ansat {
    public void opretMotion(Scanner console)throws Exception{
       opretOplysninger(console);
       
-      medlemsskab(console);
+      medlemsskab(console); //linje 163
       
       //opretter et objekt med parameter
       Motionist nytMedlem = new Motionist(getFornavn(),getEfternavn(),getAlder(),getMedlemsskab());
    }
    
    /**
-   * Opretter motionist medlem
+   * Opretter konkurrence medlem
    */
    
    public void opretKonkurrenceSvoemmer(Scanner console)throws Exception{
       opretOplysninger(console);
       
-      medlemsskab(console);
+      medlemsskab(console); //linje 163
       
+      //udfylder nogle placholdere der bl.a. ændres i traener i nyTid()
       setTid(0.0);
       setDato("00/00/00");
       
-      vaelgDisciplin(console);
+      vaelgDisciplin(console); //linje 126
       
       KonkurrenceSvoemmer nytMedlem = new KonkurrenceSvoemmer(getFornavn(),getEfternavn(),
                            getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
@@ -113,17 +113,22 @@ public class Formand extends Ansat {
       System.out.println("INDTAST EFTERNAVN");
       setEfternavn(console.next()); 
       System.out.println("INDTAST ALDER");
-
+      
+      //tester om den alder alder man indtaster er et tal
       setAlder(super.testConsoleInput(console));
       
    }
+   
+   /**
+   * metode der lader brugeren vælge disciplin
+   */
    
    public void vaelgDisciplin(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
           
-         System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TRYK 1", "RYGCRAWL",
-          "TRYK 2", "BRYSTSVOEMNING", "TAST 3",
+         System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TAST 1", "RYGCRAWL",
+          "TAST 2", "BRYSTSVOEMNING", "TAST 3",
            "BUTTERFLY", "TAST 4", "HUNDESVOEMNING", "TAST 5");
          super.testConsoleInput(console);
          
@@ -158,7 +163,7 @@ public class Formand extends Ansat {
    public void medlemsskab(Scanner console)throws Exception{
       int dummy = 0;
       while(dummy == 0){
-         System.out.printf("%s\n%-30s%s\n%-30s%s", "VAELG MEDLEMSTYPE", "AKTIV", "TRYK 1", "PASSIV", "TRYK 2\n"); 
+         System.out.printf("%s\n%-30s%s\n%-30s%s", "VAELG MEDLEMSTYPE", "AKTIV", "TAST 1", "PASSIV", "TAST 2\n"); 
          
          super.testConsoleInput(console);
          
