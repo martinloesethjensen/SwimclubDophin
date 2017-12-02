@@ -3,6 +3,8 @@ import java.io.*;
 
 /**               << 1. semester prøve eksamen >> 
 *
+*                         DAT17C - KEA
+*
 *                          | Projekt |
 *                           
 * Lavet af:            Svømmeklub Delfinen

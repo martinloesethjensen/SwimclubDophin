@@ -233,7 +233,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          
          switch(this.menu){
             case 1: 
-               if(disciplin.equals("Crawl")){
+               if(disciplin.equals("Crawl") && getTid() > 0.0){
                   Traener traener = new Traener(getFornavn(),getEfternavn(),
                   getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
@@ -244,7 +244,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
                }
                break;   
             case 2:
-               if(disciplin.equals("Rygcrawl")){
+               if(disciplin.equals("Rygcrawl")&& getTid() > 0.0){
                   Traener traener = new Traener(getFornavn(),getEfternavn(),
                   getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
@@ -255,7 +255,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
                }
                break;
             case 3:
-               if(disciplin.equals("Butterfly")){
+               if(disciplin.equals("Butterfly")&& getTid() > 0.0){
                   Traener traener = new Traener(getFornavn(),getEfternavn(),
                   getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
@@ -266,7 +266,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
                }
                break;
             case 4:
-               if(disciplin.equals("Brystsvoemning")){
+               if(disciplin.equals("Brystsvoemning")&& getTid() > 0.0){
                   Traener traener = new Traener(getFornavn(),getEfternavn(),
                   getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());                  
                   
@@ -277,7 +277,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
                }
                break;
             case 5:
-               if(disciplin.equals("Hundesvoemning")){
+               if(disciplin.equals("Hundesvoemning")&& getTid() > 0.0){
                   Traener traener = new Traener(getFornavn(),getEfternavn(),
                   getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
                   

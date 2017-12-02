@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Pensionist extends Kontingent {
+public class Pensionist extends Medlem {
    
    public Pensionist(){}
    

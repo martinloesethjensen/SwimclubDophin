@@ -19,11 +19,10 @@ public class KonkurrenceSvoemmer extends Medlem {
       //gemmer til fil
       super.saveIt("konkurrenceSvoemmere.txt");
       
-      System.out.println("...Medlem gemt som konkurrencesvoemmer...\n\nVil du oprette endnu et medlem?\n");
+      System.out.println("...MEDLEM GEM SOM KONKURRENCESVOEMMER...\n\nVIL DU OPRETTE ENDNU ET MEDLEM?\n");
    }    
    
-   //***her skal der være en printf***
-   //overskriver toString metoden i forældreklassen
+   //overskriver toString metoden i forældreklassen Medlem
    @Override
    public String toString(){
       return getFornavn()+" "+getEfternavn()+" "+getAlder()+" "

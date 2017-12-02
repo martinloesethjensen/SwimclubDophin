@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Passiv extends Kontingent  {
+public class Passiv extends Medlem  {
    
    // denne skal nok bare implementeres direkte i kontigent klassen
    
