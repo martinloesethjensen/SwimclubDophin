@@ -3,6 +3,16 @@ import java.util.*;
 /**
 * @Martin.Valhalla 
 * @Christian.C-Strunge
+*
+* subMenu()                  linje 19
+* subMenuInfo()              linje 45
+* opretMedlem()              linje 55
+* opretMotion()              linje 82
+* opretKonkurrenceSvoemmer() linje 97
+* opretOplysninger           linje 117
+* vaelgDisciplin()           linje 135
+* medlemsskab()              linje 172
+* 
 */
 
 public class Formand extends Ansat {

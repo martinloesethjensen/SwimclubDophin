@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 /**               << 1. semester prøve eksamen >> 
 *
@@ -18,7 +17,7 @@ public class SwimClubMain {
    public static void main(String[] args)throws Exception{
      
       //logon();    
-      bruger(); //MIDLERTIDID
+      bruger(); //skal fjernes
 
    }
    
