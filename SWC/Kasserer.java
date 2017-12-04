@@ -71,7 +71,7 @@ public class Kasserer extends Ansat {
    
    public void subMenuInfo(){
       System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n\n%-25s%s\n", "PRINT RESTANCELISTE", 
-            "TAST 1", "PRINT BETALINGSSTATUS", "TAST 2", "REDIGER BETALING","TAST 3","KONTINGENTPRIS FOR MEDLEM","TAST 4", "RETURNER", "TAST 0");
+            "TAST 1", "PRINT BETALINGSSTATUS", "TAST 2", "REDIGER BETALINGSSTATUS","TAST 3","KONTINGENT FOR MEDLEM","TAST 4", "RETURNER", "TAST 0");
    }
 
    

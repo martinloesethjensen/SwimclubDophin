@@ -4,14 +4,14 @@ import java.util.*;
 * @Martin.Valhalla 
 * @Christian.C-Strunge
 *
-* subMenu()                  linje 19
-* subMenuInfo()              linje 45
-* opretMedlem()              linje 55
-* opretMotion()              linje 82
-* opretKonkurrenceSvoemmer() linje 97
-* opretOplysninger           linje 117
-* vaelgDisciplin()           linje 135
-* medlemsskab()              linje 172
+* subMenu()                  linje 27
+* subMenuInfo()              linje 52
+* opretMedlem()              linje 61
+* opretMotion()              linje 87
+* opretKonkurrenceSvoemmer() linje 100
+* opretOplysninger           linje 119
+* vaelgDisciplin()           linje 136
+* medlemsskab()              linje 173
 * 
 */
 

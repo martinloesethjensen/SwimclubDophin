@@ -43,7 +43,7 @@ public class SwimClubMain {
          switch(input) {
             case "DELFIN": 
                System.out.println("KORREKT PASSWORD\n");
-               Thread.sleep(500); //en timer 1 sek
+               Thread.sleep(500); //en timer .5 sek
                bruger();
                break;
             

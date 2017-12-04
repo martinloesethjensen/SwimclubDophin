@@ -63,7 +63,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
    public void traenerMenu(){
       System.out.printf("%-35s%s\n", "DISCIPLINLISTE M. MEDLEMMER", "TAST 1");
       System.out.printf("%-35s%s\n", "TOP 5 I VALGT DISCIPLIN", "TAST 2");
-      System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVØMMERE", "TAST 3");
+      System.out.printf("%-35s%s\n", "LISTE OVER KONKURRENCESVOEMMERE", "TAST 3");
       System.out.printf("%-35s%s\n", "OPRET NY STAEVNEDELTAGER", "TAST 4");
       System.out.printf("%-35s%s\n", "OPRET NY BEDSTE TID", "TAST 5");
       System.out.printf("%-35s%s\n", "PRINT STAEVNELISTE", "TAST 6");
@@ -513,7 +513,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
             }
       }
       
-      System.out.println("INDTAST NY TID (SS,MS)");
+      System.out.println("INDTAST NY TID (MM.SS)");
       setTid(console.nextDouble());
       double tidRet = getTid();
       //returnere String repræsentationen af en double
@@ -549,7 +549,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       setEfternavn(console.next());
       System.out.println("INDTAST STAEVNENAVN");
       setStaevneNavn(console.next());
-      System.out.println("INDTAST BEDSTE STAEVNETID");
+      System.out.println("INDTAST BEDSTE STAEVNETID (MM.SS)");
       setStaevneTid(console.nextDouble());
       System.out.println("INDTAST PLACERING");
       setPlacering(console.nextInt());
