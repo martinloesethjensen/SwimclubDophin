@@ -43,13 +43,13 @@ public class SwimClubMain {
          switch(input) {
             case "DELFIN": 
                System.out.println("KORREKT PASSWORD\n");
-               Thread.sleep(1000); //en timer 1 sek
+               Thread.sleep(500); //en timer 1 sek
                bruger();
                break;
             
             case "EXIT":
                System.out.println("LUKKER PROGRAMMET\n\nTAK FOR DENNE GANG");
-               Thread.sleep(1000);
+               Thread.sleep(500);
                pass = 1;
                break;
             
