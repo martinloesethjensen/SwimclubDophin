@@ -46,7 +46,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
             case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
             case 5: nyTid(console); break; //Ændrer tid og dato på medlem
             case 6: printStaevne(console); break;//Printer liste(Staevne)
-            case 7: juniorSenior(); break;
+            case 7: juniorSenior(console); break;
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu();  //menu hos ansat
@@ -295,81 +295,77 @@ public class Traener extends Ansat implements Comparable<Traener>{
       int k = 0; //bruges til at holde styr på,hvor mange gange der skal printes ud 
       if(top == 1){
          Collections.sort(crawlTop);
-         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
          
          if(crawlTop.size() > 5){ 
             k = 5; 
          }else k = crawlTop.size();
-         System.out.println("----------------------------------------------------------------------------------");
-         System.out.printf("%-10s%-12s%-7s%-15s%-15s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
-         System.out.println("----------------------------------------------------------------------------------");
+         System.out.println("--------------------------------------------------------------------------------------");
+         System.out.printf("%-5s%-10s%-12s%-7s%-15s%-17s%-10s%-6s\n","NR.", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("--------------------------------------------------------------------------------------");
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n\n",crawlTop.get(i).getFornavn(),
+            System.out.printf("%-5d%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n",i+1,crawlTop.get(i).getFornavn(),
                crawlTop.get(i).getEfternavn(),crawlTop.get(i).getAlder(),crawlTop.get(i).getMedlemsskab(),
                crawlTop.get(i).getDisciplin(),crawlTop.get(i).getTid(),crawlTop.get(i).getDato()); 
          }
       }else if(top == 2){
          Collections.sort(rygCrawlTop);
-         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
          
          if(rygCrawlTop.size() > 5){ 
             k = 5; 
          }else k = rygCrawlTop.size();
-         System.out.println("----------------------------------------------------------------------------------");
-         System.out.printf("%-10s%-12s%-7s%-15s%-15s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
-         System.out.println("----------------------------------------------------------------------------------");
+         System.out.println("--------------------------------------------------------------------------------------");
+         System.out.printf("%-5s%-10s%-12s%-7s%-15s%-17s%-10s%-6s\n","NR.", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("--------------------------------------------------------------------------------------");
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n\n",rygCrawlTop.get(i).getFornavn(),
+            System.out.printf("%-5d%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n",i+1,rygCrawlTop.get(i).getFornavn(),
                rygCrawlTop.get(i).getEfternavn(),rygCrawlTop.get(i).getAlder(),rygCrawlTop.get(i).getMedlemsskab(),
                rygCrawlTop.get(i).getDisciplin(),rygCrawlTop.get(i).getTid(),rygCrawlTop.get(i).getDato()); 
          }
       }else if(top == 3){
          Collections.sort(butterflyTop);
-         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
-         
+        
          if(butterflyTop.size() > 5){ 
             k = 5; 
          }else k = butterflyTop.size();
-         System.out.println("----------------------------------------------------------------------------------");
-         System.out.printf("%-10s%-12s%-7s%-15s%-15s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
-         System.out.println("----------------------------------------------------------------------------------");
+         System.out.println("--------------------------------------------------------------------------------------");
+         System.out.printf("%-5s%-10s%-12s%-7s%-15s%-17s%-10s%-6s\n","NR.", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("--------------------------------------------------------------------------------------");
+
          for(int i = 0; i < k; i++){
-            
-            System.out.printf("%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n\n",butterflyTop.get(i).getFornavn(),
+            System.out.printf("%-5d%-10s%-14s%-5d%-15s%-15s%-10.01f%-15s\n",i+1,butterflyTop.get(i).getFornavn(),
                butterflyTop.get(i).getEfternavn(),butterflyTop.get(i).getAlder(),butterflyTop.get(i).getMedlemsskab(),
                butterflyTop.get(i).getDisciplin(),butterflyTop.get(i).getTid(),butterflyTop.get(i).getDato()); 
          }
       }else if(top == 4){
          Collections.sort(brystsvoemningTop);
-         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
-         
+        
          if(brystsvoemningTop.size() > 5){ 
             k = 5; 
          }else k = brystsvoemningTop.size();
-         System.out.println("----------------------------------------------------------------------------------");
-         System.out.printf("%-10s%-12s%-7s%-15s%-17s%-7s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
-         System.out.println("----------------------------------------------------------------------------------");
+         System.out.println("--------------------------------------------------------------------------------------");
+         System.out.printf("%-5s%-10s%-12s%-7s%-15s%-17s%-10s%-6s\n","NR.", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("--------------------------------------------------------------------------------------");
+
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%-10s%-14s%-5d%-15s%-17s%-7.01f%-15s\n\n",brystsvoemningTop.get(i).getFornavn(),
+            System.out.printf("%-5d%-10s%-14s%-5d%-15s%-17s%-7.01f%-15s\n",i+1,brystsvoemningTop.get(i).getFornavn(),
                brystsvoemningTop.get(i).getEfternavn(),brystsvoemningTop.get(i).getAlder(),brystsvoemningTop.get(i).getMedlemsskab(),
                brystsvoemningTop.get(i).getDisciplin(),brystsvoemningTop.get(i).getTid(),brystsvoemningTop.get(i).getDato()); 
          }
       }else if(top == 5){
          Collections.sort(hundesvoemningTop);
-         System.out.printf("%s %s %s %s %s %s %s\n\n","","","","","","","");
          
          if(hundesvoemningTop.size() > 5){ 
             k = 5; 
          }else k = hundesvoemningTop.size();
-         System.out.println("----------------------------------------------------------------------------------");
-         System.out.printf("%-10s%-12s%-7s%-15s%-17s%-10s%-6s\n", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
-         System.out.println("----------------------------------------------------------------------------------");
+         System.out.println("--------------------------------------------------------------------------------------");
+         System.out.printf("%-5s%-10s%-12s%-7s%-15s%-17s%-10s%-6s\n","NR.", "FORNAVN", "EFTERNAVN", "ALDER", "MEDLEMSSKAB", "DISCIPLIN", "TID", "DATO");
+         System.out.println("--------------------------------------------------------------------------------------");
          
          for(int i = 0; i < k; i++){ 
-            System.out.printf("%-10s%-14s%-5d%-15s%-17s%-10.01f%-15s\n\n",hundesvoemningTop.get(i).getFornavn(),
+            System.out.printf("%-5d%-10s%-14s%-5d%-15s%-17s%-10.01f%-15s\n",i+1,hundesvoemningTop.get(i).getFornavn(),
                hundesvoemningTop.get(i).getEfternavn(),hundesvoemningTop.get(i).getAlder(),hundesvoemningTop.get(i).getMedlemsskab(),
                hundesvoemningTop.get(i).getDisciplin(),hundesvoemningTop.get(i).getTid(),hundesvoemningTop.get(i).getDato()); 
          }
@@ -384,7 +380,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       fortsaettelse(console);
    } 
   
-   //meget vigtig
+   //meget vigtig fortæl om denne
    
    public int compareTo(Traener other){
       return new Double(getTid()).compareTo(other.getTid());
@@ -424,6 +420,8 @@ public class Traener extends Ansat implements Comparable<Traener>{
             case 1:
                if(this.fort == 1){ 
                   printKandidater(console); 
+               }else if(this.fort == 2){
+                  juniorSenior(console);
                }else printDisciplin(console);
                this.fort = 0;
                break;
@@ -568,11 +566,8 @@ public class Traener extends Ansat implements Comparable<Traener>{
    Denne metode beder brugeren vælge,
    om der skal printes et juniorhold eller seniorhold.
    */
-   public void juniorSenior() throws Exception {
-      Scanner console = new Scanner(System.in);
-      int menu = -1;
-      
-      while(menu != 0){
+   public void juniorSenior(Scanner console) throws Exception {
+      while(this.menu != 0){
          System.out.printf("%-25s%-5s\n%-25s%-5s\n","PRINT JUNIORHOLD", "TAST 1", "PRINT SENIORHOLD", "TAST 2");
          
          super.testConsoleInput(console);
@@ -589,19 +584,21 @@ public class Traener extends Ansat implements Comparable<Traener>{
                break;
             default:
                System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST\n");
-               juniorSenior();           
+               juniorSenior(console);           
             
             }
-            break;   //exit loop
+            this.menu = 0;   //exit loop
       }
-   
+      //spørger om ny udprint
+      this.fort = 2;
+      fortsaettelse(console);
    }
    
    /*Junior og senior metoderne tjekker konkurrencesvømmere.txt for
    token "alder". I junior vil den returnere line hvis alder er < 18,
    og vice versa for senior*/
    public void junior() throws Exception {
-      Scanner alder = new Scanner(new File("Konkurrencesvoemmere.txt"));
+      Scanner alder = new Scanner(new File("konkurrenceSvoemmere.txt"));
          System.out.printf("%-12s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "ALDER");
          System.out.println("--------------------------------");
          
@@ -627,10 +624,9 @@ public class Traener extends Ansat implements Comparable<Traener>{
                }
             }
          System.out.println();
-         subMenu();
    }
     public void senior() throws Exception {
-      Scanner alder = new Scanner(new File("Konkurrencesvoemmere.txt"));
+      Scanner alder = new Scanner(new File("konkurrenceSvoemmere.txt"));
          System.out.printf("%-12s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "ALDER");
          System.out.println("--------------------------------");
          
@@ -657,12 +653,11 @@ public class Traener extends Ansat implements Comparable<Traener>{
                
             }
          System.out.println();
-         subMenu();
    }
 
    
    /**
-   * gemmer oplysninger i fil
+   * Gemmer oplysninger i fil
    */
    
    public void saveToFile()throws Exception{
