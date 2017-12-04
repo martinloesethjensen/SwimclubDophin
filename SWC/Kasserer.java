@@ -30,7 +30,7 @@ public class Kasserer extends Ansat {
       setTid(tid);
       setDato(dato);
    }
-   
+   //Undermenu metode
 	public void subMenu()throws Exception {
 		Scanner console = new Scanner(System.in);
       int menu = -1;
@@ -39,7 +39,9 @@ public class Kasserer extends Ansat {
          subMenuInfo();
          
          super.testConsoleInput(console);
-         
+         //Indhold af menu til kassér
+         //"menu = 0" så submenuen kører indtil man selv
+         //ber den om at returnere
          switch(this.menu){
             case 1: 
                visRestance();
@@ -76,7 +78,9 @@ public class Kasserer extends Ansat {
 
    
    /**
-   * Beskrivelse her
+   *Metode til print af fuld liste over medlemmers betalingsstatus,
+   *scanner hele filen og printer hvert enkelt token ud til consollen.
+   *?Arraylist?
    */
    public void betalingsstatus() throws Exception {
       Scanner status = new Scanner(new File("visRestance.txt"));
@@ -104,7 +108,7 @@ public class Kasserer extends Ansat {
    }
   
    /**
-   * Beskrivelse her
+   *
    */
    
    public void visRestance() throws Exception{
@@ -152,7 +156,6 @@ public class Kasserer extends Ansat {
    
    public int count(String fileName)throws Exception{
       Scanner scanFil = new Scanner(new File(fileName));  
-      //Printf så det ser pænt og formateret ud 
       while(scanFil.hasNextLine()){
          this.counter++;
          System.out.printf("%-2d %-14s\n",this.counter, scanFil.nextLine());
