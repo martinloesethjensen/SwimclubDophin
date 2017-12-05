@@ -36,27 +36,27 @@ public class Kasserer extends Ansat {
       int menu = -1;
       
       while(menu != 0){
-         subMenuInfo();
+         subMenuInfo(); //linje 74
          
-         super.testConsoleInput(console);
+         super.testConsoleInput(console); //linje 86 i Ansat klassen
          //Indhold af menu til kassér
          //"menu = 0" så submenuen kører indtil man selv
          //ber den om at returnere
          switch(this.menu){
             case 1: 
-               visRestance();
+               visRestance(); //linje 112
                menu = 0;
                break;
             case 2:
-               betalingsstatus();
+               betalingsstatus(); //linje 84
                menu = 0;
                break;
             case 3:
-               redigerKontigent(console);
+               redigerKontigent(console); //linje 169
                menu = 0;   
                break;
             case 4:
-               kontingentPris(console);
+               kontingentPris(console); //linje 244
                menu = 0;
                break;
             case 0: 
@@ -75,18 +75,16 @@ public class Kasserer extends Ansat {
       System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n\n%-25s%s\n", "PRINT RESTANCELISTE", 
             "TAST 1", "PRINT BETALINGSSTATUS", "TAST 2", "REDIGER BETALINGSSTATUS","TAST 3","KONTINGENT FOR MEDLEM","TAST 4", "RETURNER", "TAST 0");
    }
-
    
    /**
    *Metode til print af fuld liste over medlemmers betalingsstatus,
    *scanner hele filen og printer hvert enkelt token ud til consollen.
-   *?Arraylist?
    */
+   
    public void betalingsstatus() throws Exception {
       Scanner status = new Scanner(new File("visRestance.txt"));
          System.out.printf("%-10s%-15s%-10s\n", "FORNAVN", "EFTERNAVN", "STATUS");
          System.out.printf("---------------------------------\n");
-            List<Kasserer> vis = new ArrayList<>();
             while(status.hasNextLine()){ 
                String line = status.nextLine();
                Scanner token = new Scanner(line);
@@ -104,7 +102,7 @@ public class Kasserer extends Ansat {
                System.out.println(); 
             }
             System.out.println(); 
-            subMenu();
+            subMenu(); //linje 34
    }
   
    /**
@@ -141,7 +139,7 @@ public class Kasserer extends Ansat {
            
       } 
       System.out.println();
-      subMenu(); 
+      subMenu(); //linje 34
    }
    
    @Override
@@ -163,10 +161,15 @@ public class Kasserer extends Ansat {
       return this.counter;
    }
    
+   /**
+   * metode der kan ændre placeholder på et 2d array der er for et medlem.
+   * Pladsen overskrives og gemmes til txt filen
+   */
+   
    public void redigerKontigent(Scanner console)throws Exception{
       Scanner scanRest = new Scanner(new File("visRestance.txt")); 
       String fileName = "visRestance.txt";
-      count(fileName);
+      count(fileName); //linje 157
       String redigerRestance[][] = new String[this.counter][3];
       
       while(scanRest.hasNext()){
@@ -204,7 +207,7 @@ public class Kasserer extends Ansat {
          }else { 
             System.out.println("UGYLDIGT INPUT\nTAST VENLIGST ET TAL DER ER FREMVIST"); 
             this.counter = 0;
-            redigerKontigent(console);
+            redigerKontigent(console); //linje 166
          }    
       }
       
@@ -224,10 +227,10 @@ public class Kasserer extends Ansat {
          System.out.println("FOR AT OPDATERE ENDNU ET MEDLEMS BETALING TAST 1\nRETUNER TAST 0");
          String fort = console.next();
          if(fort.equals("1")){
-            redigerKontigent(console);
+            redigerKontigent(console); //linje 166
             dummy2 = 1;
          }else if(fort.equals("0")){
-            subMenu();
+            subMenu(); //linje 34
             dummy2 = 1;
          }else{  
             System.out.println("UGYLDIGT INPUT\nTAST VENLIGST ET TAL DER ER FREMVIST"); 
@@ -235,6 +238,9 @@ public class Kasserer extends Ansat {
       }
    }
    
+   /**
+   * læser fra txt fil og gemmer obejkt i arraylist
+   */
    public void kontingentPris(Scanner console)throws Exception{
       Scanner scK = new Scanner(new File("konkurrenceSvoemmere.txt"));
       Scanner scM = new Scanner(new File("motionister.txt"));
@@ -245,7 +251,7 @@ public class Kasserer extends Ansat {
       
       if(num.equals("1")){
          String fileName = "motionister.txt";
-         count(fileName);
+         count(fileName); //linje 157
          
          while(scM.hasNextLine()){
                String line = scM.nextLine();
@@ -267,11 +273,11 @@ public class Kasserer extends Ansat {
                kontingent.add(kas);
          }
          
-         kontingentRead(console, kontingent);
+         kontingentRead(console, kontingent); //linje 337
 
       }else if(num.equals("2")){
          String fileName = "konkurrenceSvoemmere.txt";
-         count(fileName);
+         count(fileName); //linje 157
          while(scK.hasNextLine()){
                String line = scK.nextLine();
                Scanner token = new Scanner(line);
@@ -302,26 +308,26 @@ public class Kasserer extends Ansat {
                kontingent.add(kas);
          }
          
-         kontingentRead(console, kontingent);
+         kontingentRead(console, kontingent); // linje 337
 
       }else{
          System.out.println("UGYLDIGT INPUT\nTAST VENLIGST ET TAL DER ER FREMVIST");
-         kontingentPris(console); 
+         kontingentPris(console); //linje 238
       }
       System.out.println();
       this.counter = 0;
       int dummyy = 0;
       while(dummyy == 0){   
          System.out.println("TAST 1 FOR AT SE KONTIGENTPRIS PAA ET ANDET MEDLEM\nTAST 0 FOR AT RETURNERE");
-         super.testConsoleInput(console);
+         super.testConsoleInput(console); //linje 86 i Ansat klassen
       
          switch(this.menu){
             case 1: 
-               kontingentPris(console);
+               kontingentPris(console); //linje 238
                dummyy = 1;
                break;
             case 0:
-               subMenu();
+               subMenu(); //linje 34
                dummyy = 1;
                break;
             default:
@@ -330,12 +336,17 @@ public class Kasserer extends Ansat {
       }
    }
    
+   /**
+   * læser kontingent arraylist og ser om medlems medlemsskab er enten 
+   * passiv eller aktiv og printer formateret ud derfra.
+   */
    public void kontingentRead(Scanner console, ArrayList<Kasserer> kontingent){
       int dummy = 0;
          while(dummy == 0){
             System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT SE KONTINGENTPRIS PAA");
             int number = console.nextInt(); //Check vaerdi?
             
+            // ser om det tal man taster er et tal der er fremvist
             while (dummy == 0) {
                if (number <= 0 || number > this.counter) {
                   System.out.println("\nUGYLDIGT INPUT\nTAST VENLIGST ET NUMMER DER ER FREMVIST");

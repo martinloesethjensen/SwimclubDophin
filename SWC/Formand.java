@@ -63,18 +63,18 @@ public class Formand extends Ansat {
       while(dummy == 0){
          System.out.printf("%-30s%s\n%-30s%s", "OPRET MOTIONIST", "TAST 1", "OPRET KONKURRENCESVOEMMER", "TAST 2\n");
          
-         super.testConsoleInput(console);
+         super.testConsoleInput(console); //metode i ansat linje 86
          
          switch(this.menu){
             case 1:
-               opretMotion(console);
+               opretMotion(console); //linje 87
                break;
             case 2:
-               opretKonkurrenceSvoemmer(console);
+               opretKonkurrenceSvoemmer(console); //linje 100
                break;
             default:
                System.out.println("Tast venligst et nummer der er fremvist");
-               opretMedlem(console);
+               opretMedlem(console); //linje 61
          }
          dummy = 1;   
       }      
@@ -85,7 +85,7 @@ public class Formand extends Ansat {
    */
    
    public void opretMotion(Scanner console)throws Exception{
-      opretOplysninger(console);
+      opretOplysninger(console); //linje 119
       
       medlemsskab(console); //linje 163
       
@@ -98,7 +98,7 @@ public class Formand extends Ansat {
    */
    
    public void opretKonkurrenceSvoemmer(Scanner console)throws Exception{
-      opretOplysninger(console);
+      opretOplysninger(console); //linje 119
       
       medlemsskab(console); //linje 163
       
