@@ -22,4 +22,4 @@ hejdet ermig 595 Aktiv Hundesvoemning 3.2 01/12/2017
 casper schmaltz 100 Passiv Hundesvoemning 11.11 01/12/17
 Gurli Gris 60 Aktiv Butterfly 45.99 12/04/01
 Gert Stutt 60 Aktiv Butterfly 1.59 12/04/16
-Lars Larsen 25 Aktiv Brystsvoemning 0.0 00/00/00
+Lars Larsen 25 Aktiv Brystsvoemning 11.06 11/02/15

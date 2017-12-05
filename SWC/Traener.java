@@ -35,18 +35,18 @@ public class Traener extends Ansat implements Comparable<Traener>{
       Scanner console = new Scanner(System.in);
       int menu = -1;
       while (menu != 0){
-         traenerMenu();
+         traenerMenu(); //linje 63
          
-         super.testConsoleInput(console);               
+         super.testConsoleInput(console); //metode i ansat               
          
          switch(this.menu){
-            case 1: printDisciplin(console); break;
-            case 2: printKandidater(console); break;
-            case 3: printListe(); break; //printe fra konkurrencesvømmere fil
-            case 4: registrerStaevne(console); break; //tilføjer navn + stævne til fil
-            case 5: nyTid(console); break; //Ændrer tid og dato på medlem
-            case 6: printStaevne(console); break;//Printer liste(Staevne)
-            case 7: juniorSenior(console); break;
+            case 1: printDisciplin(console); break; //linje 79
+            case 2: printKandidater(console); break; //linje 188
+            case 3: printListe(); break; //linje 446
+            case 4: registrerStaevne(console); break; //linje 543
+            case 5: nyTid(console); break; //linje 488
+            case 6: printStaevne(console); break; //linje 389
+            case 7: juniorSenior(console); break; //linje 569
             case 0: 
                this.menu = -1; //for at den ikke også hopper ud af ansats menu
                super.menu();  //menu hos ansat
@@ -112,7 +112,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
             System.out.printf("%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n", "CRAWL", "TAST 1","RYGCRAWL","TAST 2","BUTTERLFY","TAST 3","BRYSTSVOEMNING","TAST 4","HUNDESVOEMNING","TAST 5");
-            super.testConsoleInput(console);
+            super.testConsoleInput(console); //metode i ansat
             count++;
             //increment
          }
@@ -124,7 +124,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
                   for(int i = 0; i < 113; i++){System.out.print("_");}}
                   System.out.println();
                   System.out.printf("%-20s%-20s%-10d%-20s%-20s%-15.2f%-15s",getFornavn(),getEfternavn(),getAlder(),getMedlemsskab(),getDisciplin(),getTid(),getDato());
-                  count++;
+                  count++; //increment så den ikke printer at der ikke er nogen medlemmer
                }
                break;   
             case 2:
@@ -157,7 +157,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
                break;
             default:
                System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");            
-               printDisciplin(console); //den kører i infinite loop               
+               printDisciplin(console); //den kører i infinite loop   linje 79            
          }
          
          //tilføjer traen objekt til arraylist
@@ -166,24 +166,19 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       }
       
+      //hvis count er > 0 så går den ikke ind i if 
       if (count == 0)System.out.println("INGEN MEDLEM(ER) ER TILKNYTTET DISCIPLIN");
      
       System.out.println("\n");
       //prompter om fortsættelse
-      fortsaettelse(console);
+      fortsaettelse(console); //linje 411
    }
    
-      
-   //beskrivelse her
-   public int countThis()throws Exception{
-      Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
-      while(scanFil.hasNextLine()){
-         this.counter++;
-         if (scanFil.nextLine() == null) break;
-      }
-      scanFil.close();
-      return this.counter;
-   }
+   /**
+   * printer top 5 ved at gemme objekt i arraylist er 
+   * sortere arraylist objekter med deres tider og printer højst 5 
+   * i numerisk rækkefølge sortereret fra laveste til højeste.  
+   */
    
    public void printKandidater(Scanner console)throws Exception{
       Scanner scanKonkurrence = new Scanner(new File("konkurrenceSvoemmere.txt"));
@@ -227,7 +222,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          //spørger om hvilken disciplin der skal printes
          if(count == -1){
             System.out.printf("%-25s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n%-25s%s\n","VAELG DISCIPLIN:", "CRAWL", "TAST 1","RYGCRAWL","TAST 2","BUTTERLFY","TAST 3","BRYSTSVOEMNING","TAST 4","HUNDESVOEMNING","TAST 5"); 
-            super.testConsoleInput(console);
+            super.testConsoleInput(console); //metode i ansat
             count++;//increment
          }
          
@@ -377,7 +372,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       this.fort = 1;
       //prompter om fortsættelse
-      fortsaettelse(console);
+      fortsaettelse(console); //linje 411
    } 
   
    //meget vigtig fortæl om denne
@@ -406,7 +401,10 @@ public class Traener extends Ansat implements Comparable<Traener>{
       subMenu(); 
    }
    
-   //skal rettes
+   /**
+   * spørger brugeren om at printe en ny liste ud. 
+   * Metodekald til diverse metoder afhængig af hvad this.fort er  
+   */
    
    public void fortsaettelse(Scanner console)throws Exception{
       int dummy = 0;
@@ -414,14 +412,14 @@ public class Traener extends Ansat implements Comparable<Traener>{
       while(dummy == 0){
          System.out.println("TAST 1 FOR AT PRINTE ENDNU EN LISTE\nTAST 0 FOR AT RETURNERE\n<==");
             
-         super.testConsoleInput(console);
+         super.testConsoleInput(console); //metode i ansat
             
          switch(this.menu){
             case 1:
                if(this.fort == 1){ 
                   printKandidater(console); 
                }else if(this.fort == 2){
-                  juniorSenior(console);
+                  juniorSenior(console); //linje 569
                }else printDisciplin(console);
                this.fort = 0;
                break;
@@ -433,7 +431,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
             
             default:
                System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST");   
-               fortsaettelse(console);   
+               fortsaettelse(console); //linje 411  
          }
          dummy = -1;
       }
@@ -467,27 +465,27 @@ public class Traener extends Ansat implements Comparable<Traener>{
       subMenu();
    } 
     
-    /**
-    * Beskrivelse her
-    */
+   /**
+   * Beskrivelse her
+   */
     
-   public int count()throws Exception{
-      Scanner scanFil = new Scanner(new File("konkurrenceSvoemmere.txt"));  
-      //Printf så det ser pænt og formateret ud 
+   public int count(String fileName)throws Exception{
+      Scanner scanFil = new Scanner(new File(fileName));  
       while(scanFil.hasNextLine()){
          this.counter++;
-         System.out.println(this.counter + " " + scanFil.nextLine());
+         System.out.printf("%-2d %-14s\n",this.counter, scanFil.nextLine());
       }
       return this.counter;
    }
     
-    /**
-    * Beskrivelse her
-    */ 
+   /**
+   * Beskrivelse her
+   */ 
     
    public void nyTid(Scanner console)throws Exception{
       Scanner scanKonk = new Scanner(new File("konkurrenceSvoemmere.txt"));  
-      count();
+      String fileName = "konkurrenceSvoemmere.txt";
+      count(fileName);
       String konkurrenceArray[][] = new String[this.counter][7];
       
       while(scanKonk.hasNext()){
@@ -570,28 +568,28 @@ public class Traener extends Ansat implements Comparable<Traener>{
       while(this.menu != 0){
          System.out.printf("%-25s%-5s\n%-25s%-5s\n","PRINT JUNIORHOLD", "TAST 1", "PRINT SENIORHOLD", "TAST 2");
          
-         super.testConsoleInput(console);
+         super.testConsoleInput(console); //metode i ansat
       
          switch(this.menu){
             
             case 1:
-               junior();
+               junior(); //linje 600
                menu = 0;
                break;
             case 2:
-               senior();
+               senior(); //linje 628
                menu = 0;
                break;
             default:
                System.out.println("TAST VENLIGST ET NUMMER DER ER FREMVIST\n");
-               juniorSenior(console);           
+               juniorSenior(console); //linje 569          
             
             }
             this.menu = 0;   //exit loop
       }
       //spørger om ny udprint
       this.fort = 2;
-      fortsaettelse(console);
+      fortsaettelse(console); //linje 411
    }
    
    /*Junior og senior metoderne tjekker konkurrencesvømmere.txt for
@@ -681,7 +679,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
          System.out.printf("%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n%-30s%s\n", "CRAWL", "TAST 1", "RYGCRAWL",
           "TAST 2", "BRYSTSVOEMNING", "TAST 3",
            "BUTTERFLY", "TAST 4", "HUNDESVOEMNING", "TAST 5");
-         super.testConsoleInput(console);
+         super.testConsoleInput(console); //metode i ansat
          
          switch(this.menu){
             case 1: 

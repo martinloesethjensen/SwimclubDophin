@@ -30,11 +30,11 @@ public class Formand extends Ansat {
       while(menu != 0){
          subMenuInfo();
          
-         super.testConsoleInput(console);
+         super.testConsoleInput(console); //metode i ansat
          
          switch(this.menu){
             case 1: 
-               opretMedlem(console);
+               opretMedlem(console); //linje 61
                subMenu();
                break;
             case 0: 
@@ -43,7 +43,7 @@ public class Formand extends Ansat {
                break;
             default: 
                System.out.println("Tast venligst et nummer der er fremvist");
-               subMenu();
+               subMenu(); //linje 27
          }
          break; //for kun at komme ud af dette loop
       }	
