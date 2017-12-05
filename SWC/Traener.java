@@ -2,12 +2,26 @@ import java.util.*; // for Scanner
 import java.io.*; // for PrintStream
 
 /**
-* @Martin.Valhalla
-* @Casper.ortismal
-* @Christian.C-Strunge
+* subMenu()                         linje 40
+* printDisciplin(Scanner console)   linje 85
+* printKandidater(Scanner console)  linje 179
+* compareTo(Traener other)          linje 388
+* printStaevne(Scanner console)     linje 392
+* fortsaettelse(Scanner console)    linje 417
+* printListe()                      linje 457
+* count(String fileName)            linje 485
+* nyTid(Scanner console)            linje 498
+* registrerStaevne(Scanner console) linje 554
+* juniorSenior(Scanner console)     linje 583
+* junior()                          linje 614
+* senior()                          linje 642
+* saveToFile()                      linje 680
+* toStringStaevne()                 linje 690
+* vaelgDisciplin(Scanner console)   linje 694
 */
 
-//FORKLAR OM COMPARABLE
+
+
 public class Traener extends Ansat implements Comparable<Traener>{
 
    protected int counter = 0; //Brugt i nyTid()
@@ -375,7 +389,10 @@ public class Traener extends Ansat implements Comparable<Traener>{
       fortsaettelse(console); //linje 411
    } 
   
-   //meget vigtig fortæl om denne
+   /**
+   * compareTo er en metode der returnere enten 1, -1 eller 0. 
+   * Den sammenligner to double værdier og returnerer tal afhængig af om de er ens, over eller under.
+   */
    
    public int compareTo(Traener other){
       return new Double(getTid()).compareTo(other.getTid());
@@ -560,10 +577,12 @@ public class Traener extends Ansat implements Comparable<Traener>{
       
       subMenu();
    }
+   
    /*
    Denne metode beder brugeren vælge,
    om der skal printes et juniorhold eller seniorhold.
    */
+   
    public void juniorSenior(Scanner console) throws Exception {
       while(this.menu != 0){
          System.out.printf("%-25s%-5s\n%-25s%-5s\n","PRINT JUNIORHOLD", "TAST 1", "PRINT SENIORHOLD", "TAST 2");
