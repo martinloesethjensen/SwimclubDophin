@@ -16,8 +16,7 @@ import java.util.*;
 public class SwimClubMain {
    public static void main(String[] args)throws Exception{
      
-      //logon();    
-      bruger(); //skal fjernes
+      logon();    
 
    }
    
