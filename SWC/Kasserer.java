@@ -1,6 +1,14 @@
 import java.util.*; // for Scanner
 import java.io.*; // for PrintStream
 
+/**
+* betalingsstatus()                                                linje 94
+* visRestance()                                                    linje 123
+* count(String fileName)                                           linje 166
+* redigerKontigent(Scanner console)                                linje 180
+* kontingentPris(Scanner console)                                  linje 255
+* kontingentRead(Scanner console, ArrayList<Kasserer> kontingent)  linje 354
+*/
 
 public class Kasserer extends Ansat {
    
@@ -106,7 +114,7 @@ public class Kasserer extends Ansat {
    }
   
    /**
-   *
+   * Printer fra en fil og gemmer tokens i et objekt i arraylist
    */
    
    public void visRestance() throws Exception{
