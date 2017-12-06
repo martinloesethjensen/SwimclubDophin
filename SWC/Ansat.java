@@ -8,17 +8,17 @@ import java.io.*; // for PrintStream
 public class Ansat {
 
    //fields der også bruges af children
-	protected String fornavn;
-	protected String efternavn;
-   protected int alder;
-   protected String restance;
-   protected String aktivitetsform;
-   protected String medlemsskab;
-   protected String disciplin;
-   protected double tid;
-   protected double staevneTid;
-   protected String staevneNavn;
-   protected int placering;
+	private String fornavn;
+	private String efternavn;
+   private int alder;
+   private String restance;
+   private String aktivitetsform;
+   private String medlemsskab;
+   private String disciplin;
+   private double tid;
+   private double staevneTid;
+   private String staevneNavn;
+   private int placering;
    public int menu = -1; //denne field bruges i switch i flere klasser. Disse klasser kalder
                         //på den. (for at være sikker på at vi har gøre med en field bruges "this")
    protected String dato; //Bruges blandt andet til dato for bedste tid opnået i traener
