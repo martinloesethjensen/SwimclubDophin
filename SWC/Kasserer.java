@@ -2,6 +2,10 @@ import java.util.*; // for Scanner
 import java.io.*; // for PrintStream
 
 /**
+* @Martin.Valhalla
+* @Casper.ortismal
+* @Rasmus.RasmusSadurski
+*
 * betalingsstatus()                                                linje 94
 * visRestance()                                                    linje 123
 * count(String fileName)                                           linje 166

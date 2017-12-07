@@ -1,3 +1,7 @@
+/**
+* @Martin.Valhalla
+*/
+
 public class Senior extends Medlem {
    
    public Senior(){}

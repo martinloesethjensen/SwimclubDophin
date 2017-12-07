@@ -1,3 +1,7 @@
+/**
+* @Martin.Valhalla
+*/
+
 public class Junior extends Medlem {
    
    public Junior(){}

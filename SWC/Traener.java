@@ -2,6 +2,11 @@ import java.util.*; // for Scanner
 import java.io.*; // for PrintStream
 
 /**
+* @Martin.Valhalla
+* @Casper.ortismal
+* @Christian.C-Strunge
+* @Rasmus.RasmusSadurski
+* 
 * subMenu()                         linje 40
 * printDisciplin(Scanner console)   linje 85
 * printKandidater(Scanner console)  linje 179

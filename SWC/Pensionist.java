@@ -1,3 +1,7 @@
+/**
+* @Martin.Valhalla
+*/
+
 public class Pensionist extends Medlem {
    
    public Pensionist(){}

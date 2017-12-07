@@ -1,3 +1,7 @@
+/**
+* @Martin.Valhalla
+*/
+
 public class Passiv extends Medlem  {
    
    public Passiv(){}   
