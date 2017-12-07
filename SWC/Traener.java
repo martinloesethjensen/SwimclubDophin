@@ -523,7 +523,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       int dummy = 0;
       while (dummy == 0) {
             if (num <= 0 || num > this.counter) {
-               System.out.println("\nTAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE BETALING PAA");
+               System.out.println("\nUGYLDIGT INPUT\nTAST NUMMER PAA MEDLEM DU OENSKER AT OPDATERE BETALING PAA");
                num = console.nextInt(); //Check vaerdi?
             }
             else if (num > 0 && num <= this.counter){
@@ -531,7 +531,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
             }
       }
       
-      System.out.println("INDTAST NY TID (MM.SS)");
+      System.out.println("INDTAST NY TID (MM,SS)");
       setTid(console.nextDouble());
       double tidRet = getTid();
       //returnere String repræsentationen af en double
@@ -567,7 +567,7 @@ public class Traener extends Ansat implements Comparable<Traener>{
       setEfternavn(console.next());
       System.out.println("INDTAST STAEVNENAVN");
       setStaevneNavn(console.next());
-      System.out.println("INDTAST BEDSTE STAEVNETID (MM.SS)");
+      System.out.println("INDTAST BEDSTE STAEVNETID (MM,SS)");
       setStaevneTid(console.nextDouble());
       System.out.println("INDTAST PLACERING");
       setPlacering(console.nextInt());

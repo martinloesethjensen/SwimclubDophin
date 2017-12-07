@@ -206,7 +206,7 @@ public class Kasserer extends Ansat {
                   dummy = 1;
             }
          }
-         System.out.println("HAR MEDLEMMET BETALT TAST 1\nMANGLER MEDLEMMET AT BETALE TAST 2");
+         System.out.printf("%-33s%s\n%-33s%s\n","HAR MEDLEMMET BETALT", "TAST 1","MANGLER MEDLEMMET AT BETALE","TAST 2");
          String input = console.next();
          if(input.equals("1")){
             setRestance("Betalt");
@@ -236,7 +236,7 @@ public class Kasserer extends Ansat {
       System.out.println("...MEDLEMMETS BETALING ER NU BLEVET OPDATERET...\n");
       int dummy2 = 0;
       while(dummy2 == 0){
-         System.out.println("FOR AT OPDATERE ENDNU ET MEDLEMS BETALING TAST 1\nRETUNER TAST 0");
+         System.out.printf("%-45s%-25s\n%-45s%-25s\n","FOR AT OPDATERE ENDNU ET MEDLEMS BETALING", "TAST 1","RETUNER", "TAST 0");
          String fort = console.next();
          if(fort.equals("1")){
             redigerKontigent(console); //linje 166
@@ -258,7 +258,7 @@ public class Kasserer extends Ansat {
       Scanner scM = new Scanner(new File("motionister.txt"));
       ArrayList<Kasserer> kontingent = new ArrayList<>();
       
-      System.out.println("TAST 1 FOR MOTIONIST MEDLEM\nTAST 2 FOR KONKURRENCE MEDLEM");
+      System.out.printf("%-23s%s\n%-23s%s\n","MOTIONIST MEDLEM","TAST 1","KONKURRENCE MEDLEM","TAST 2");
       String num = console.next();
       
       if(num.equals("1")){
@@ -330,7 +330,7 @@ public class Kasserer extends Ansat {
       this.counter = 0;
       int dummyy = 0;
       while(dummyy == 0){   
-         System.out.println("TAST 1 FOR AT SE KONTIGENTPRIS PAA ET ANDET MEDLEM\nTAST 0 FOR AT RETURNERE");
+         System.out.printf("%-43s%s\n%-43s%s\n","VIS KONTINGENTPRIS PAA ET ANDET MEDLEM", "TAST 1","RETURNER","TAST 0");
          super.testConsoleInput(console); //linje 86 i Ansat klassen
       
          switch(this.menu){
