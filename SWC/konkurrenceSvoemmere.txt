@@ -25,3 +25,7 @@ Gert Stutt 60 Aktiv Butterfly 1.59 12/04/16
 Lars Larsen 25 Aktiv Brystsvoemning 11.06 11/02/15
 bent burg 70 Passiv Hundesvoemning 0.0 00/00/00
 Martin Jensen 15 Aktiv Butterfly 12.09 01/09/16
+casper frost 27 Aktiv Hundesvoemning 0.0 00/00/00
+casper frost 18 Aktiv Butterfly 0.0 00/00/00
+Tom Smith 40 Passiv Rygcrawl 0.0 00/00/00
+Lars Larsen 100 Aktiv Brystsvoemning 0.0 00/00/00

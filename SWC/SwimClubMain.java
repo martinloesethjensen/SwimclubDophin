@@ -54,7 +54,8 @@ public class SwimClubMain {
             
             default:
                System.out.println("UGYLDIGT PASSWORD\nPROEV IGEN\n");
-               logon(); 
+               logon();
+               pass = 1;
          }
       }
    }

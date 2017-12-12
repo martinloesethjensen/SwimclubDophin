@@ -7,14 +7,15 @@ import java.io.*; // for PrintStream
 * @Christian.C-Strunge
 * @Rasmus.RasmusSadurski
 * 
-* subMenu()                         linje 40
-* printDisciplin(Scanner console)   linje 85
-* printKandidater(Scanner console)  linje 179
+* subMenu()                         linje 53
+* traenerMenu()                     linje 83
+* printDisciplin(Scanner console)   linje 99
+* printKandidater(Scanner console)  linje 203
 * compareTo(Traener other)          linje 388
 * printStaevne(Scanner console)     linje 392
 * fortsaettelse(Scanner console)    linje 417
 * printListe()                      linje 457
-* count(String fileName)            linje 485
+* count(String fileName)            linje 494
 * nyTid(Scanner console)            linje 498
 * registrerStaevne(Scanner console) linje 554
 * juniorSenior(Scanner console)     linje 583
@@ -29,7 +30,7 @@ import java.io.*; // for PrintStream
 
 public class Traener extends Ansat implements Comparable<Traener>{
 
-   protected int counter = 0; //Brugt i nyTid()
+   protected int counter = 0; //Brugt i nyTid() og count()
    protected int fort = 0; //bruges i forsættelse om top 5 udprint
 
    //default constructor
